@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Inter", sans-serif;
+  }
+}
+.vs__search,
+.vs__search:focus {
+  padding: 0px 0px !important;
+  font-size: 0.8rem !important;
+  color: #ffff !important ;
+}
+
+.vs__selected-options {
+  flex-wrap: nowrap !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline;
+}
+.vs__selected {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-color: rgb(65, 121, 170);
+  color: white !important;
+}
+.vs__clear {
+  display: none;
+}
+
+.vs__dropdown-toggle {
+  background: #4b5563 !important;
+}
+.vs__dropdown-menu {
+  background: #4b5563 !important;
+  color: white !important;
+}
+.vs__open-indicator {
+  fill: #94a3b8 !important;
+}
