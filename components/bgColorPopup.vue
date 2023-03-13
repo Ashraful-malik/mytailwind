@@ -1,31 +1,64 @@
 <template>
   <div class="popup">
-    <div class="popup-inner bg-red-600s">
-      <div
-        class="flex items-center justify-between text-center bg-gray-900 mb-2 p-2 rounded-tr-xl rounded-tl-xl"
-      >
-        <p class="text-sm ml-2 text-gray-300 font-medium">
-          Choose Background Color
-        </p>
-        <p
-          class="text-lg mr-2 text-red-600 cursor-pointer px-2 hover:bg-red-300 rounded-lg"
-          @click="bgPopup()"
-        >
-          &#10005;
-        </p>
-      </div>
-
-      <div class="flex items-center flex-wrap gap-4 p-4">
+    <div v-if="bgPopup">
+      <div class="popup-inner bg-red-600s">
         <div
-          class="color"
-          v-for="(colors, index) in backgroundColor"
-          :key="index"
-          @click="getValue(colors.color), bgPopup()"
+          class="flex items-center justify-between text-center bg-gray-900 mb-2 p-2 rounded-tr-xl rounded-tl-xl"
         >
+          <p class="text-sm ml-2 text-gray-300 font-medium">
+            Choose Background Color
+          </p>
+          <p
+            class="text-lg mr-2 text-red-600 cursor-pointer px-2 hover:bg-red-300 rounded-lg"
+            @click="bgPopup()"
+          >
+            &#10005;
+          </p>
+        </div>
+
+        <div class="flex items-center flex-wrap gap-4 p-4">
           <div
-            class="p-3 rounded-full cursor-pointer border border-gray-600"
-            :class="colors.color"
-          ></div>
+            class="color"
+            v-for="(colors, index) in backgroundColor"
+            :key="index"
+            @click="getValue(colors.color), bgPopup()"
+          >
+            <div
+              class="p-3 rounded-full cursor-pointer border border-gray-600"
+              :class="colors.color"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-else-if="hoverBgPopup">
+      <div class="popup-inner bg-red-600s">
+        <div
+          class="flex items-center justify-between text-center bg-gray-900 mb-2 p-2 rounded-tr-xl rounded-tl-xl"
+        >
+          <p class="text-sm ml-2 text-gray-300 font-medium">
+            Choose Background Color
+          </p>
+          <p
+            class="text-lg mr-2 text-red-600 cursor-pointer px-2 hover:bg-red-300 rounded-lg"
+            @click="hoverBgPopup()"
+          >
+            &#10005;
+          </p>
+        </div>
+
+        <div class="flex items-center flex-wrap gap-4 p-4">
+          <div
+            class="color"
+            v-for="(colors, index) in backgroundColor"
+            :key="index"
+            @click="gerHoverBgColor(colors.color), hoverBgPopup()"
+          >
+            <div
+              class="p-3 rounded-full cursor-pointer border border-gray-600"
+              :class="colors.color"
+            ></div>
+          </div>
         </div>
       </div>
     </div>
@@ -40,12 +73,14 @@ export default {
     };
   },
 
-  props: ["bgPopup", "background-color"],
+  props: ["bgPopup", "background-color", "hoverBgPopup"],
 
   methods: {
     getValue(value) {
-      console.log(value);
       this.$emit("popup-value", value);
+    },
+    gerHoverBgColor(value) {
+      this.$emit("hover-bg-color", value);
     },
   },
 };

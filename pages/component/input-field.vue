@@ -12,13 +12,13 @@
               <input
                 type="text"
                 class="w-80 h-9 p-2 text-base font-normal rounded-md border focus:outline-none focus:ring focus:border-blue-400"
-                placeholder="Default input "
+                placeholder="Default input"
               />
             </div>
           </div>
         </div>
         <div class="toolbar">
-          <CardToolbar v-on:card-values="getCardValue($event)" />
+          <editInputField v-on:card-values="getCardValue($event)" />
         </div>
       </div>
     </div>

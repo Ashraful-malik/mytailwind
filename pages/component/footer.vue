@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="toolbar">
-          <CardToolbar v-on:card-values="getCardValue($event)" />
+          <editFooter v-on:card-values="getCardValue($event)" />
         </div>
       </div>
     </div>

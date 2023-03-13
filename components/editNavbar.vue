@@ -75,7 +75,7 @@
               <textColorPopup
                 v-if="popupTriggers.buttonTrigger"
                 :TogglePopup="() => TogglePopup('buttonTrigger')"
-                :names-array="colors"
+                :text-color="colors"
                 v-on:popup-value="getTextColor($event)"
               />
             </div>

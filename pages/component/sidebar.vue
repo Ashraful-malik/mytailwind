@@ -10,7 +10,10 @@
           <div
             class="flex items-center justify-center p-2 w-full h-screen mb-7"
           >
-            <div class="h-full w-64 bg-white p-4 shadow-md overflow-y-scroll">
+            <div
+              class="h-full w-64 bg-white p-4 shadow-md overflow-y-scroll"
+              :class="value.background_color"
+            >
               <div class="logo flex items-center">
                 <img
                   src="~/assets/images/Logo.svg"
@@ -25,7 +28,12 @@
                 <section class="items mt-6">
                   <ul>
                     <li
-                      class="block py-2 pl-2 item-center text-gray-800 cursor-pointer hover:bg-blue-500 hover:text-white rounded-xl"
+                      class="block py-2 pl-2 item-center cursor-pointer rounded-xl"
+                      :class="[
+                        value.text_color,
+                        `hover:${hover_bg_color}`,
+                        `hover:${hover_text_color}`,
+                      ]"
                     >
                       <font-awesome-icon
                         icon="fa-solid fa-house"
@@ -33,27 +41,56 @@
                       />
                       Home
                     </li>
-                    <li class="block py-2 pl-2 cursor-pointer text-gray-800">
+                    <li
+                      class="block py-2 pl-2 cursor-pointer rounded-xl"
+                      :class="[
+                        value.text_color,
+                        `hover:${value.hover_bg_color}`,
+                        `hover:${value.hover_text_color}`,
+                      ]"
+                    >
                       <font-awesome-icon
                         icon="fa-solid fa-gauge"
                         class="mr-2"
                       />
                       Dashboard
                     </li>
-                    <li class="block py-2 pl-2 cursor-pointer text-gray-800">
+                    <li
+                      class="block py-2 pl-2 cursor-pointer rounded-xl"
+                      :class="[
+                        value.text_color,
+                        `hover:${value.hover_bg_color}`,
+                        `hover:${value.hover_text_color}`,
+                      ]"
+                    >
                       <font-awesome-icon icon="fa-solid fa-fire" class="mr-2" />
                       Product
                     </li>
-                    <li class="block py-2 pl-2 cursor-pointer text-gray-800">
+                    <li
+                      class="block py-2 pl-2 cursor-pointer rounded-xl"
+                      :class="[
+                        value.text_color,
+                        `hover:${value.hover_bg_color}`,
+                        `hover:${value.hover_text_color}`,
+                      ]"
+                    >
                       <font-awesome-icon
                         icon="fa-solid fa-table"
                         class="mr-2"
                       />
                       Order
                     </li>
-                    <li class="block py-2 pl-2 cursor-pointer text-gray-800">
+                    <li
+                      class="block py-2 pl-2 cursor-pointer rounded-xl"
+                      :class="[
+                        value.text_color,
+                        `hover:${value.hover_bg_color}`,
+                        `hover:${value.hover_text_color}`,
+                      ]"
+                    >
                       <font-awesome-icon icon="fa-solid fa-user" class="mr-2" />
                       User
+                      {{ value }}
                     </li>
                   </ul>
                 </section>
@@ -61,7 +98,14 @@
                   <!-- divider -->
                   <div class="border border-gray-100 mb-4"></div>
                   <ul>
-                    <li class="block py-2 pl-2 cursor-pointer text-gray-800">
+                    <li
+                      class="block py-2 pl-2 cursor-pointer rounded-xl"
+                      :class="[
+                        value.text_color,
+                        `hover:${value.hover_bg_color}`,
+                        `hover:${value.hover_bg_color}`,
+                      ]"
+                    >
                       <font-awesome-icon icon="fa-solid fa-gear" class="mr-2" />
                       Setting
                     </li>
@@ -79,7 +123,7 @@
           </div>
         </div>
         <div class="toolbar">
-          <CardToolbar v-on:card-values="getCardValue($event)" />
+          <editSidebar v-on:sidebar-values="getSidebarValue($event)" />
         </div>
       </div>
     </div>
@@ -87,22 +131,23 @@
 </template>
 
 <script>
-import Toolsbar from "../../components/Toolsbar.vue";
-
 export default {
   data() {
     return {
       value: "",
-      button_text: "Create account",
+      hover_text_color: "text-white",
+      hover_bg_color: "bg-blue-500",
     };
   },
-  components: { Toolsbar },
+
   methods: {
-    getCardValue(values) {
+    getSidebarValue(values) {
       this.value = values;
-      this.button_text = values.button_text;
+      this.hover_bg_color = values.hover_bg_color;
+      this.hover_text_color = values.hover_text_color;
     },
   },
+  created() {},
 };
 </script>
 

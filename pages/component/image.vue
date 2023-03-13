@@ -8,7 +8,7 @@
         </div>
         <div class="images">
           <div class="flex items-center justify-center p-4 w-full h-4/5">
-            <div class="image w-64 h-64 bg-red-500 rounded-md">
+            <div class="image w-64 h-64 shadow rounded-xl">
               <img
                 src="https://images.unsplash.com/photo-1560015534-cee980ba7e13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
                 alt="image "
@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="toolbar">
-          <CardToolbar v-on:card-values="getCardValue($event)" />
+          <editImage v-on:card-values="getCardValue($event)" />
         </div>
       </div>
     </div>

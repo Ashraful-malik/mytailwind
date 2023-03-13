@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="toolbar">
-          <CardToolbar v-on:card-values="getCardValue($event)" />
+          <editAlert v-on:card-values="getCardValue($event)" />
         </div>
       </div>
     </div>

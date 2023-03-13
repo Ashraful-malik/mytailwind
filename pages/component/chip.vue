@@ -8,13 +8,13 @@
         </div>
         <div class="chips">
           <div class="flex items-center justify-center p-4 w-full h-4/5">
-            <div class="chip px-3 py-1 border rounded-full border-gray-300 ">
+            <div class="chip px-3 py-1 border rounded-full border-gray-300">
               <p class="text-center">Suggestion</p>
             </div>
           </div>
         </div>
         <div class="toolbar">
-          <CardToolbar v-on:card-values="getCardValue($event)" />
+          <editChip v-on:card-values="getCardValue($event)" />
         </div>
       </div>
     </div>

@@ -4,69 +4,21 @@
       <!-- Edit tab data -->
       <Tab name="Edit" selected="true" id="Edit">
         <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
-          <!-- button text -->
-
-          <p class="text-gray-200 text-sm font-medium mb-2">Button text</p>
-          <input
-            type="text"
-            maxlength="20"
-            placeholder="Enter your button text"
-            class="h-8 w-3/4 bg-gray-600 pl-2 text-gray-50 rounded"
-            v-model="selected_values.button_text"
-            v-on:input="sendChange"
-          />
-
-          <!-- image input box -->
-          <div class="image_text mt-6">
-            <p class="text-gray-200 text-sm font-medium mb-2">Image link</p>
-            <input
-              type="link"
-              maxlength="20"
-              placeholder="Paste your image link"
-              class="h-8 w-3/4 bg-gray-600 pl-2 text-gray-50 rounded"
-              v-model="selected_values.button_text"
-              v-on:input="sendChange"
-            />
-          </div>
-          <!-- Title input box -->
-          <div class="image_text mt-6">
-            <p class="text-gray-200 text-sm font-medium mb-2">Title text</p>
-            <input
-              type="text"
-              maxlength="20"
-              placeholder="Paste your image link"
-              class="h-8 w-3/4 bg-gray-600 pl-2 text-gray-50 rounded"
-              v-model="selected_values.button_text"
-              v-on:input="sendChange"
-            />
-          </div>
           <!-- Card content textarea -->
-          <div class="image_text mt-6">
-            <p class="text-gray-200 text-sm font-medium mb-2">Card text</p>
-
-            <textarea
-              name="card-content"
-              id=""
-              cols="5"
-              rows="5"
-              placeholder="Card Content..."
-              class="w-3/4 bg-gray-600 pl-2 text-gray-50 rounded"
-            ></textarea>
-            <!-- <input
+          <div class="">
+            <p class="text-gray-200 text-sm font-medium mb-2">Badge text</p>
+            <input
               type="text"
-              maxlength="20"
-              placeholder="Paste your image link"
+              placeholder="Badge text"
+              maxlength="2"
               class="h-8 w-3/4 bg-gray-600 pl-2 text-gray-50 rounded"
-              v-model="selected_values.button_text"
+              v-model="selected_values.image_link"
               v-on:input="sendChange"
-            /> -->
+            />
           </div>
-          <div class="mb-4"></div>
         </div>
       </Tab>
     </section>
-
-    <!-- Style Tab data -->
 
     <section class="tab2">
       <Tab name="Style" id="Style">
@@ -103,6 +55,7 @@
                   ></unicon>
                   <p class="text-center">More Colors</p>
                 </button>
+
                 <!-- sending data in popup component  -->
                 <textColorPopup
                   v-if="popupTriggers.buttonTrigger"
@@ -159,6 +112,126 @@
               </div>
             </div>
           </div>
+          <!-- notification icon color -->
+          <div class="notification_color mt-6">
+            <p class="text-sm font-medium mb-2 text-gray-200">
+              Notification color
+            </p>
+            <div class="flex gap-3 w-full flex-wrap text-sm mt-4 items-center">
+              <div
+                class="flex gap-3"
+                v-for="backgroundColor in selectBackgroundColor"
+                :key="backgroundColor.id"
+              >
+                <div
+                  :class="backgroundColor.color"
+                  class="p-3 rounded-full cursor-pointer border-gray-400"
+                  @click="getBackgroundColor(backgroundColor.color)"
+                  v-on:click="sendChange"
+                ></div>
+              </div>
+              <div class="color_selector flex items-center">
+                <button
+                  type="button"
+                  value="1"
+                  class="bg-blue-500 px-3 py-1 text-white rounded-full flex items-center content-center text-center"
+                  @click="() => bgPopup('bgColorTrigger')"
+                  v-on:click="sendChange"
+                >
+                  <unicon
+                    name="plus"
+                    fill="white"
+                    width="20"
+                    class="mr-2"
+                  ></unicon>
+                  <p class="text-center">More Colors</p>
+                </button>
+
+                <!-- sending data in bgColor popup component-->
+                <bgColorPopup
+                  v-if="popupTriggers.bgColorTrigger"
+                  :bgPopup="() => bgPopup('bgColorTrigger')"
+                  :background-color="colors"
+                  v-on:popup-value="getBackgroundColor($event)"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- border Styling-->
+
+          <div class="border_style relative mt-6">
+            <p class="text-sm font-medium text-gray-200">Border</p>
+            <div class="flex flex-wrap gap-3 mt-4">
+              <div class="border_color">
+                <p class="text-sm font-normal text-gray-400 mb-2">
+                  Border width
+                </p>
+              </div>
+              <div class="flex gap-3 w-full flex-wrap text-sm items-center">
+                <div
+                  v-for="borderWidth in selectBorderWidth"
+                  :key="borderWidth.id"
+                >
+                  <div
+                    class="px-3 py-1 text-center border cursor-pointer border-gray-600 rounded-md bg-gray-700"
+                    @click="getBorderRadius(borderWidth.value)"
+                  >
+                    <p class="text-white">{{ borderWidth.value }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-3 mt-4">
+              <div class="border_color">
+                <p class="text-sm font-normal text-gray-400 mb-2">
+                  Border color
+                </p>
+              </div>
+              <div class="flex gap-3 w-full flex-wrap text-sm items-center">
+                <div
+                  v-for="borderColor in selectBorderColor"
+                  :key="borderColor.id"
+                >
+                  <div
+                    :class="borderColor.color"
+                    class="px-3 py-1 text-center border cursor-pointer rounded-md bg-gray-700"
+                    @click="getBorderRadius(borderColor.color)"
+                  >
+                    <p class="text-white px-3 py-2"></p>
+                  </div>
+                </div>
+                <div class="color_selector flex items-center">
+                  <button
+                    type="button"
+                    value="1"
+                    class="bg-blue-500 px-3 py-1 text-white rounded-full flex items-center content-center text-center"
+                    @click="() => borderColorPopup('borderColorTrigger')"
+                    v-on:click="sendChange"
+                  >
+                    <unicon
+                      name="plus"
+                      fill="white"
+                      width="20"
+                      class="mr-2"
+                    ></unicon>
+                    <p class="text-center">More Colors</p>
+                  </button>
+
+                  <!-- sending data in popup component  -->
+                  <borderColorPopup
+                    v-if="popupTriggers.borderColorTrigger"
+                    :borderColorPopup="
+                      () => borderColorPopup('borderColorTrigger')
+                    "
+                    :names-array="borderColor"
+                    v-on:popup-value="getTextColor($event)"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
 
           <!-- border radius -->
           <div class="border_radius mt-6">
@@ -210,7 +283,7 @@
             </div>
           </div>
           <!-- box shadow -->
-          <div class="box_shadow mt-6">
+          <div class="box_shadow mt-6 mb-8">
             <p class="text-sm font-medium mb-2 text-gray-200">Box shadow</p>
             <div class="flex gap-3 w-full flex-wrap text-sm mt-4 items-center">
               <div v-for="boxShadow in selectBoxShadow" :key="boxShadow.id">
@@ -222,6 +295,7 @@
               </div>
             </div>
           </div>
+          <!-- dib -->
         </div>
       </Tab>
     </section>
@@ -401,6 +475,7 @@ export default {
     const popupTriggers = ref({
       buttonTrigger: false,
       bgColorTrigger: false,
+      borderColorTrigger: false,
     });
     const TogglePopup = (trigger) => {
       popupTriggers.value[trigger] = !popupTriggers.value[trigger];
@@ -408,11 +483,15 @@ export default {
     const bgPopup = (trigger) => {
       popupTriggers.value[trigger] = !popupTriggers.value[trigger];
     };
+    const borderColorPopup = (trigger) => {
+      popupTriggers.value[trigger] = !popupTriggers.value[trigger];
+    };
 
     return {
       popupTriggers,
       TogglePopup,
       bgPopup,
+      borderColorPopup,
     };
   },
   data() {
@@ -423,6 +502,10 @@ export default {
         width: "",
         height: "",
         button_text: "",
+        image_link: "",
+        title_text: "",
+        subtitle_text: "",
+        card_content_text: "",
         text_color: "",
         padding: "",
         padding_top: "",
@@ -455,6 +538,14 @@ export default {
         { color: "bg-yellow-400", id: 4 },
         { color: "bg-green-500", id: 5 },
       ],
+      selectBorderColor: [
+        { color: "border-pink-600", id: 1 },
+        { color: "border-gray-400", id: 2 },
+        { color: "border-red-400", id: 3 },
+        { color: "border-green-800", id: 4 },
+        { color: "border-blue-300", id: 5 },
+        { color: "border-indigo-800	", id: 6 },
+      ],
 
       selectBorderRadius: [
         { value: "rounded-none", id: 1 },
@@ -463,6 +554,14 @@ export default {
         { value: "rounded-xl", id: 5 },
         { value: "rounded-full", id: 6 },
       ],
+      selectBorderWidth: [
+        { value: "border", id: 1 },
+        { value: "border-0", id: 2 },
+        { value: "border-2", id: 3 },
+        { value: "border-4", id: 4 },
+        { value: "border-8", id: 5 },
+      ],
+
       selectFountSize: [
         { text: "Aa", value: "text-sm", id: 1 },
         { text: "Aa", value: "text-base", id: 2 },
@@ -560,10 +659,255 @@ export default {
         { color: "bg-pink-800", value: "text-pink-800", id: 89 },
         { color: "bg-pink-900", value: "text-pink-900", id: 90 },
       ],
+      // border color
+      borderColor: [
+        { color: "border-inherit" },
+        { color: "border-current" },
+        { color: "border-transparent" },
+        { color: "border-black	 " },
+        { color: "border-white	" },
+        { color: "border-slate-50	" },
+        { color: "border-slate-100" },
+        { color: "border-slate-200" },
+        { color: "border-slate-300" },
+        { color: "border-slate-400" },
+        { color: "border-slate-500" },
+        { color: "border-slate-600" },
+        { color: "border-slate-700" },
+        { color: "border-slate-800" },
+        { color: "border-slate-900" },
+        { color: "border-gray-50	   " },
+        { color: "border-gray-100" },
+        { color: "border-gray-200" },
+        { color: "border-gray-300" },
+        { color: "border-gray-400" },
+        { color: "border-gray-500" },
+        { color: "border-gray-600" },
+        { color: "border-gray-700" },
+        { color: "border-gray-800" },
+        { color: "border-gray-900" },
+        { color: "border-zinc-50 " },
+        { color: "border-zinc-100" },
+        { color: "border-zinc-200" },
+        { color: "border-zinc-300" },
+        { color: "border-zinc-400" },
+        { color: "border-zinc-500" },
+        { color: "border-zinc-600" },
+        { color: "border-zinc-700" },
+        { color: "border-zinc-800" },
+        { color: "border-zinc-900 " },
+        { color: "border-neutral-50" },
+        { color: "border-neutral-100" },
+        { color: "border-neutral-200" },
+        { color: "border-neutral-300" },
+        { color: "border-neutral-400" },
+        { color: "border-neutral-600" },
+        { color: "border-neutral-700" },
+        { color: "border-neutral-800" },
+        { color: "border-neutral-900" },
+        { color: "border-stone-50 " },
+        { color: "border-stone-100" },
+        { color: "border-stone-200" },
+        { color: "border-stone-300" },
+        { color: "border-stone-400" },
+        { color: "border-stone-500" },
+        { color: "border-stone-600" },
+        { color: "border-stone-700" },
+        { color: "border-stone-800" },
+        { color: "border-stone-900" },
+        { color: "border-red-50	  " },
+        { color: "border-red-100  " },
+        { color: "border-red-200	  " },
+        { color: "border-red-300	  " },
+        { color: "border-red-400	 " },
+        { color: "border-red-500  " },
+        { color: "border-red-600  " },
+        { color: "border-red-700  " },
+        { color: "border-red-800  " },
+        { color: "border-red-900	 " },
+        { color: "border-orange-50" },
+        { color: "border-orange-100" },
+        { color: "border-orange-200" },
+        { color: "border-orange-300" },
+        { color: "border-orange-400" },
+        { color: "border-orange-500" },
+        { color: "border-orange-600" },
+        { color: "border-orange-700" },
+        { color: "border-orange-800" },
+        { color: "border-orange-900" },
+        { color: "border-amber-100" },
+        { color: "border-amber-50	" },
+        { color: "border-amber-300" },
+        { color: "border-amber-200" },
+        { color: "border-amber-500" },
+        { color: "border-amber-400" },
+        { color: "border-amber-700" },
+        { color: "border-amber-600" },
+        { color: "border-amber-900" },
+        { color: "border-amber-800" },
+        { color: "border-yellow-100" },
+        { color: "border-yellow-50" },
+        { color: "border-yellow-300" },
+        { color: "border-yellow-200" },
+        { color: "border-yellow-500" },
+        { color: "border-yellow-400" },
+        { color: "border-yellow-700" },
+        { color: "border-yellow-600" },
+        { color: "border-yellow-800" },
+        { color: "border-yellow-900" },
+        { color: "border-lime-50" },
+        { color: "border-lime-100" },
+        { color: "border-lime-200" },
+        { color: "border-lime-300" },
+        { color: "border-lime-400" },
+        { color: "border-lime-500" },
+        { color: "border-lime-600	" },
+        { color: "border-lime-700	" },
+        { color: "border-lime-800	" },
+        { color: "border-lime-900	" },
+        { color: "border-green-50	" },
+        { color: "border-green-100" },
+        { color: "border-green-200" },
+        { color: "border-green-300" },
+        { color: "border-green-400" },
+        { color: "border-green-500" },
+        { color: "border-green-600" },
+        { color: "border-green-700" },
+        { color: "border-green-800" },
+        { color: "border-green-900" },
+        { color: "border-blue-50" },
+        { color: "border-blue-100" },
+        { color: "border-blue-200" },
+        { color: "border-blue-300" },
+        { color: "border-blue-400" },
+        { color: "border-blue-500" },
+        { color: "border-blue-600" },
+        { color: "border-blue-700" },
+        { color: "border-blue-800" },
+        { color: "border-blue-900" },
+        { color: "border-purple-50" },
+        { color: "border-purple-100" },
+        { color: "border-purple-200" },
+        { color: "border-purple-300" },
+        { color: "border-purple-400" },
+        { color: "border-purple-500" },
+        { color: "border-purple-600" },
+        { color: "border-purple-700" },
+        { color: "border-purple-800" },
+        { color: "border-purple-900" },
+        { color: "border-pink-50" },
+        { color: "border-pink-100" },
+        { color: "border-pink-200" },
+        { color: "border-pink-300" },
+        { color: "border-pink-400" },
+        { color: "border-pink-500" },
+        { color: "border-pink-600" },
+        { color: "border-pink-700" },
+        { color: "border-pink-800" },
+        { color: "border-pink-900" },
+      ],
 
       // dropdown padding values
-      width: [],
-      height: [],
+      width: [
+        "w-0",
+        "w-full",
+        "w-screen",
+        "w-1",
+        "w-2",
+        "w-3",
+        "w-4",
+        "w-5",
+        "w-6",
+        "w-8",
+        "w-10",
+        "w-12",
+        "w-16",
+        "w-20",
+        "w-24",
+        "w-32",
+        "w-40",
+        "w-48",
+        "w-56",
+        "w-64",
+        "w-auto",
+        "w-px",
+        "w-1/2",
+        "w-1/3",
+        "w-2/3",
+        "w-1/4",
+        "w-2/4",
+        "w-3/4",
+        "w-1/5",
+        "w-2/5",
+        "w-3/5 ",
+        "w-4/5L",
+        "w-1/6",
+        "w-2/6",
+        "w-3/6",
+        "w-4/6",
+        "w-5/6",
+        "w-1/12",
+        "w-2/12",
+        "w-3/12",
+        "w-4/12",
+        "w-5/12",
+        "w-6/12",
+        "w-7/12",
+        "w-8/12",
+        "w-9/12",
+        "w-10/12",
+        "w-11/12",
+      ],
+      height: [
+        "h-0",
+        "h-full",
+        "h-screen",
+        "h-1",
+        "h-2",
+        "h-3",
+        "h-4",
+        "h-5",
+        "h-6",
+        "h-8",
+        "h-10",
+        "h-12",
+        "h-16",
+        "h-20",
+        "h-24",
+        "h-32",
+        "h-40",
+        "h-48",
+        "h-56",
+        "h-64",
+        "h-auto",
+        "h-px",
+        "h-1/2",
+        "h-1/3",
+        "h-2/3",
+        "h-1/4",
+        "h-2/4",
+        "h-3/4",
+        "h-1/5",
+        "h-2/5",
+        "h-3/5 ",
+        "h-4/5L",
+        "h-1/6",
+        "h-2/6",
+        "h-3/6",
+        "h-4/6",
+        "h-5/6",
+        "h-1/12",
+        "h-2/12",
+        "h-3/12",
+        "h-4/12",
+        "h-5/12",
+        "h-6/12",
+        "h-7/12",
+        "h-8/12",
+        "h-9/12",
+        "h-10/12",
+        "h-11/12",
+      ],
       padding: [
         "p-0",
         "p-1",

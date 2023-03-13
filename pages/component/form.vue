@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="toolbar">
-          <CardToolbar v-on:card-values="getCardValue($event)" />
+          <editForm v-on:card-values="getCardValue($event)" />
         </div>
       </div>
     </div>

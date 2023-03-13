@@ -68,7 +68,7 @@
           </div>
         </div>
         <div class="toolbar">
-          <navbarEditToolbar v-on:navbar-value="getNavbarValues($event)" />
+          <editNavbar v-on:navbar-value="getNavbarValues($event)" />
         </div>
       </div>
     </div>
