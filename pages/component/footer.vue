@@ -9,7 +9,12 @@
         <div class="input">
           <div class="flex items-center justify-center p-4 w-full h-4/5">
             <footer
-              class="footer-container w-full bg-gray-800 flex items-center justify-center p-4 flex-col"
+              class="footer-container w-full flex items-center justify-center p-4 flex-col"
+              :class="[
+                value.background_color,
+                value.border_radius,
+                value.height,
+              ]"
             >
               <div class="logo flex items-center">
                 <img
@@ -19,43 +24,77 @@
                 />
                 <p class="text-lg font-semibold text-white ml-2">Mylogo</p>
               </div>
-              <div class="links mt-8 w-2/4">
+              <div class="links" :class="[value.width, value.margin_top]">
                 <ul class="flex items-end justify-between">
-                  <li class="text-base text-gray-400">
+                  <li
+                    :class="[
+                      value.text_color,
+                      value.font_size,
+                      value.font_width,
+                    ]"
+                  >
                     <a href="#">Home</a>
                   </li>
-                  <li class="text-base text-gray-400">
+                  <li
+                    :class="[
+                      value.text_color,
+                      value.font_size,
+                      value.font_width,
+                    ]"
+                  >
                     <a href="#">About</a>
                   </li>
-                  <li class="text-base text-gray-400">
+                  <li
+                    :class="[
+                      value.text_color,
+                      value.font_size,
+                      value.font_width,
+                    ]"
+                  >
                     <a href="#">Work</a>
                   </li>
-                  <li class="text-base text-gray-400">
+                  <li
+                    :class="[
+                      value.text_color,
+                      value.font_size,
+                      value.font_width,
+                    ]"
+                  >
                     <a href="#">Contact</a>
                   </li>
                 </ul>
               </div>
               <div
-                class="social-icon flex items-center mt-8 text-gray-400 w-40 justify-around"
+                class="social-icon flex items-center mt-8 w-40 justify-around"
+                :class="value.icon_color"
               >
                 <div class="twitter">
                   <a href="#">
+                    <!-- Replace this icons with your icons -->
                     <font-awesome-icon icon="fa-brands fa-twitter" />
+                    <!--↑↑↑↑↑↑ Replace ↑↑↑↑↑↑-->
                   </a>
                 </div>
                 <div class="instagram">
                   <a href="#">
+                    <!-- Replace this icons with your icons -->
+
                     <font-awesome-icon icon="fa-brands fa-square-behance" />
+                    <!--↑↑↑↑↑↑ Replace ↑↑↑↑↑↑-->
                   </a>
                 </div>
                 <div class="facebook">
                   <a href="#">
+                    <!-- Replace this icons with your icons -->
                     <font-awesome-icon icon="fa-brands fa-facebook" />
+                    <!--↑↑↑↑↑↑ Replace ↑↑↑↑↑↑-->
                   </a>
                 </div>
                 <div class="dev">
                   <a href="#">
+                    <!-- Replace this icons with your icons -->
                     <font-awesome-icon icon="fa-brands fa-dev" />
+                    <!--↑↑↑↑↑↑ Replace ↑↑↑↑↑↑-->
                   </a>
                 </div>
               </div>
@@ -64,7 +103,7 @@
           </div>
         </div>
         <div class="toolbar">
-          <editFooter v-on:card-values="getCardValue($event)" />
+          <editFooter v-on:footer-values="getFooterValue($event)" />
         </div>
       </div>
     </div>
@@ -72,20 +111,15 @@
 </template>
 
 <script>
-import Toolsbar from "../../components/Toolsbar.vue";
-
 export default {
   data() {
     return {
       value: "",
-      button_text: "Create account",
     };
   },
-  components: { Toolsbar },
   methods: {
-    getCardValue(values) {
+    getFooterValue(values) {
       this.value = values;
-      this.button_text = values.button_text;
     },
   },
 };

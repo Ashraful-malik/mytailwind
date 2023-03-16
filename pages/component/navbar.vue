@@ -7,53 +7,61 @@
           <Sidebar />
         </div>
         <div class="navbar">
-          <div class="flex items-center justify-center m-auto h-80">
+          <div class="flex items-center justify-center m-2 h-80">
             <nav
-              class="w-full h-14 flex items-center justify-between m-2 p-4"
+              class="w-full h-14 flex items-center"
               :class="[
                 value.background_color,
                 value.width,
                 value.height,
                 value.justify_spacing,
+                value.padding,
               ]"
             >
-              <div class="logo">
-                <img src="@/assets/images/Logo.svg" alt="logo" class="w-6" />
+              <div class="logo mr-4">
+                <img
+                  src="https://bulma.io/images/placeholders/128x128.png"
+                  alt="logo"
+                  class="w-8"
+                />
               </div>
               <div class="links">
                 <ul class="flex items-center">
                   <li
-                    class="ml-6 cursor-pointer"
+                    class="cursor-pointer"
                     :class="[
                       value.text_color,
                       value.font_size,
                       value.font_width,
+                      value.margin_right,
                     ]"
                   >
                     Home
                   </li>
                   <li
-                    class="ml-6 cursor-pointer"
+                    class="cursor-pointer"
                     :class="[
                       value.text_color,
                       value.font_size,
                       value.font_width,
+                      value.margin_right,
                     ]"
                   >
                     About
                   </li>
                   <li
-                    class="ml-6 cursor-pointer"
+                    class="cursor-pointer"
                     :class="[
                       value.text_color,
                       value.font_size,
                       value.font_width,
+                      value.margin_right,
                     ]"
                   >
                     Service
                   </li>
                   <li
-                    class="ml-6 cursor-pointer"
+                    class="cursor-pointer"
                     :class="[
                       value.text_color,
                       value.font_size,

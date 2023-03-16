@@ -11,14 +11,29 @@
             <div class="input-field">
               <input
                 type="text"
-                class="w-80 h-9 p-2 text-base font-normal rounded-md border focus:outline-none focus:ring focus:border-blue-400"
+                class="focus:outline-none focus:ring focus:border-blue-400"
                 placeholder="Default input"
+                :class="[
+                  value.width,
+                  value.height,
+                  value.border_radius,
+                  value.text_color,
+                  value.background_color,
+                  value.border_width,
+                  value.border_color,
+                  value.font_size,
+                  value.font_width,
+                  value.box_shadow,
+                  value.padding,
+                ]"
               />
             </div>
           </div>
         </div>
         <div class="toolbar">
-          <editInputField v-on:card-values="getCardValue($event)" />
+          <editInputField
+            v-on:input-field-values="getInputFieldValue($event)"
+          />
         </div>
       </div>
     </div>
@@ -26,20 +41,15 @@
 </template>
 
 <script>
-import Toolsbar from "../../components/Toolsbar.vue";
-
 export default {
   data() {
     return {
       value: "",
-      button_text: "Create account",
     };
   },
-  components: { Toolsbar },
   methods: {
-    getCardValue(values) {
+    getInputFieldValue(values) {
       this.value = values;
-      this.button_text = values.button_text;
     },
   },
 };

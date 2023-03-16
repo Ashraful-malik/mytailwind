@@ -96,21 +96,15 @@
                   type="button"
                   value="1"
                   class="bg-blue-500 px-3 py-1 text-white rounded-full flex items-center content-center text-center"
-                  @click="() => TogglePopup('buttonTrigger')"
+                  @click="() => TextPopup('TextColorTrigger')"
                   v-on:click="sendChange"
                 >
-                  <unicon
-                    name="plus"
-                    fill="white"
-                    width="20"
-                    class="mr-2"
-                  ></unicon>
                   <p class="text-center">More Colors</p>
                 </button>
                 <!-- sending data in popup component  -->
                 <textColorPopup
-                  v-if="popupTriggers.buttonTrigger"
-                  :TogglePopup="() => TogglePopup('buttonTrigger')"
+                  v-if="popupTriggers.TextColorTrigger"
+                  :TextPopup="() => TextPopup('TextColorTrigger')"
                   :text-color="colors"
                   v-on:popup-value="getTextColor($event)"
                 />
@@ -142,12 +136,6 @@
                   @click="() => subTitlePopup('subTitleTrigger')"
                   v-on:click="sendChange"
                 >
-                  <unicon
-                    name="plus"
-                    fill="white"
-                    width="20"
-                    class="mr-2"
-                  ></unicon>
                   <p class="text-center">More Colors</p>
                 </button>
                 <!-- sending data in popup component  -->
@@ -187,12 +175,6 @@
                   @click="() => cardContentPopup('contentColorTrigger')"
                   v-on:click="sendChange"
                 >
-                  <unicon
-                    name="plus"
-                    fill="white"
-                    width="20"
-                    class="mr-2"
-                  ></unicon>
                   <p class="text-center">More Colors</p>
                 </button>
                 <!-- sending data in popup component  -->
@@ -234,12 +216,6 @@
                   @click="() => bgPopup('bgColorTrigger')"
                   v-on:click="sendChange"
                 >
-                  <unicon
-                    name="plus"
-                    fill="white"
-                    width="20"
-                    class="mr-2"
-                  ></unicon>
                   <p class="text-center">More Colors</p>
                 </button>
 
@@ -278,12 +254,6 @@
                   @click="() => buttonColorPopup('buttonColorTrigger')"
                   v-on:click="sendChange"
                 >
-                  <unicon
-                    name="plus"
-                    fill="white"
-                    width="20"
-                    class="mr-2"
-                  ></unicon>
                   <p class="text-center">More Colors</p>
                 </button>
                 <!-- sending data in popup component  -->
@@ -352,12 +322,6 @@
                     @click="() => borderColorPopup('borderColorTrigger')"
                     v-on:click="sendChange"
                   >
-                    <unicon
-                      name="plus"
-                      fill="white"
-                      width="20"
-                      class="mr-2"
-                    ></unicon>
                     <p class="text-center">More Colors</p>
                   </button>
 
@@ -444,9 +408,9 @@
       </Tab>
     </section>
 
-    <!-- Align tab data -->
+    <!-- Size tab data -->
     <section class="tab3">
-      <Tab name="Align" id="Align">
+      <Tab name="Size" id="Size">
         <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
           <div class="padding relative">
             <p class="text-sm font-medium text-gray-200">Size</p>
@@ -521,14 +485,14 @@ export default {
   props: ["value"],
   setup() {
     const popupTriggers = ref({
-      buttonTrigger: false,
+      TextColorTrigger: false,
       bgColorTrigger: false,
       contentColorTrigger: false,
       borderColorTrigger: false,
       subTitleTrigger: false,
       buttonColorTrigger: false,
     });
-    const TogglePopup = (trigger) => {
+    const TextPopup = (trigger) => {
       popupTriggers.value[trigger] = !popupTriggers.value[trigger];
     };
 
@@ -552,7 +516,7 @@ export default {
 
     return {
       popupTriggers,
-      TogglePopup,
+      TextPopup,
       bgPopup,
       cardContentPopup,
       borderColorPopup,
@@ -568,7 +532,7 @@ export default {
         width: "w-72",
         button_text: "Read more",
         image_link:
-          "https://images.unsplash.com/photo-1677206213866-65b5f73bb95b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+          "https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
         title_text: "Welcome 2023",
         subtitle_text: "15-02-2023",
         card_content_text:
@@ -579,7 +543,6 @@ export default {
         padding: "p-4",
         padding_top: "pt-5",
         padding_bottom: "",
-
         background_color: "bg-gray-50",
         border_radius: "",
         border_width: "",
@@ -588,7 +551,7 @@ export default {
         font_width: "font-bold",
         box_shadow: "shadow-md",
         button_color: "text-blue-700",
-        subtitle_color: "",
+        subtitle_color: "text-gray-400",
       },
 
       selectTextColor: [
@@ -765,35 +728,6 @@ export default {
         { color: "border-gray-700" },
         { color: "border-gray-800" },
         { color: "border-gray-900" },
-        { color: "border-zinc-50 " },
-        { color: "border-zinc-100" },
-        { color: "border-zinc-200" },
-        { color: "border-zinc-300" },
-        { color: "border-zinc-400" },
-        { color: "border-zinc-500" },
-        { color: "border-zinc-600" },
-        { color: "border-zinc-700" },
-        { color: "border-zinc-800" },
-        { color: "border-zinc-900 " },
-        { color: "border-neutral-50" },
-        { color: "border-neutral-100" },
-        { color: "border-neutral-200" },
-        { color: "border-neutral-300" },
-        { color: "border-neutral-400" },
-        { color: "border-neutral-600" },
-        { color: "border-neutral-700" },
-        { color: "border-neutral-800" },
-        { color: "border-neutral-900" },
-        { color: "border-stone-50 " },
-        { color: "border-stone-100" },
-        { color: "border-stone-200" },
-        { color: "border-stone-300" },
-        { color: "border-stone-400" },
-        { color: "border-stone-500" },
-        { color: "border-stone-600" },
-        { color: "border-stone-700" },
-        { color: "border-stone-800" },
-        { color: "border-stone-900" },
         { color: "border-red-50	  " },
         { color: "border-red-100  " },
         { color: "border-red-200	  " },
@@ -1035,6 +969,13 @@ export default {
     getSubtitleColor(value) {
       this.selected_values.subtitle_color = value;
     },
+  },
+  mounted() {
+    try {
+      this.$emit("card-values", this.selected_values);
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 </script>

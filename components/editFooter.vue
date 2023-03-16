@@ -25,22 +25,16 @@
                   type="button"
                   value="1"
                   class="bg-blue-500 px-3 py-1 text-white rounded-full flex items-center content-center text-center"
-                  @click="() => TogglePopup('buttonTrigger')"
+                  @click="() => TextPopup('TextColorTrigger')"
                   v-on:click="sendChange"
                 >
-                  <unicon
-                    name="plus"
-                    fill="white"
-                    width="20"
-                    class="mr-2"
-                  ></unicon>
                   <p class="text-center">More Colors</p>
                 </button>
                 <!-- sending data in popup component  -->
                 <textColorPopup
-                  v-if="popupTriggers.buttonTrigger"
-                  :TogglePopup="() => TogglePopup('buttonTrigger')"
-                  :names-array="colors"
+                  v-if="popupTriggers.TextColorTrigger"
+                  :TextPopup="() => TextPopup('TextColorTrigger')"
+                  :text-color="colors"
                   v-on:popup-value="getTextColor($event)"
                 />
               </div>
@@ -58,7 +52,7 @@
                 <div
                   :class="textColor.color"
                   class="color1 p-3 rounded-full cursor-pointer"
-                  @click="getTextColor(textColor.value)"
+                  @click="getIconColor(textColor.value)"
                   v-on:click="sendChange"
                 ></div>
               </div>
@@ -67,23 +61,19 @@
                   type="button"
                   value="1"
                   class="bg-blue-500 px-3 py-1 text-white rounded-full flex items-center content-center text-center"
-                  @click="() => TogglePopup('buttonTrigger')"
+                  @click="() => buttonColorPopup('buttonColorTrigger')"
                   v-on:click="sendChange"
                 >
-                  <unicon
-                    name="plus"
-                    fill="white"
-                    width="20"
-                    class="mr-2"
-                  ></unicon>
                   <p class="text-center">More Colors</p>
                 </button>
                 <!-- sending data in popup component  -->
                 <textColorPopup
-                  v-if="popupTriggers.buttonTrigger"
-                  :TogglePopup="() => TogglePopup('buttonTrigger')"
-                  :names-array="colors"
-                  v-on:popup-value="getTextColor($event)"
+                  v-if="popupTriggers.buttonColorTrigger"
+                  :buttonColorPopup="
+                    () => buttonColorPopup('buttonColorTrigger')
+                  "
+                  :text-color="colors"
+                  v-on:popup-value="getIconColor($event)"
                 />
               </div>
             </div>
@@ -115,12 +105,6 @@
                   @click="() => bgPopup('bgColorTrigger')"
                   v-on:click="sendChange"
                 >
-                  <unicon
-                    name="plus"
-                    fill="white"
-                    width="20"
-                    class="mr-2"
-                  ></unicon>
                   <p class="text-center">More Colors</p>
                 </button>
 
@@ -187,9 +171,9 @@
         </div>
       </Tab>
     </section>
-    <!-- Align tab data -->
+    <!-- Size tab data -->
     <section class="tab_2">
-      <Tab name="Align" id="Align">
+      <Tab name="Size" id="Size">
         <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
           <div class="padding relative">
             <p class="text-sm font-medium text-gray-200">Size</p>
@@ -221,87 +205,11 @@
               </div>
             </div>
           </div>
-          <!-- padding -->
-          <div class="padding mt-6 relative">
-            <p class="text-sm font-medium text-gray-200">padding</p>
-
-            <div class="flex flex-wrap gap-3 mt-4">
-              <div class="padding">
-                <p class="text-sm font-normal text-gray-400 mb-2">padding</p>
-                <div class="w-32 text-xs">
-                  <v-select
-                    label="countryName"
-                    :options="padding"
-                    v-model="selected_values.padding"
-                    v-on:input="sendChange"
-                    class="bg-gray-700"
-                  ></v-select>
-                </div>
-              </div>
-              <div class="padding_top">
-                <p class="text-sm font-normal text-gray-400 mb-2">p-top</p>
-                <div class="w-32 text-xs">
-                  <v-select
-                    label="countryName"
-                    :options="padding_top"
-                    v-model="selected_values.padding_top"
-                    v-on:input="sendChange"
-                    class="bg-gray-700"
-                  ></v-select>
-                </div>
-              </div>
-              <div class="padding_bottom">
-                <p class="text-sm font-normal text-gray-400 mb-2">p-bottom</p>
-                <div class="w-32 text-xs">
-                  <v-select
-                    label="countryName"
-                    :options="padding_bottom"
-                    v-model="selected_values.padding_bottom"
-                    v-on:input="sendChange"
-                  ></v-select>
-                </div>
-              </div>
-
-              <div class="padding_left">
-                <p class="text-sm font-normal text-gray-400 mb-2">p-left</p>
-                <div class="w-32 text-xs">
-                  <v-select
-                    label="countryName"
-                    :options="padding_left"
-                    v-model="selected_values.padding_left"
-                    v-on:input="sendChange"
-                  ></v-select>
-                </div>
-              </div>
-              <div class="padding_right">
-                <p class="text-sm font-normal text-gray-400 mb-2">p-right</p>
-                <div class="w-32 text-xs">
-                  <v-select
-                    label="countryName"
-                    :options="padding_right"
-                    v-model="selected_values.padding_right"
-                    v-on:input="sendChange"
-                  ></v-select>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <!-- margin -->
           <div class="margin mt-6">
             <p class="text-sm font-medium text-gray-200">Margin</p>
             <div class="flex flex-wrap gap-3 mt-4 items-center">
-              <div class="margin">
-                <p class="text-sm font-normal text-gray-400 mb-2">margin</p>
-                <div class="w-32 text-xs">
-                  <v-select
-                    label="countryName"
-                    :options="margin"
-                    v-model="selected_values.margin"
-                    v-on:input="sendChange"
-                  ></v-select>
-                </div>
-              </div>
               <div class="margin_top">
                 <p class="text-sm font-normal text-gray-400 mb-2">m-top</p>
                 <div class="w-32 text-xs">
@@ -313,42 +221,8 @@
                   ></v-select>
                 </div>
               </div>
-              <div class="margin_bottom">
-                <p class="text-sm font-normal text-gray-400 mb-2">m-bottom</p>
-                <div class="w-32 text-xs">
-                  <v-select
-                    label="countryName"
-                    :options="margin_bottom"
-                    v-model="selected_values.margin_bottom"
-                    v-on:input="sendChange"
-                  ></v-select>
-                </div>
-              </div>
-              <div class="margin_left">
-                <p class="text-sm font-normal text-gray-400 mb-2">m-left</p>
-                <div class="w-32 text-xs">
-                  <v-select
-                    label="countryName"
-                    :options="margin_left"
-                    v-model="selected_values.margin_left"
-                    v-on:input="sendChange"
-                  ></v-select>
-                </div>
-              </div>
-              <div class="margin_right">
-                <p class="text-sm font-normal text-gray-400 mb-2">m-right</p>
-                <div class="w-32 text-xs">
-                  <v-select
-                    label="countryName"
-                    :options="margin_right"
-                    v-model="selected_values.margin_right"
-                    v-on:input="sendChange"
-                  ></v-select>
-                </div>
-              </div>
             </div>
           </div>
-          <div class="mb-4"></div>
         </div>
       </Tab>
     </section>
@@ -361,20 +235,25 @@ export default {
   props: ["value"],
   setup() {
     const popupTriggers = ref({
-      buttonTrigger: false,
+      TextColorTrigger: false,
       bgColorTrigger: false,
+      buttonColorTrigger: false,
     });
-    const TogglePopup = (trigger) => {
+    const TextPopup = (trigger) => {
       popupTriggers.value[trigger] = !popupTriggers.value[trigger];
     };
     const bgPopup = (trigger) => {
       popupTriggers.value[trigger] = !popupTriggers.value[trigger];
     };
+    const buttonColorPopup = (trigger) => {
+      popupTriggers.value[trigger] = !popupTriggers.value[trigger];
+    };
 
     return {
       popupTriggers,
-      TogglePopup,
+      TextPopup,
       bgPopup,
+      buttonColorPopup,
     };
   },
   data() {
@@ -382,28 +261,24 @@ export default {
       // dropdown selected value
 
       selected_values: {
-        width: "",
+        width: "w-2/4",
         height: "",
-        button_text: "",
-        image_link: "",
-        title_text: "",
-        subtitle_text: "",
-        card_content_text: "",
-        text_color: "",
+        text_color: "text-gray-400",
         padding: "",
         padding_top: "",
         padding_bottom: "",
         padding_left: "",
         padding_right: "",
         margin: "",
-        margin_top: "",
+        margin_top: "mt-8",
         margin_bottom: "",
         margin_left: "",
         margin_right: "",
-        background_color: "",
+        background_color: "bg-gray-800",
         border_radius: "",
-        font_size: "",
+        font_size: "text-base",
         font_width: "",
+        icon_color: "text-gray-400",
       },
 
       selectTextColor: [
@@ -455,101 +330,82 @@ export default {
         { color: "bg-current", value: "text-current", id: 1 },
         { color: "bg-white", value: "text-white", id: 2 },
         { color: "bg-black", value: "text-black", id: 3 },
-        { color: "bg-gray-400", value: "text-gray-400", id: 4 },
-        { color: "bg-gray-500", value: "text-gray-500", id: 5 },
-        { color: "bg-gray-600", value: "text-gray-600", id: 6 },
-        { color: "bg-gray-700", value: "text-gray-700", id: 7 },
-        { color: "bg-gray-800", value: "text-gray-800", id: 8 },
-        { color: "bg-gray-900", value: "text-gray-900", id: 9 },
-        { color: "bg-red-100", value: "text-red-100", id: 10 },
-        { color: "bg-red-200", value: "text-red-200", id: 11 },
-        { color: "bg-red-300", value: "text-red-300", id: 12 },
-        { color: "bg-red-400", value: "text-red-400", id: 13 },
-        { color: "bg-red-500", value: "text-red-500", id: 14 },
-        { color: "bg-red-600", value: "text-red-600", id: 15 },
-        { color: "bg-red-700", value: "text-red-700", id: 16 },
-        { color: "bg-red-800", value: "text-red-800", id: 17 },
-        { color: "bg-red-900", value: "text-red-900", id: 18 },
-        { color: "bg-yellow-100", value: "text-yellow-100", id: 28 },
-        { color: "bg-yellow-200", value: "text-yellow-200", id: 29 },
-        { color: "bg-yellow-300", value: "text-yellow-300", id: 30 },
-        { color: "bg-yellow-400", value: "text-yellow-400", id: 31 },
-        { color: "bg-yellow-500", value: "text-yellow-500", id: 32 },
-        { color: "bg-yellow-600", value: "text-yellow-600", id: 33 },
-        { color: "bg-yellow-700", value: "text-yellow-700", id: 34 },
-        { color: "bg-yellow-800", value: "text-yellow-800", id: 35 },
-        { color: "bg-yellow-900", value: "text-yellow-900", id: 36 },
-        { color: "bg-green-100", value: "text-green-100", id: 37 },
-        { color: "bg-green-200", value: "text-green-200", id: 38 },
-        { color: "bg-green-300", value: "text-green-300", id: 39 },
-        { color: "bg-green-400", value: "text-green-400", id: 40 },
-        { color: "bg-green-500", value: "text-green-500", id: 41 },
-        { color: "bg-green-600", value: "text-green-600", id: 42 },
-        { color: "bg-green-700", value: "text-green-700", id: 43 },
-        { color: "bg-green-800", value: "text-green-800", id: 44 },
-        { color: "bg-green-900", value: "text-green-900", id: 45 },
-        { color: "bg-blue-100", value: "text-blue-100", id: 55 },
-        { color: "bg-blue-200", value: "text-blue-200", id: 56 },
-        { color: "bg-blue-300", value: "text-blue-300", id: 57 },
-        { color: "bg-blue-400", value: "text-blue-400", id: 58 },
-        { color: "bg-blue-500", value: "text-blue-500", id: 59 },
-        { color: "bg-blue-600", value: "text-blue-600", id: 60 },
-        { color: "bg-blue-700", value: "text-blue-700", id: 61 },
-        { color: "bg-blue-800", value: "text-blue-800", id: 62 },
-        { color: "bg-blue-900", value: "text-blue-900", id: 63 },
-        { color: "bg-indigo-100", value: "text-indigo-100", id: 64 },
-        { color: "bg-indigo-200", value: "text-indigo-200", id: 65 },
-        { color: "bg-indigo-300", value: "text-indigo-300", id: 66 },
-        { color: "bg-indigo-400", value: "text-indigo-400", id: 67 },
-        { color: "bg-indigo-500", value: "text-indigo-500", id: 68 },
-        { color: "bg-indigo-600", value: "text-indigo-600", id: 69 },
-        { color: "bg-indigo-700", value: "text-indigo-700", id: 70 },
-        { color: "bg-indigo-800", value: "text-indigo-800", id: 71 },
-        { color: "bg-indigo-900", value: "text-indigo-900", id: 72 },
-        { color: "bg-purple-100", value: "text-purple-100", id: 73 },
-        { color: "bg-purple-200", value: "text-purple-200", id: 74 },
-        { color: "bg-purple-300", value: "text-purple-300", id: 75 },
-        { color: "bg-purple-400", value: "text-purple-400", id: 76 },
-        { color: "bg-purple-500", value: "text-purple-500", id: 77 },
-        { color: "bg-purple-600", value: "text-purple-600", id: 78 },
-        { color: "bg-purple-700", value: "text-purple-700", id: 79 },
-        { color: "bg-purple-800", value: "text-purple-800", id: 80 },
-        { color: "bg-purple-900", value: "text-purple-900", id: 81 },
-        { color: "bg-pink-100", value: "text-pink-100", id: 82 },
-        { color: "bg-pink-200", value: "text-pink-200", id: 83 },
-        { color: "bg-pink-300", value: "text-pink-300", id: 84 },
-        { color: "bg-pink-400", value: "text-pink-400", id: 85 },
-        { color: "bg-pink-500", value: "text-pink-500", id: 86 },
-        { color: "bg-pink-600", value: "text-pink-600", id: 87 },
-        { color: "bg-pink-700", value: "text-pink-700", id: 88 },
-        { color: "bg-pink-800", value: "text-pink-800", id: 89 },
-        { color: "bg-pink-900", value: "text-pink-900", id: 90 },
+        { color: "bg-gray-50", value: "text-gray-50", id: 4 },
+        { color: "bg-gray-100", value: "text-gray-100", id: 5 },
+        { color: "bg-gray-200", value: "text-gray-200", id: 6 },
+        { color: "bg-gray-300", value: "text-gray-300", id: 7 },
+        { color: "bg-gray-400", value: "text-gray-400", id: 8 },
+        { color: "bg-gray-500", value: "text-gray-500", id: 9 },
+        { color: "bg-gray-600", value: "text-gray-600", id: 10 },
+        { color: "bg-gray-700", value: "text-gray-700", id: 11 },
+        { color: "bg-gray-800", value: "text-gray-800", id: 12 },
+        { color: "bg-gray-900", value: "text-gray-900", id: 13 },
+        { color: "bg-red-100", value: "text-red-100", id: 14 },
+        { color: "bg-red-200", value: "text-red-200", id: 15 },
+        { color: "bg-red-300", value: "text-red-300", id: 16 },
+        { color: "bg-red-400", value: "text-red-400", id: 17 },
+        { color: "bg-red-500", value: "text-red-500", id: 18 },
+        { color: "bg-red-600", value: "text-red-600", id: 19 },
+        { color: "bg-red-700", value: "text-red-700", id: 20 },
+        { color: "bg-red-800", value: "text-red-800", id: 21 },
+        { color: "bg-red-900", value: "text-red-900", id: 22 },
+        { color: "bg-yellow-100", value: "text-yellow-100", id: 23 },
+        { color: "bg-yellow-200", value: "text-yellow-200", id: 24 },
+        { color: "bg-yellow-300", value: "text-yellow-300", id: 25 },
+        { color: "bg-yellow-400", value: "text-yellow-400", id: 26 },
+        { color: "bg-yellow-500", value: "text-yellow-500", id: 27 },
+        { color: "bg-yellow-600", value: "text-yellow-600", id: 28 },
+        { color: "bg-yellow-700", value: "text-yellow-700", id: 29 },
+        { color: "bg-yellow-800", value: "text-yellow-800", id: 30 },
+        { color: "bg-yellow-900", value: "text-yellow-900", id: 31 },
+        { color: "bg-green-100", value: "text-green-100", id: 32 },
+        { color: "bg-green-200", value: "text-green-200", id: 33 },
+        { color: "bg-green-300", value: "text-green-300", id: 34 },
+        { color: "bg-green-400", value: "text-green-400", id: 35 },
+        { color: "bg-green-500", value: "text-green-500", id: 36 },
+        { color: "bg-green-600", value: "text-green-600", id: 37 },
+        { color: "bg-green-700", value: "text-green-700", id: 38 },
+        { color: "bg-green-800", value: "text-green-800", id: 39 },
+        { color: "bg-green-900", value: "text-green-900", id: 40 },
+        { color: "bg-blue-100", value: "text-blue-100", id: 41 },
+        { color: "bg-blue-200", value: "text-blue-200", id: 42 },
+        { color: "bg-blue-300", value: "text-blue-300", id: 42 },
+        { color: "bg-blue-400", value: "text-blue-400", id: 44 },
+        { color: "bg-blue-500", value: "text-blue-500", id: 45 },
+        { color: "bg-blue-600", value: "text-blue-600", id: 46 },
+        { color: "bg-blue-700", value: "text-blue-700", id: 47 },
+        { color: "bg-blue-800", value: "text-blue-800", id: 48 },
+        { color: "bg-blue-900", value: "text-blue-900", id: 49 },
+        { color: "bg-indigo-100", value: "text-indigo-100", id: 50 },
+        { color: "bg-indigo-200", value: "text-indigo-200", id: 51 },
+        { color: "bg-indigo-300", value: "text-indigo-300", id: 52 },
+        { color: "bg-indigo-400", value: "text-indigo-400", id: 53 },
+        { color: "bg-indigo-500", value: "text-indigo-500", id: 54 },
+        { color: "bg-indigo-600", value: "text-indigo-600", id: 55 },
+        { color: "bg-indigo-700", value: "text-indigo-700", id: 56 },
+        { color: "bg-indigo-800", value: "text-indigo-800", id: 57 },
+        { color: "bg-indigo-900", value: "text-indigo-900", id: 58 },
+        { color: "bg-purple-100", value: "text-purple-100", id: 59 },
+        { color: "bg-purple-200", value: "text-purple-200", id: 60 },
+        { color: "bg-purple-300", value: "text-purple-300", id: 61 },
+        { color: "bg-purple-400", value: "text-purple-400", id: 62 },
+        { color: "bg-purple-500", value: "text-purple-500", id: 63 },
+        { color: "bg-purple-600", value: "text-purple-600", id: 64 },
+        { color: "bg-purple-700", value: "text-purple-700", id: 65 },
+        { color: "bg-purple-800", value: "text-purple-800", id: 66 },
+        { color: "bg-purple-900", value: "text-purple-900", id: 67 },
+        { color: "bg-pink-100", value: "text-pink-100", id: 68 },
+        { color: "bg-pink-200", value: "text-pink-200", id: 69 },
+        { color: "bg-pink-300", value: "text-pink-300", id: 70 },
+        { color: "bg-pink-400", value: "text-pink-400", id: 71 },
+        { color: "bg-pink-500", value: "text-pink-500", id: 72 },
+        { color: "bg-pink-600", value: "text-pink-600", id: 73 },
+        { color: "bg-pink-700", value: "text-pink-700", id: 74 },
+        { color: "bg-pink-800", value: "text-pink-800", id: 75 },
+        { color: "bg-pink-900", value: "text-pink-900", id: 76 },
       ],
-
       // dropdown padding values
       width: [
-        "w-0",
-        "w-full",
-        "w-screen",
-        "w-1",
-        "w-2",
-        "w-3",
-        "w-4",
-        "w-5",
-        "w-6",
-        "w-8",
-        "w-10",
-        "w-12",
-        "w-16",
-        "w-20",
-        "w-24",
-        "w-32",
-        "w-40",
-        "w-48",
-        "w-56",
-        "w-64",
-        "w-auto",
-        "w-px",
         "w-1/2",
         "w-1/3",
         "w-2/3",
@@ -576,11 +432,29 @@ export default {
         "w-9/12",
         "w-10/12",
         "w-11/12",
+        "w-0",
+        "w-full",
+        "w-screen",
+        "w-1",
+        "w-2",
+        "w-3",
+        "w-4",
+        "w-5",
+        "w-6",
+        "w-8",
+        "w-10",
+        "w-12",
+        "w-16",
+        "w-20",
+        "w-24",
+        "w-32",
+        "w-40",
+        "w-48",
+        "w-56",
+        "w-64",
       ],
       height: [
-        "h-0",
         "h-full",
-        "h-screen",
         "h-1",
         "h-2",
         "h-3",
@@ -597,15 +471,11 @@ export default {
         "h-40",
         "h-48",
         "h-56",
+        "h-60",
         "h-64",
-        "h-auto",
-        "h-px",
-        "h-1/2",
-        "h-1/3",
-        "h-2/3",
-        "h-1/4",
-        "h-2/4",
-        "h-3/4",
+        "h-72",
+        "h-80",
+        "h-96",
         "h-1/5",
         "h-2/5",
         "h-3/5 ",
@@ -872,13 +742,11 @@ export default {
       ],
     };
   },
-  // props: {
-  //   getUser: Function,
-  // },
+
   // sending data to parent components
   methods: {
     sendChange() {
-      this.$emit("card-values", this.selected_values);
+      this.$emit("footer-values", this.selected_values);
     },
     getTextColor(value) {
       this.selected_values.text_color = value;
@@ -896,6 +764,16 @@ export default {
     getFontWeight(value) {
       this.selected_values.font_width = value;
     },
+    getIconColor(value) {
+      this.selected_values.icon_color = value;
+    },
+  },
+  mounted() {
+    try {
+      this.$emit("footer-values", this.selected_values);
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 </script>

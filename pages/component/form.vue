@@ -10,10 +10,21 @@
           <div class="flex items-center justify-center p-4 w-full h-4/5">
             <div class="form">
               <form
-                class="w-80 bg-white px-6 rounded-lg border border-gray-300"
+                class="w-80 bg-white px-6"
+                :class="[
+                  value.box_shadow,
+                  value.border_color,
+                  value.border_width,
+                  value.border_radius,
+                  value.width,
+                  value.height,
+                ]"
               >
                 <div class="title pt-8">
-                  <p class="text-2xl font-bold text-gray-800">
+                  <p
+                    class="text-2xl font-bold text-gray-800"
+                    :class="value.text_color"
+                  >
                     Create a free account!
                   </p>
                 </div>
@@ -41,7 +52,11 @@
                   <div class="button mt-8 block">
                     <button
                       type="button"
-                      class="bg-blue-400 w-full text-center py-2 text-base text-white font-semibold rounded-md"
+                      class="w-full text-center py-2 text-base font-semibold rounded-md"
+                      :class="[
+                        value.button_text_color,
+                        value.button_background_color,
+                      ]"
                     >
                       Sign up
                     </button>
@@ -49,7 +64,9 @@
                   <div class="account-exist mt-6 pb-8">
                     <p class="text-gray-400 text-sm">
                       Already have a account?
-                      <span class="font-bold text-blue-400 cursor-pointer"
+                      <span
+                        class="font-bold cursor-pointer"
+                        :class="value.text_color"
                         >Sign-in</span
                       >
                     </p>
@@ -60,7 +77,7 @@
           </div>
         </div>
         <div class="toolbar">
-          <editForm v-on:card-values="getCardValue($event)" />
+          <editForm v-on:form-values="getCardValue($event)" />
         </div>
       </div>
     </div>
@@ -68,20 +85,16 @@
 </template>
 
 <script>
-import Toolsbar from "../../components/Toolsbar.vue";
 
 export default {
   data() {
     return {
       value: "",
-      button_text: "Create account",
     };
   },
-  components: { Toolsbar },
   methods: {
     getCardValue(values) {
       this.value = values;
-      this.button_text = values.button_text;
     },
   },
 };

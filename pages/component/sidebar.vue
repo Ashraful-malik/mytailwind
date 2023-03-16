@@ -3,16 +3,17 @@
     <div class="overflow-hidden">
       <ComponentNavbar />
       <div class="flex flex-row bg-gray-50">
-        <div class="sidebar">
+        <div class="component_sidebar">
           <Sidebar />
         </div>
-        <div class="sidebars">
+        <div class="sidebar">
           <div
             class="flex items-center justify-center p-2 w-full h-screen mb-7"
           >
+            <!-- sidebar start -->
             <div
-              class="h-full w-64 bg-white p-4 shadow-md overflow-y-scroll"
-              :class="value.background_color"
+              class="h-full bg-white p-4 shadow-md overflow-y-scroll"
+              :class="[value.background_color, value.width, value.height]"
             >
               <div class="logo flex items-center">
                 <img
@@ -20,77 +21,110 @@
                   alt="logo"
                   class="w-7 mr-2"
                 />
-                <p class="text-xl font-semibold">Mytailwind</p>
+
+                <p class="text-xl font-semibold" :class="value.text_color">
+                  Mytailwind
+                </p>
               </div>
               <!-- divider -->
               <div class="border border-gray-100 mt-4"></div>
               <div class="links flex flex-col justify-between w-full h-full">
-                <section class="items mt-6">
+                <section class="items" :class="value.padding_top">
                   <ul>
                     <li
-                      class="block py-2 pl-2 item-center cursor-pointer rounded-xl"
+                      class="item-center cursor-pointer rounded-xl flex items-center"
                       :class="[
                         value.text_color,
-                        `hover:${hover_bg_color}`,
-                        `hover:${hover_text_color}`,
+                        `hover:${value.hover_bg_color}`,
+                        `hover:${value.hover_text_color}`,
+                        value.font_size,
+                        value.font_width,
+                        value.padding_left,
+                        value.padding,
                       ]"
                     >
+                      <!-- Replace this icons with your icons "use same class values" -->
                       <font-awesome-icon
                         icon="fa-solid fa-house"
                         class="mr-2"
                       />
-                      Home
+                      <!--↑↑↑↑↑↑ Replace ↑↑↑↑↑↑-->
+
+                      <p>Home</p>
                     </li>
                     <li
-                      class="block py-2 pl-2 cursor-pointer rounded-xl"
+                      class="flex items-center cursor-pointer rounded-xl"
                       :class="[
                         value.text_color,
                         `hover:${value.hover_bg_color}`,
                         `hover:${value.hover_text_color}`,
+                        value.font_size,
+                        value.font_width,
+                        value.padding_left,
+                        value.padding,
                       ]"
                     >
+                      <!-- Replace this icons with your icons "use same class values" -->
                       <font-awesome-icon
                         icon="fa-solid fa-gauge"
                         class="mr-2"
                       />
-                      Dashboard
+                      <!--↑↑↑↑↑↑ Replace ↑↑↑↑↑↑-->
+                      <p>Dashboard</p>
                     </li>
                     <li
-                      class="block py-2 pl-2 cursor-pointer rounded-xl"
+                      class="flex items-center cursor-pointer rounded-xl"
                       :class="[
                         value.text_color,
                         `hover:${value.hover_bg_color}`,
                         `hover:${value.hover_text_color}`,
+                        value.font_size,
+                        value.font_width,
+                        value.padding_left,
+                        value.padding,
                       ]"
                     >
+                      <!-- Replace this icons with your icons "use same class values" -->
                       <font-awesome-icon icon="fa-solid fa-fire" class="mr-2" />
-                      Product
+                      <!--↑↑↑↑↑↑ Replace ↑↑↑↑↑↑-->
+                      <p>Product</p>
                     </li>
                     <li
-                      class="block py-2 pl-2 cursor-pointer rounded-xl"
+                      class="flex items-center cursor-pointer rounded-xl"
                       :class="[
                         value.text_color,
                         `hover:${value.hover_bg_color}`,
                         `hover:${value.hover_text_color}`,
+                        value.font_size,
+                        value.font_width,
+                        value.padding_left,
+                        value.padding,
                       ]"
                     >
+                      <!-- Replace this icons with your icons "use same class values" -->
                       <font-awesome-icon
                         icon="fa-solid fa-table"
                         class="mr-2"
                       />
-                      Order
+                      <!--↑↑↑↑↑↑ Replace ↑↑↑↑↑↑-->
+                      <p>Order</p>
                     </li>
                     <li
-                      class="block py-2 pl-2 cursor-pointer rounded-xl"
+                      class="flex items-center cursor-pointer rounded-xl"
                       :class="[
                         value.text_color,
                         `hover:${value.hover_bg_color}`,
                         `hover:${value.hover_text_color}`,
+                        value.font_size,
+                        value.font_width,
+                        value.padding_left,
+                        value.padding,
                       ]"
                     >
+                      <!-- Replace this icons with your icons "use same class values" -->
                       <font-awesome-icon icon="fa-solid fa-user" class="mr-2" />
-                      User
-                      {{ value }}
+                      <!--↑↑↑↑↑↑ Replace ↑↑↑↑↑↑-->
+                      <p>User</p>
                     </li>
                   </ul>
                 </section>
@@ -99,22 +133,38 @@
                   <div class="border border-gray-100 mb-4"></div>
                   <ul>
                     <li
-                      class="block py-2 pl-2 cursor-pointer rounded-xl"
+                      class="flex items-center cursor-pointer rounded-xl"
                       :class="[
                         value.text_color,
                         `hover:${value.hover_bg_color}`,
-                        `hover:${value.hover_bg_color}`,
+                        `hover:${value.hover_text_color}`,
+                        value.font_size,
+                        value.font_width,
+                        value.padding_left,
+                        value.padding,
                       ]"
                     >
+                      <!-- Replace this icons with your icons "use same class values" -->
                       <font-awesome-icon icon="fa-solid fa-gear" class="mr-2" />
-                      Setting
+                      <!--↑↑↑↑↑↑ Replace ↑↑↑↑↑↑-->
+                      <p>Setting</p>
                     </li>
-                    <li class="block py-2 pl-2 text-red-500 cursor-pointer">
+                    <li
+                      class="flex items-center p-2 text-red-500 cursor-pointer"
+                      :class="[
+                        value.font_width,
+                        value.font_size,
+                        value.padding_left,
+                        value.padding,
+                      ]"
+                    >
+                      <!-- Replace this icons with your icons "use same class values" -->
                       <font-awesome-icon
                         icon="fa-solid fa-arrow-right-from-bracket"
                         class="mr-2 text-red-500"
                       />
-                      Logout
+                      <!--↑↑↑↑↑↑ Replace ↑↑↑↑↑↑-->
+                      <p>Logout</p>
                     </li>
                   </ul>
                 </div>
@@ -123,7 +173,10 @@
           </div>
         </div>
         <div class="toolbar">
-          <editSidebar v-on:sidebar-values="getSidebarValue($event)" />
+          <editSidebar
+            v-on:sidebar-values="getSidebarValue($event)"
+            v-on:change="getdata($event)"
+          />
         </div>
       </div>
     </div>
@@ -135,27 +188,22 @@ export default {
   data() {
     return {
       value: "",
-      hover_text_color: "text-white",
-      hover_bg_color: "bg-blue-500",
     };
   },
 
   methods: {
     getSidebarValue(values) {
       this.value = values;
-      this.hover_bg_color = values.hover_bg_color;
-      this.hover_text_color = values.hover_text_color;
     },
   },
-  created() {},
 };
 </script>
 
 <style scoped>
-.sidebar {
+.component_sidebar {
   flex: 1 1 13%;
 }
-.sidebars {
+.sidebar {
   flex-basis: 60%;
 }
 .toolbar {

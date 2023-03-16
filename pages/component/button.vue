@@ -12,30 +12,22 @@
           >
             <button
               :class="[
-                value.padding,
-                value.margin,
-                value.border_radius,
-                value.padding_top,
-                value.padding_bottom,
-                value.padding_left,
-                value.padding_right,
-                value.margin_top,
-                value.margin_bottom,
-                value.margin_left,
-                value.margin_right,
-                value.background_color,
-                value.text_color,
                 value.box_shadow,
                 value.font_size,
                 value.font_width,
+                value.border_radius,
+                value.padding_x,
+                value.padding_y,
+                value.background_color,
+                value.text_color,
               ]"
             >
-              {{ button_text }}
+              {{ value.button_text }}
             </button>
           </div>
         </div>
         <div class="toolbar">
-          <Toolsbar v-on:custom-change="getWidth($event)" />
+          <editButton v-on:button-value="getButtonValue($event)" />
         </div>
       </div>
     </div>
@@ -43,20 +35,16 @@
 </template>
 
 <script>
-import Toolsbar from "../../components/Toolsbar.vue";
-
 export default {
   data() {
     return {
       value: "",
-      button_text: "Create account",
     };
   },
-  components: { Toolsbar },
+
   methods: {
-    getWidth(values) {
+    getButtonValue(values) {
       this.value = values;
-      this.button_text = values.button_text;
     },
   },
 };

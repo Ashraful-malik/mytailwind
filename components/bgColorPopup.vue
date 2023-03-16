@@ -62,6 +62,37 @@
         </div>
       </div>
     </div>
+    <div v-else-if="getNotificationPopup">
+      <div class="popup-inner bg-red-600s">
+        <div
+          class="flex items-center justify-between text-center bg-gray-900 mb-2 p-2 rounded-tr-xl rounded-tl-xl"
+        >
+          <p class="text-sm ml-2 text-gray-300 font-medium">
+            Choose Notification Color
+          </p>
+          <p
+            class="text-lg mr-2 text-red-600 cursor-pointer px-2 hover:bg-red-300 rounded-lg"
+            @click="getNotificationPopup()"
+          >
+            &#10005;
+          </p>
+        </div>
+
+        <div class="flex items-center flex-wrap gap-4 p-4">
+          <div
+            class="color"
+            v-for="(colors, index) in backgroundColor"
+            :key="index"
+            @click="getNotificationColor(colors.color), getNotificationPopup()"
+          >
+            <div
+              class="p-3 rounded-full cursor-pointer border border-gray-600"
+              :class="colors.color"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -73,7 +104,12 @@ export default {
     };
   },
 
-  props: ["bgPopup", "background-color", "hoverBgPopup"],
+  props: [
+    "bgPopup",
+    "background-color",
+    "hoverBgPopup",
+    "getNotificationPopup",
+  ],
 
   methods: {
     getValue(value) {
@@ -81,6 +117,9 @@ export default {
     },
     gerHoverBgColor(value) {
       this.$emit("hover-bg-color", value);
+    },
+    getNotificationColor(value) {
+      this.$emit("notification-bg-color", value);
     },
   },
 };

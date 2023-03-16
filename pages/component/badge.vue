@@ -9,21 +9,36 @@
         <div class="badges">
           <div class="flex items-center justify-center p-4 w-full h-4/5">
             <div
-              class="badge w-16 h-16 rounded-full bg-red-200 flex item-center justify-center relative"
+              class="badge flex item-center justify-center relative"
+              :class="[
+                value.width,
+                value.height,
+                value.background_color,
+                value.border_radius,
+                value.border_width,
+                value.border_color,
+                value.box_shadow,
+              ]"
             >
               <div
-                class="notification-icon w-5 h-5 bg-red-500 absolute top-0 -right-1 rounded-full border-2 border-white"
+                class="notification-icon w-5 h-5 absolute top-0 -right-1 rounded-full border-2 border-white"
+                :class="value.notification_icon_color"
               ></div>
               <div
-                class="avatar-name rounded-full w-full h-full flex item-center justify-center py-4"
+                class="avatar-name rounded-full w-full flex item-center justify-center py-4"
               >
-                <p class="text-2xl font-semibold text-red-800">AM</p>
+                <p
+                  class="flex items-center"
+                  :class="[value.text_color, value.font_width, value.font_size]"
+                >
+                  {{ value.badge_text }}
+                </p>
               </div>
             </div>
           </div>
         </div>
         <div class="toolbar">
-          <editBadge v-on:card-values="getCardValue($event)" />
+          <editBadge v-on:badge-values="getBadgeValue($event)" />
         </div>
       </div>
     </div>
@@ -31,20 +46,15 @@
 </template>
 
 <script>
-import Toolsbar from "../../components/Toolsbar.vue";
-
 export default {
   data() {
     return {
       value: "",
-      button_text: "Create account",
     };
   },
-  components: { Toolsbar },
   methods: {
-    getCardValue(values) {
+    getBadgeValue(values) {
       this.value = values;
-      this.button_text = values.button_text;
     },
   },
 };

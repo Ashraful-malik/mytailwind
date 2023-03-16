@@ -1,17 +1,30 @@
 <template>
   <tabNavigation>
+    <!-- Edit tab data -->
     <section class="bg-gray-800 pt-4 w-96">
       <Tab name="Style" selected="true" id="Style">
+        <!-- options container -->
+
         <div class="pl-4 h-screen horizontal-scroll overflow-y-auto">
+          <!-- button text -->
+          <p class="text-gray-200 text-sm font-semibold mb-2">Button text</p>
+          <input
+            type="text"
+            maxlength="50"
+            placeholder="Enter your button text"
+            class="h-8 w-3/4 bg-gray-600 pl-2 text-gray-50 rounded"
+            v-model="selected_values.button_text"
+            v-on:input="sendChange"
+          />
+
           <!-- text color -->
-          <div class="text_color">
+          <div class="text_color mt-6">
             <p class="text-sm font-medium mb-2 text-gray-200">Text color</p>
             <div class="flex gap-3 w-full flex-wrap text-sm mt-4 items-center">
               <div
                 class="flex gap-3"
                 v-for="textColor in selectTextColor"
                 :key="textColor.id"
-                v-on:click="sendChange"
               >
                 <div
                   :class="textColor.color"
@@ -28,6 +41,12 @@
                   @click="() => TextPopup('TextColorTrigger')"
                   v-on:click="sendChange"
                 >
+                  <unicon
+                    name="plus"
+                    fill="white"
+                    width="20"
+                    class="mr-2"
+                  ></unicon>
                   <p class="text-center">More Colors</p>
                 </button>
 
@@ -68,6 +87,12 @@
                   @click="() => bgPopup('bgColorTrigger')"
                   v-on:click="sendChange"
                 >
+                  <unicon
+                    name="plus"
+                    fill="white"
+                    width="20"
+                    class="mr-2"
+                  ></unicon>
                   <p class="text-center">More Colors</p>
                 </button>
 
@@ -81,22 +106,19 @@
               </div>
             </div>
           </div>
-
-          <!-- justify Spacing -->
+          <!-- border radius -->
           <div class="border_radius mt-6">
-            <p class="text-sm font-medium mb-2 text-gray-200">
-              Justify Spacing
-            </p>
+            <p class="text-sm font-medium mb-2 text-gray-200">Border radius</p>
             <div class="flex gap-3 w-full flex-wrap text-sm mt-4 items-center">
               <div
-                v-for="justifySpacing in selectJustifySpacing"
-                :key="justifySpacing.id"
+                v-for="borderRadius in selectBorderRadius"
+                :key="borderRadius.id"
               >
                 <div
                   class="px-3 py-1 text-center border cursor-pointer border-blue-500 rounded-md bg-gray-700"
-                  @click="getJustifySpacing(justifySpacing.value)"
+                  @click="getBorderRadius(borderRadius.value)"
                 >
-                  <p class="text-white">{{ justifySpacing.value }}</p>
+                  <p class="text-white">{{ borderRadius.value }}</p>
                 </div>
               </div>
             </div>
@@ -127,10 +149,22 @@
                   :class="fontWeight.value"
                   class="p-2 border border-blue-400 text-gray-50 rounded-lg text-xl font-light cursor-pointer"
                   @click="getFontWeight(fontWeight.value)"
-                  v-on:click="sendChange"
                 >
                   {{ fontWeight.text }}
                 </div>
+              </div>
+            </div>
+          </div>
+          <!-- box shadow -->
+          <div class="box_shadow mt-6">
+            <p class="text-sm font-medium mb-2 text-gray-200">Box shadow</p>
+            <div class="flex gap-3 w-full flex-wrap text-sm mt-4 items-center">
+              <div v-for="boxShadow in selectBoxShadow" :key="boxShadow.id">
+                <div
+                  class="rounded-md w-10 h-10 bg-gray-200 cursor-pointer"
+                  @click="getBoxShadow(boxShadow.value)"
+                  :class="boxShadow.value"
+                ></div>
               </div>
             </div>
           </div>
@@ -141,74 +175,35 @@
     <section class="bg-gray-800 w-96">
       <Tab name="Size" id="Size">
         <div class="pl-4 h-screen horizontal-scroll overflow-y-auto">
-          <div class="size">
-            <p class="text-sm font-medium text-gray-200">Size</p>
+          <div class="padding relative">
+            <p class="text-sm font-medium text-gray-200">Padding</p>
 
             <div class="flex flex-wrap gap-3 mt-4">
-              <div class="width">
-                <p class="text-sm font-normal text-gray-400 mb-2">width</p>
+              <div class="padding_x">
+                <p class="text-sm font-normal text-gray-400 mb-2">px</p>
                 <div class="w-32 text-xs">
                   <v-select
                     label="countryName"
-                    :options="width"
-                    v-model="selected_values.width"
+                    :options="padding_x"
+                    v-model="selected_values.padding_x"
                     v-on:input="sendChange"
                     class="bg-gray-700"
                   ></v-select>
                 </div>
               </div>
-              <div class="height">
-                <p class="text-sm font-normal text-gray-400 mb-2">height</p>
+              <div class="padding_y">
+                <p class="text-sm font-normal text-gray-400 mb-2">py</p>
                 <div class="w-32 text-xs">
                   <v-select
                     label="countryName"
-                    :options="height"
-                    v-model="selected_values.height"
-                    v-on:input="sendChange"
-                    class="bg-gray-700"
-                  ></v-select>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- padding -->
-          <div class="spacing mt-6 relative">
-            <div class="flex flex-wrap gap-3 mt-4">
-              <div class="padding">
-                <p class="text-sm font-medium text-gray-200">padding</p>
-                <div class="padding">
-                  <p class="text-sm font-normal text-gray-400 mb-2 mt-4">
-                    padding
-                  </p>
-                  <div class="w-32 text-xs">
-                    <v-select
-                      label="countryName"
-                      :options="padding"
-                      v-model="selected_values.padding"
-                      v-on:input="sendChange"
-                      class="bg-gray-700"
-                    ></v-select>
-                  </div>
-                </div>
-              </div>
-              <div class="margin">
-                <p class="text-sm font-medium text-gray-200">Margin</p>
-                <p class="text-sm font-normal text-gray-400 mb-2 mt-4">
-                  m-right
-                </p>
-                <div class="w-32 text-xs">
-                  <v-select
-                    label="countryName"
-                    :options="margin_right"
-                    v-model="selected_values.margin_right"
+                    :options="padding_y"
+                    v-model="selected_values.padding_y"
                     v-on:input="sendChange"
                   ></v-select>
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- margin -->
         </div>
       </Tab>
     </section>
@@ -242,15 +237,16 @@ export default {
       // dropdown selected value
 
       selected_values: {
-        width: "",
-        height: "",
+        button_text: "Create account",
         text_color: "text-white",
-        padding: "p-4",
-        margin_right: "mr-8",
-        background_color: "bg-gray-900",
-        justify_spacing: "justify-between",
+        padding_x: "px-4",
+        padding_y: "py-3",
+
+        background_color: "bg-blue-500",
+        border_radius: "rounded-md",
         font_size: "text-base",
-        font_width: "font-normal",
+        font_width: "font-medium",
+        box_shadow: "shadow-md",
       },
 
       selectTextColor: [
@@ -289,13 +285,12 @@ export default {
         { text: "Aa", value: "font-semibold", id: 4 },
         { text: "Aa", value: "font-bold", id: 5 },
       ],
-      selectJustifySpacing: [
-        { value: "justify-center", id: 1 },
-        { value: "justify-between", id: 2 },
-        { value: "justify-around", id: 3 },
-        { value: "justify-evenly", id: 4 },
-        { value: "justify-start", id: 5 },
-        { value: "justify-end", id: 6 },
+      selectBoxShadow: [
+        { value: "shadow-none", id: 1 },
+        { value: "shadow-md", id: 2 },
+        { value: "shadow-lg", id: 3 },
+        { value: "shadow-xl", id: 4 },
+        { value: "shadow-2xl", id: 5 },
       ],
 
       //Text color
@@ -374,145 +369,69 @@ export default {
         { color: "bg-pink-900", value: "text-pink-900", id: 90 },
       ],
 
-      // dropdown padding values
-      width: [
-        "w-0",
-        "w-full",
-        "w-screen",
-        "w-min",
-        "w-max",
-        "w-fit",
-        "w-max",
-        "w-0.5",
-        "w-1",
-        "w-1.5",
-        "w-2",
-        "w-2.5",
-        "w-3",
-        "w-3.5",
-        "w-4",
-        "w-5",
-        "w-6",
-        "w-7",
-        "w-8",
-        "w-9",
-        "w-10",
-        "w-11",
-        "w-12",
-        "w-14",
-        "w-16",
-        "w-20",
-        "w-24",
-        "w-28",
-        "w-32",
-        "w-36",
-        "w-40",
-        "w-44",
-        "w-48",
-        "w-52",
-        "w-56",
-        "w-60",
-        "w-64",
-        "w-72",
-        "w-80",
-        "w-96",
+      padding_x: [
+        "px-0",
+        "px-1",
+        "px-2",
+        "px-3",
+        "px-4",
+        "px-5",
+        "px-6",
+        "px-7",
+        "px-8",
+        "px-9",
+        "px-10",
+        "px-11",
+        "px-12",
+        "px-14",
+        "px-16",
+        "px-20",
+        "px-24",
+        "px-28",
+        "px-32",
+        "px-36",
+        "px-40",
+        "px-44",
+        "px-48",
+        "px-52",
+        "px-56",
+        "px-60",
+        "px-64",
+        "px-72",
+        "px-80",
+        "px-96",
       ],
-      height: [
-        "h-0",
-        "h-3",
-        "h-3.5",
-        "h-4",
-        "h-5",
-        "h-6",
-        "h-7",
-        "h-8",
-        "h-9",
-        "h-10",
-        "h-11",
-        "h-12",
-        "h-14",
-        "h-16",
-        "h-20",
-        "h-24",
-        "h-28",
-        "h-32",
-        "h-36",
-        "h-40",
-        "h-44",
-        "h-48",
-        "h-52",
-        "h-56",
-        "h-60",
-        "h-64",
-        "h-72",
-        "h-80",
-        "h-96",
-      ],
-
-      padding: [
-        "p-0",
-        "p-1",
-        "p-2",
-        "p-3",
-        "p-4",
-        "p-5",
-        "p-6",
-        "p-7",
-        "p-8",
-        "p-9",
-        "p-10",
-        "p-11",
-        "p-12",
-        "p-14",
-        "p-16",
-        "p-20",
-        "p-24",
-        "p-28",
-        "p-32",
-        "p-36",
-        "p-40",
-        "p-44",
-        "p-48",
-        "p-52",
-        "p-56",
-        "p-60",
-        "p-64",
-        "p-72",
-        "p-80",
-        "p-96",
-      ],
-
-      margin_right: [
-        "mr-0",
-        "mr-1",
-        "mr-2",
-        "mr-3",
-        "mr-4",
-        "mr-5",
-        "mr-6",
-        "mr-7",
-        "mr-8",
-        "mr-9",
-        "mr-10",
-        "mr-11",
-        "mr-12",
-        "mr-14",
-        "mr-16",
-        "mr-20",
-        "mr-24",
-        "mr-28",
-        "mr-32",
-        "mr-36",
-        "mr-40",
-        "mr-44",
-        "mr-48",
-        "mr-52",
-        "mr-56",
-        "mr-60",
-        "mr-64",
-        "mr-72",
-        "mr-80",
-        "mr-96",
+      padding_y: [
+        "py-0",
+        "py-1",
+        "py-2",
+        "py-3",
+        "py-4",
+        "py-5",
+        "py-6",
+        "py-7",
+        "py-8",
+        "py-9",
+        "py-10",
+        "py-11",
+        "py-12",
+        "py-14",
+        "py-16",
+        "py-20",
+        "py-24",
+        "py-28",
+        "py-32",
+        "py-36",
+        "py-40",
+        "py-44",
+        "py-48",
+        "py-52",
+        "py-56",
+        "py-60",
+        "py-64",
+        "py-72",
+        "py-80",
+        "py-96",
       ],
     };
   },
@@ -520,7 +439,7 @@ export default {
   // sending data to parent components
   methods: {
     sendChange() {
-      this.$emit("navbar-value", this.selected_values);
+      this.$emit("button-value", this.selected_values);
     },
     getTextColor(value) {
       this.selected_values.text_color = value;
@@ -528,10 +447,12 @@ export default {
     getBackgroundColor(value) {
       this.selected_values.background_color = value;
     },
-    getJustifySpacing(value) {
-      this.selected_values.justify_spacing = value;
+    getBorderRadius(value) {
+      this.selected_values.border_radius = value;
     },
-
+    getBoxShadow(value) {
+      this.selected_values.box_shadow = value;
+    },
     getFontSize(value) {
       this.selected_values.font_size = value;
     },
@@ -541,7 +462,7 @@ export default {
   },
   mounted() {
     try {
-      this.$emit("navbar-value", this.selected_values);
+      this.$emit("button-value", this.selected_values);
     } catch (error) {
       console.log(error);
     }

@@ -18,8 +18,7 @@
             <div
               class="title text-lg pt-11 flex text-center items-center ml-5 font-medium sticky"
             >
-              <unicon name="apps" fill="white" width="20" class="mr-2"></unicon
-              >Components
+              Components
             </div>
             <ul class="mt-5 ml-12">
               <li

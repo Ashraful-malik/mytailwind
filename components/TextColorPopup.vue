@@ -1,6 +1,6 @@
 <template>
   <div class="popup">
-    <div v-if="TogglePopup">
+    <div v-if="TextPopup">
       <div class="popup-inner bg-red-600s">
         <div
           class="flex items-center justify-between text-center bg-gray-900 mb-2 p-2 rounded-tr-xl rounded-tl-xl"
@@ -9,7 +9,7 @@
 
           <p
             class="text-lg mr-2 text-red-600 cursor-pointer px-2 rounded-lg hover:bg-red-300"
-            @click="TogglePopup()"
+            @click="TextPopup()"
           >
             <span> &#10005; </span>
           </p>
@@ -22,7 +22,7 @@
             :key="index"
             @click="
               getValue(colors.value);
-              TogglePopup();
+              TextPopup();
             "
           >
             <div
@@ -53,7 +53,7 @@
             class="color"
             v-for="(colors, index) in textColor"
             :key="index"
-            @click="CardContentPopup(), getCardContentColor(colors.value)"
+            @click="[CardContentPopup(), getCardContentColor(colors.value)]"
           >
             <div
               class="p-3 rounded-full cursor-pointer border border-gray-600"
@@ -83,7 +83,7 @@
             class="color"
             v-for="(colors, index) in textColor"
             :key="index"
-            @click="subTitlePopup(), getSubtitleColor(colors.value)"
+            @click="[subTitlePopup(), getSubtitleColor(colors.value)]"
           >
             <div
               class="p-3 rounded-full cursor-pointer border border-gray-600"
@@ -113,7 +113,7 @@
             class="color"
             v-for="(colors, index) in textColor"
             :key="index"
-            @click="buttonColorPopup(), getButtonColor(colors.value)"
+            @click="[buttonColorPopup(), getButtonColor(colors.value)]"
           >
             <div
               class="p-3 rounded-full cursor-pointer border border-gray-600"
@@ -123,7 +123,7 @@
         </div>
       </div>
     </div>
-    <div v-else-if="hoverTextPopup">
+    <div v-else-if="buttonTextColorPopup">
       <div class="popup-inner bg-red-600s">
         <div
           class="flex items-center justify-between text-center bg-gray-900 mb-2 p-2 rounded-tr-xl rounded-tl-xl"
@@ -132,7 +132,7 @@
 
           <p
             class="text-lg mr-2 text-red-600 cursor-pointer px-2 rounded-lg hover:bg-red-300"
-            @click="hoverTextPopup()"
+            @click="buttonTextColorPopup()"
           >
             <span> &#10005; </span>
           </p>
@@ -143,7 +143,7 @@
             class="color"
             v-for="(colors, index) in textColor"
             :key="index"
-            @click="hoverTextPopup(), getHoverTextColor(colors.value)"
+            @click="[buttonTextColorPopup(), getButtonTextColor(colors.value)]"
           >
             <div
               class="p-3 rounded-full cursor-pointer border border-gray-600"
@@ -165,12 +165,13 @@ export default {
   },
 
   props: [
-    "TogglePopup",
-    "text-color",
+    "TextPopup",
+    "text-color", // we are getting text color
     "CardContentPopup",
     "subTitlePopup",
     "buttonColorPopup",
     "hoverTextPopup",
+    "buttonTextColorPopup",
   ],
 
   methods: {
@@ -188,6 +189,9 @@ export default {
     },
     getHoverTextColor(value) {
       this.$emit("hover-text-color", value);
+    },
+    getButtonTextColor(value) {
+      this.$emit("button-text-color", value);
     },
   },
 };

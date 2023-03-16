@@ -8,13 +8,31 @@
         </div>
         <div class="chips">
           <div class="flex items-center justify-center p-4 w-full h-4/5">
-            <div class="chip px-3 py-1 border rounded-full border-gray-300">
-              <p class="text-center">Suggestion</p>
+            <!-- chips start form here -->
+            <div
+              class="chip text-center"
+              :class="[
+                value.text_color,
+                value.background_color,
+                value.border_color,
+                value.border_width,
+                value.box_shadow,
+                value.border_radius,
+                value.padding_x,
+                value.padding_y,
+              ]"
+            >
+              <p
+                class="text-center"
+                :class="[value.font_width, value.font_size]"
+              >
+                {{ value.chip_text }}
+              </p>
             </div>
           </div>
         </div>
         <div class="toolbar">
-          <editChip v-on:card-values="getCardValue($event)" />
+          <editChip v-on:chip-values="getChipValue($event)" />
         </div>
       </div>
     </div>
@@ -22,20 +40,15 @@
 </template>
 
 <script>
-import Toolsbar from "../../components/Toolsbar.vue";
-
 export default {
   data() {
     return {
       value: "",
-      button_text: "Create account",
     };
   },
-  components: { Toolsbar },
   methods: {
-    getCardValue(values) {
+    getChipValue(values) {
       this.value = values;
-      this.button_text = values.button_text;
     },
   },
 };
