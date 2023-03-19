@@ -44,3 +44,18 @@
 .vs__open-indicator {
   fill: #94a3b8 !important;
 }
+
+/* custom scroll bar */
+#custom_scrollbar::-webkit-scrollbar-thumb {
+  background: #878787;
+  border-radius: 8px;
+}
+
+#custom_scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #737373;
+}
+#custom_scrollbar::-webkit-scrollbar {
+  width: 8px;
+  background-color: #e2e2e2;
+  border-radius: 8px;
+}

@@ -13,8 +13,8 @@
       </div>
       <!-- menu close -->
       <aside :class="{ active: active }">
-        <div class="navbar w-56 max-w-xs relative h-screen rounded-br-3xl">
-          <div class="overflow-auto bg-gray-100 h-full rounded-br-3xl">
+        <div class="navbar w-56 max-w-xs relative h-full">
+          <div class="overflow-auto bg-gray-100 h-full">
             <div
               class="title text-lg pt-11 flex text-center items-center ml-5 font-medium sticky"
             >

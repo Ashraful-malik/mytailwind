@@ -5,8 +5,8 @@
         class="w-11/12 m-auto flex items-center justify-between h-16 flex-wrap"
       >
         <div class="logo">
-          <a href="#" class="flex items-center">
-            <img src="@/assets/images/Logo.svg" alt="Logo" class="w-8" />
+          <a href="#" class="flex items-center bg-red-200">
+            <img src="@/assets/images/Logo.svg" alt="Logo" class="w-30" />
             <p class="text-xl ml-2 font-bold">Mytailwind</p>
           </a>
         </div>

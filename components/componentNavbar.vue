@@ -6,7 +6,7 @@
       >
         <div class="logo">
           <a href="#" class="flex items-center">
-            <img src="@/assets/images/Logo.svg" alt="Logo" class="w-5" />
+            <img src="@/assets/images/Logo.svg" alt="Logo" class="w-8" />
             <p class="text-xl ml-2 font-bold text-white">Mytailwind</p>
           </a>
         </div>

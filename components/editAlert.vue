@@ -3,7 +3,10 @@
     <section class="bg-gray-800 w-96">
       <!-- Edit tab data -->
       <Tab name="Edit" selected="true" id="Edit">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
+        <div
+          class="pl-4 h-screen overflow-y-auto pt-4 container_height"
+          id="style-1"
+        >
           <!-- Card content textarea -->
           <div class="">
             <p class="text-gray-200 text-sm font-medium mb-2">Alert text</p>
@@ -12,19 +15,22 @@
               name="card-content"
               cols="5"
               rows="5"
+              maxlength="80"
               placeholder="Alert Message..."
               v-model="selected_values.alert_message"
               class="w-3/4 bg-gray-600 pl-2 text-gray-50 rounded"
             ></textarea>
           </div>
-          <div class="mb-4"></div>
         </div>
       </Tab>
     </section>
 
     <section class="tab2">
       <Tab name="Style" id="Style">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
+        <div
+          class="pl-4 h-screen overflow-y-auto pt-4 container_height"
+          id="style-1"
+        >
           <!-- text color -->
           <div class="text_color">
             <p class="text-sm font-medium mb-2 text-gray-200">Text color</p>
@@ -113,7 +119,7 @@
                   Border width
                 </p>
               </div>
-              <div class="flex gap-3 w-full flex-wrap text-sm items-center">
+              <div class="flex gap-3 w-11/12 flex-wrap text-sm items-center">
                 <div
                   v-for="borderWidth in selectBorderWidth"
                   :key="borderWidth.id"
@@ -134,7 +140,7 @@
                   Border color
                 </p>
               </div>
-              <div class="flex gap-3 w-full flex-wrap text-sm items-center">
+              <div class="flex gap-3 w-11/12 flex-wrap text-sm items-center">
                 <div
                   v-for="borderColor in selectBorderColor"
                   :key="borderColor.id"
@@ -222,7 +228,7 @@
             </div>
           </div>
           <!-- box shadow -->
-          <div class="box_shadow mt-6 mb-8">
+          <div class="box_shadow mt-6 mb-32">
             <p class="text-sm font-medium mb-2 text-gray-200">Box shadow</p>
             <div class="flex gap-3 w-full flex-wrap text-sm mt-4 items-center">
               <div v-for="boxShadow in selectBoxShadow" :key="boxShadow.id">
@@ -234,6 +240,7 @@
               </div>
             </div>
           </div>
+          <!-- <div class="mb-16"></div> -->
         </div>
       </Tab>
     </section>
@@ -572,46 +579,17 @@ export default {
 </script>
 
 <style scoped>
-.border {
-  /* width: 10px; */
-  height: 0.2;
+.container_height::-webkit-scrollbar-thumb {
+  background: #878787;
+  border-radius: 8px;
 }
 
-.after {
-  position: relative;
+#style-1::-webkit-scrollbar-thumb:hover {
+  background: #737373;
 }
-.after::after {
-  content: "";
-  position: absolute;
-  width: 335px;
-  height: 1px;
-  left: -8px;
-  right: 0;
-  background: rgb(242, 242, 242);
-  bottom: -1rem;
-}
-.snap-inline {
-  scroll-snap-type: inline mandatory;
-}
-.snap-inline > * {
-  scroll-snap-align: start;
-}
-.horizontal-scroll ::-webkit-scrollbar {
-  width: 10px;
-  height: 0.5em;
-  margin-top: 1rem;
-}
-.horizontal-scroll ::-webkit-scrollbar-track {
-  background: rgb(240, 240, 240);
-  border-radius: 100vw;
-}
-.horizontal-scroll ::-webkit-scrollbar-thumb {
-  background: rgb(227, 227, 227);
-  width: 0.2rem;
-  border-radius: 100vw;
-}
-input:focus,
-textarea:focus {
-  outline: 2px solid rgba(96, 165, 250);
+#style-1::-webkit-scrollbar {
+  width: 8px;
+  background-color: #e2e2e2;
+  border-radius: 8px;
 }
 </style>

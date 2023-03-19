@@ -2,7 +2,7 @@
   <tabNavigation>
     <section class="tab_2">
       <Tab name="Style" id="Style" selected="true">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
+        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4" id="custom_scrollbar">
           <!-- text color -->
           <div class="text_color">
             <p class="text-sm font-medium mb-2 text-gray-200">Text color</p>
@@ -76,6 +76,49 @@
                   :bgPopup="() => bgPopup('bgColorTrigger')"
                   :background-color="colors"
                   v-on:popup-value="getBackgroundColor($event)"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- input placeholder color -->
+          <div class="background_color mt-6">
+            <p class="text-sm font-medium mb-2 text-gray-200">
+              Input placeholder color
+            </p>
+            <div class="flex gap-3 w-full flex-wrap text-sm mt-4 items-center">
+              <div
+                class="flex gap-3"
+                v-for="placeholderColor in selectPlaceholderColor"
+                :key="placeholderColor.id"
+              >
+                <div
+                  :class="placeholderColor.color"
+                  class="p-3 rounded-full cursor-pointer border-gray-400"
+                  @click="
+                    getPlaceholderColor(placeholderColor.placeholderColor)
+                  "
+                  v-on:click="sendChange"
+                ></div>
+              </div>
+              <div class="color_selector flex items-center">
+                <button
+                  type="button"
+                  value="1"
+                  class="bg-blue-500 px-3 py-1 text-white rounded-full flex items-center content-center text-center"
+                  @click="() => placeholderPopup('placeholderColorTrigger')"
+                  v-on:click="sendChange"
+                >
+                  <p class="text-center">More Colors</p>
+                </button>
+
+                <!-- sending data in bgColor popup component-->
+                <placeholderColorPopup
+                  v-if="popupTriggers.placeholderColorTrigger"
+                  :placeholderPopup="
+                    () => placeholderPopup('placeholderColorTrigger')
+                  "
+                  :placeholder-color="colors"
+                  v-on:placeholder-value="getPlaceholderColor($event)"
                 />
               </div>
             </div>
@@ -283,6 +326,7 @@ export default {
       TextColorTrigger: false,
       bgColorTrigger: false,
       borderColorTrigger: false,
+      placeholderColorTrigger: false,
     });
     const TextPopup = (trigger) => {
       popupTriggers.value[trigger] = !popupTriggers.value[trigger];
@@ -293,12 +337,16 @@ export default {
     const borderColorPopup = (trigger) => {
       popupTriggers.value[trigger] = !popupTriggers.value[trigger];
     };
+    const placeholderPopup = (trigger) => {
+      popupTriggers.value[trigger] = !popupTriggers.value[trigger];
+    };
 
     return {
       popupTriggers,
       TextPopup,
       bgPopup,
       borderColorPopup,
+      placeholderPopup,
     };
   },
   data() {
@@ -317,6 +365,7 @@ export default {
         box_shadow: "",
         border_width: "border",
         border_color: "",
+        placeholder_color: "",
       },
 
       selectTextColor: [
@@ -332,6 +381,13 @@ export default {
         { color: "bg-gray-900", id: 3 },
         { color: "bg-yellow-400", id: 4 },
         { color: "bg-green-500", id: 5 },
+      ],
+      selectPlaceholderColor: [
+        { color: "bg-indigo-500", placeholderColor: "indigo-500", id: 1 },
+        { color: "bg-white", placeholderColor: "white", id: 2 },
+        { color: "bg-gray-900", placeholderColor: "gray-900", id: 3 },
+        { color: "bg-yellow-400", placeholderColor: "yellow-400", id: 4 },
+        { color: "bg-green-500", placeholderColor: "green-500", id: 5 },
       ],
       selectBorderColor: [
         { color: "border-pink-600", id: 1 },
@@ -381,82 +437,462 @@ export default {
 
       //Text color
       colors: [
-        { color: "bg-current", value: "text-current", id: 1 },
-        { color: "bg-white", value: "text-white", id: 2 },
-        { color: "bg-black", value: "text-black", id: 3 },
-        { color: "bg-gray-50", value: "text-gray-50", id: 4 },
-        { color: "bg-gray-100", value: "text-gray-100", id: 5 },
-        { color: "bg-gray-200", value: "text-gray-200", id: 6 },
-        { color: "bg-gray-300", value: "text-gray-300", id: 7 },
-        { color: "bg-gray-400", value: "text-gray-400", id: 8 },
-        { color: "bg-gray-500", value: "text-gray-500", id: 9 },
-        { color: "bg-gray-600", value: "text-gray-600", id: 10 },
-        { color: "bg-gray-700", value: "text-gray-700", id: 11 },
-        { color: "bg-gray-800", value: "text-gray-800", id: 12 },
-        { color: "bg-gray-900", value: "text-gray-900", id: 13 },
-        { color: "bg-red-100", value: "text-red-100", id: 14 },
-        { color: "bg-red-200", value: "text-red-200", id: 15 },
-        { color: "bg-red-300", value: "text-red-300", id: 16 },
-        { color: "bg-red-400", value: "text-red-400", id: 17 },
-        { color: "bg-red-500", value: "text-red-500", id: 18 },
-        { color: "bg-red-600", value: "text-red-600", id: 19 },
-        { color: "bg-red-700", value: "text-red-700", id: 20 },
-        { color: "bg-red-800", value: "text-red-800", id: 21 },
-        { color: "bg-red-900", value: "text-red-900", id: 22 },
-        { color: "bg-yellow-100", value: "text-yellow-100", id: 23 },
-        { color: "bg-yellow-200", value: "text-yellow-200", id: 24 },
-        { color: "bg-yellow-300", value: "text-yellow-300", id: 25 },
-        { color: "bg-yellow-400", value: "text-yellow-400", id: 26 },
-        { color: "bg-yellow-500", value: "text-yellow-500", id: 27 },
-        { color: "bg-yellow-600", value: "text-yellow-600", id: 28 },
-        { color: "bg-yellow-700", value: "text-yellow-700", id: 29 },
-        { color: "bg-yellow-800", value: "text-yellow-800", id: 30 },
-        { color: "bg-yellow-900", value: "text-yellow-900", id: 31 },
-        { color: "bg-green-100", value: "text-green-100", id: 32 },
-        { color: "bg-green-200", value: "text-green-200", id: 33 },
-        { color: "bg-green-300", value: "text-green-300", id: 34 },
-        { color: "bg-green-400", value: "text-green-400", id: 35 },
-        { color: "bg-green-500", value: "text-green-500", id: 36 },
-        { color: "bg-green-600", value: "text-green-600", id: 37 },
-        { color: "bg-green-700", value: "text-green-700", id: 38 },
-        { color: "bg-green-800", value: "text-green-800", id: 39 },
-        { color: "bg-green-900", value: "text-green-900", id: 40 },
-        { color: "bg-blue-100", value: "text-blue-100", id: 41 },
-        { color: "bg-blue-200", value: "text-blue-200", id: 42 },
-        { color: "bg-blue-300", value: "text-blue-300", id: 42 },
-        { color: "bg-blue-400", value: "text-blue-400", id: 44 },
-        { color: "bg-blue-500", value: "text-blue-500", id: 45 },
-        { color: "bg-blue-600", value: "text-blue-600", id: 46 },
-        { color: "bg-blue-700", value: "text-blue-700", id: 47 },
-        { color: "bg-blue-800", value: "text-blue-800", id: 48 },
-        { color: "bg-blue-900", value: "text-blue-900", id: 49 },
-        { color: "bg-indigo-100", value: "text-indigo-100", id: 50 },
-        { color: "bg-indigo-200", value: "text-indigo-200", id: 51 },
-        { color: "bg-indigo-300", value: "text-indigo-300", id: 52 },
-        { color: "bg-indigo-400", value: "text-indigo-400", id: 53 },
-        { color: "bg-indigo-500", value: "text-indigo-500", id: 54 },
-        { color: "bg-indigo-600", value: "text-indigo-600", id: 55 },
-        { color: "bg-indigo-700", value: "text-indigo-700", id: 56 },
-        { color: "bg-indigo-800", value: "text-indigo-800", id: 57 },
-        { color: "bg-indigo-900", value: "text-indigo-900", id: 58 },
-        { color: "bg-purple-100", value: "text-purple-100", id: 59 },
-        { color: "bg-purple-200", value: "text-purple-200", id: 60 },
-        { color: "bg-purple-300", value: "text-purple-300", id: 61 },
-        { color: "bg-purple-400", value: "text-purple-400", id: 62 },
-        { color: "bg-purple-500", value: "text-purple-500", id: 63 },
-        { color: "bg-purple-600", value: "text-purple-600", id: 64 },
-        { color: "bg-purple-700", value: "text-purple-700", id: 65 },
-        { color: "bg-purple-800", value: "text-purple-800", id: 66 },
-        { color: "bg-purple-900", value: "text-purple-900", id: 67 },
-        { color: "bg-pink-100", value: "text-pink-100", id: 68 },
-        { color: "bg-pink-200", value: "text-pink-200", id: 69 },
-        { color: "bg-pink-300", value: "text-pink-300", id: 70 },
-        { color: "bg-pink-400", value: "text-pink-400", id: 71 },
-        { color: "bg-pink-500", value: "text-pink-500", id: 72 },
-        { color: "bg-pink-600", value: "text-pink-600", id: 73 },
-        { color: "bg-pink-700", value: "text-pink-700", id: 74 },
-        { color: "bg-pink-800", value: "text-pink-800", id: 75 },
-        { color: "bg-pink-900", value: "text-pink-900", id: 76 },
+        {
+          color: "bg-current", //this is background color value
+          value: "text-current", //value is use in text color
+          id: 1,
+          placeholderColor: "current",
+        },
+        {
+          color: "bg-white",
+          value: "text-white",
+          id: 2,
+          placeholderColor: "white",
+        },
+        {
+          color: "bg-black",
+          value: "text-black",
+          id: 3,
+          placeholderColor: "black",
+        },
+        {
+          color: "bg-gray-50",
+          value: "text-gray-50",
+          id: 4,
+          placeholderColor: "gray-50",
+        },
+        {
+          color: "bg-gray-100",
+          value: "text-gray-100",
+          id: 5,
+          placeholderColor: "gray-100",
+        },
+        {
+          color: "bg-gray-200",
+          value: "text-gray-200",
+          id: 6,
+          placeholderColor: "gray-200",
+        },
+        {
+          color: "bg-gray-300",
+          value: "text-gray-300",
+          id: 7,
+          placeholderColor: "gray-300",
+        },
+        {
+          color: "bg-gray-400",
+          value: "text-gray-400",
+          id: 8,
+          placeholderColor: "gray-400",
+        },
+        {
+          color: "bg-gray-500",
+          value: "text-gray-500",
+          id: 9,
+          placeholderColor: "gray-500",
+        },
+        {
+          color: "bg-gray-600",
+          value: "text-gray-600",
+          id: 10,
+          placeholderColor: "gray-600",
+        },
+        {
+          color: "bg-gray-700",
+          value: "text-gray-700",
+          id: 11,
+          placeholderColor: "gray-700",
+        },
+        {
+          color: "bg-gray-800",
+          value: "text-gray-800",
+          id: 12,
+          placeholderColor: "gray-800",
+        },
+        {
+          color: "bg-gray-900",
+          value: "text-gray-900",
+          id: 13,
+          placeholderColor: "gray-900",
+        },
+        {
+          color: "bg-red-100",
+          value: "text-red-100",
+          id: 14,
+          placeholderColor: "red-100",
+        },
+        {
+          color: "bg-red-200",
+          value: "text-red-200",
+          id: 15,
+          placeholderColor: "red-200",
+        },
+        {
+          color: "bg-red-300",
+          value: "text-red-300",
+          id: 16,
+          placeholderColor: "red-300",
+        },
+        {
+          color: "bg-red-400",
+          value: "text-red-400",
+          id: 17,
+          placeholderColor: "red-400",
+        },
+        {
+          color: "bg-red-500",
+          value: "text-red-500",
+          id: 18,
+          placeholderColor: "red-500",
+        },
+        {
+          color: "bg-red-600",
+          value: "text-red-600",
+          id: 19,
+          placeholderColor: "red-600",
+        },
+        {
+          color: "bg-red-700",
+          value: "text-red-700",
+          id: 20,
+          placeholderColor: "red-700",
+        },
+        {
+          color: "bg-red-800",
+          value: "text-red-800",
+          id: 21,
+          placeholderColor: "red-800",
+        },
+        {
+          color: "bg-red-900",
+          value: "text-red-900",
+          id: 22,
+          placeholderColor: "red-900",
+        },
+        {
+          color: "bg-yellow-100",
+          value: "text-yellow-100",
+          id: 23,
+          placeholderColor: "yellow-100",
+        },
+        {
+          color: "bg-yellow-200",
+          value: "text-yellow-200",
+          id: 24,
+          placeholderColor: "yellow-200",
+        },
+        {
+          color: "bg-yellow-300",
+          value: "text-yellow-300",
+          id: 25,
+          placeholderColor: "yellow-300",
+        },
+        {
+          color: "bg-yellow-400",
+          value: "text-yellow-400",
+          id: 26,
+          placeholderColor: "yellow-400",
+        },
+        {
+          color: "bg-yellow-500",
+          value: "text-yellow-500",
+          id: 27,
+          placeholderColor: "yellow-500",
+        },
+        {
+          color: "bg-yellow-600",
+          value: "text-yellow-600",
+          id: 28,
+          placeholderColor: "yellow-600",
+        },
+        {
+          color: "bg-yellow-700",
+          value: "text-yellow-700",
+          id: 29,
+          placeholderColor: "yellow-700",
+        },
+        {
+          color: "bg-yellow-800",
+          value: "text-yellow-800",
+          id: 30,
+          placeholderColor: "yellow-800",
+        },
+        {
+          color: "bg-yellow-900",
+          value: "text-yellow-900",
+          id: 31,
+          placeholderColor: "yellow-900",
+        },
+        {
+          color: "bg-green-100",
+          value: "text-green-100",
+          id: 32,
+          placeholderColor: "green-100",
+        },
+        {
+          color: "bg-green-200",
+          value: "text-green-200",
+          id: 33,
+          placeholderColor: "green-200",
+        },
+        {
+          color: "bg-green-300",
+          value: "text-green-300",
+          id: 34,
+          placeholderColor: "green-300",
+        },
+        {
+          color: "bg-green-400",
+          value: "text-green-400",
+          id: 35,
+          placeholderColor: "green-400",
+        },
+        {
+          color: "bg-green-500",
+          value: "text-green-500",
+          id: 36,
+          placeholderColor: "green-500",
+        },
+        {
+          color: "bg-green-600",
+          value: "text-green-600",
+          id: 37,
+          placeholderColor: "green-600",
+        },
+        {
+          color: "bg-green-700",
+          value: "text-green-700",
+          id: 38,
+          placeholderColor: "green-700",
+        },
+        {
+          color: "bg-green-800",
+          value: "text-green-800",
+          id: 39,
+          placeholderColor: "green-800",
+        },
+        {
+          color: "bg-green-900",
+          value: "text-green-900",
+          id: 40,
+          placeholderColor: "green-900",
+        },
+        {
+          color: "bg-blue-100",
+          value: "text-blue-100",
+          id: 41,
+          placeholderColor: "blue-100",
+        },
+        {
+          color: "bg-blue-200",
+          value: "text-blue-200",
+          id: 42,
+          placeholderColor: "blue-200",
+        },
+        {
+          color: "bg-blue-300",
+          value: "text-blue-300",
+          id: 42,
+          placeholderColor: "blue-300",
+        },
+        {
+          color: "bg-blue-400",
+          value: "text-blue-400",
+          id: 44,
+          placeholderColor: "blue-400",
+        },
+        {
+          color: "bg-blue-500",
+          value: "text-blue-500",
+          id: 45,
+          placeholderColor: "blue-500",
+        },
+        {
+          color: "bg-blue-600",
+          value: "text-blue-600",
+          id: 46,
+          placeholderColor: "blue-600",
+        },
+        {
+          color: "bg-blue-700",
+          value: "text-blue-700",
+          id: 47,
+          placeholderColor: "blue-700",
+        },
+        {
+          color: "bg-blue-800",
+          value: "text-blue-800",
+          id: 48,
+          placeholderColor: "blue-800",
+        },
+        {
+          color: "bg-blue-900",
+          value: "text-blue-900",
+          id: 49,
+          placeholderColor: "blue-900",
+        },
+        {
+          color: "bg-indigo-100",
+          value: "text-indigo-100",
+          id: 50,
+          placeholderColor: "indigo-100",
+        },
+        {
+          color: "bg-indigo-200",
+          value: "text-indigo-200",
+          id: 51,
+          placeholderColor: "indigo-200",
+        },
+        {
+          color: "bg-indigo-300",
+          value: "text-indigo-300",
+          id: 52,
+          placeholderColor: "indigo-300",
+        },
+        {
+          color: "bg-indigo-400",
+          value: "text-indigo-400",
+          id: 53,
+          placeholderColor: "indigo-400",
+        },
+        {
+          color: "bg-indigo-500",
+          value: "text-indigo-500",
+          id: 54,
+          placeholderColor: "indigo-500",
+        },
+        {
+          color: "bg-indigo-600",
+          value: "text-indigo-600",
+          id: 55,
+          placeholderColor: "indigo-600",
+        },
+        {
+          color: "bg-indigo-700",
+          value: "text-indigo-700",
+          id: 56,
+          placeholderColor: "indigo-700",
+        },
+        {
+          color: "bg-indigo-800",
+          value: "text-indigo-800",
+          id: 57,
+          placeholderColor: "indigo-800",
+        },
+        {
+          color: "bg-indigo-900",
+          value: "text-indigo-900",
+          id: 58,
+          placeholderColor: "indigo-900",
+        },
+        {
+          color: "bg-purple-100",
+          value: "text-purple-100",
+          id: 59,
+          placeholderColor: "purple-100",
+        },
+        {
+          color: "bg-purple-200",
+          value: "text-purple-200",
+          id: 60,
+          placeholderColor: "",
+        },
+        {
+          color: "bg-purple-300",
+          value: "text-purple-300",
+          id: 61,
+          placeholderColor: "purple-300",
+        },
+        {
+          color: "bg-purple-400",
+          value: "text-purple-400",
+          id: 62,
+          placeholderColor: "purple-400",
+        },
+        {
+          color: "bg-purple-500",
+          value: "text-purple-500",
+          id: 63,
+          placeholderColor: "purple-500",
+        },
+        {
+          color: "bg-purple-600",
+          value: "text-purple-600",
+          id: 64,
+          placeholderColor: "purple-600",
+        },
+        {
+          color: "bg-purple-700",
+          value: "text-purple-700",
+          id: 65,
+          placeholderColor: "purple-700",
+        },
+        {
+          color: "bg-purple-800",
+          value: "text-purple-800",
+          id: 66,
+          placeholderColor: "purple-800",
+        },
+        {
+          color: "bg-purple-900",
+          value: "text-purple-900",
+          id: 67,
+          placeholderColor: "purple-900",
+        },
+        {
+          color: "bg-pink-100",
+          value: "text-pink-100",
+          id: 68,
+          placeholderColor: "pink-100",
+        },
+        {
+          color: "bg-pink-200",
+          value: "text-pink-200",
+          id: 69,
+          placeholderColor: "pink-200",
+        },
+        {
+          color: "bg-pink-300",
+          value: "text-pink-300",
+          id: 70,
+          placeholderColor: "pink-300",
+        },
+        {
+          color: "bg-pink-400",
+          value: "text-pink-400",
+          id: 71,
+          placeholderColor: "pink-400",
+        },
+        {
+          color: "bg-pink-500",
+          value: "text-pink-500",
+          id: 72,
+          placeholderColor: "pink-500",
+        },
+        {
+          color: "bg-pink-600",
+          value: "text-pink-600",
+          id: 73,
+          placeholderColor: "pink-600",
+        },
+        {
+          color: "bg-pink-700",
+          value: "text-pink-700",
+          id: 74,
+          placeholderColor: "pink-700",
+        },
+        {
+          color: "bg-pink-800",
+          value: "text-pink-800",
+          id: 75,
+          placeholderColor: "pink-800",
+        },
+        {
+          color: "bg-pink-900",
+          value: "text-pink-900",
+          id: 76,
+          placeholderColor: "pink-900",
+        },
       ],
       // border color
       borderColor: [
@@ -588,6 +1024,7 @@ export default {
         "w-5",
         "w-6",
         "w-8",
+        "w-9",
         "w-10",
         "w-12",
         "w-16",
@@ -612,7 +1049,7 @@ export default {
         "w-1/5",
         "w-2/5",
         "w-3/5 ",
-        "w-4/5L",
+        "w-4/5",
         "w-1/6",
         "w-2/6",
         "w-3/6",
@@ -639,17 +1076,22 @@ export default {
         "h-5",
         "h-6",
         "h-8",
+        "h-9",
         "h-10",
         "h-12",
         "h-16",
         "h-20",
+        "h-28",
         "h-24",
         "h-32",
+        "h-36",
         "h-40",
+        "h-44",
         "h-48",
+        "h-52",
         "h-56",
+        "h-60",
         "h-64",
-        "h-auto",
         "h-1/2",
         "h-1/3",
         "h-2/3",
@@ -659,23 +1101,15 @@ export default {
         "h-1/5",
         "h-2/5",
         "h-3/5 ",
-        "h-4/5L",
         "h-1/6",
         "h-2/6",
         "h-3/6",
         "h-4/6",
         "h-5/6",
-        "h-1/12",
-        "h-2/12",
-        "h-3/12",
-        "h-4/12",
-        "h-5/12",
-        "h-6/12",
-        "h-7/12",
-        "h-8/12",
-        "h-9/12",
-        "h-10/12",
-        "h-11/12",
+        "h-auto",
+        "h-min",
+        "h-max",
+        "h-fit",
       ],
       padding: [
         "p-0",
@@ -741,6 +1175,9 @@ export default {
     getBorderColor(value) {
       this.selected_values.border_color = value;
     },
+    getPlaceholderColor(value) {
+      this.selected_values.placeholder_color = value;
+    },
   },
   mounted() {
     try {
@@ -753,24 +1190,6 @@ export default {
 </script>
 
 <style scoped>
-.border {
-  /* width: 10px; */
-  height: 0.2;
-}
-
-.after {
-  position: relative;
-}
-.after::after {
-  content: "";
-  position: absolute;
-  width: 335px;
-  height: 1px;
-  left: -8px;
-  right: 0;
-  background: rgb(242, 242, 242);
-  bottom: -1rem;
-}
 .snap-inline {
   scroll-snap-type: inline mandatory;
 }
@@ -791,8 +1210,5 @@ export default {
   width: 0.2rem;
   border-radius: 100vw;
 }
-input:focus,
-textarea:focus {
-  outline: 2px solid rgba(96, 165, 250);
-}
+
 </style>

@@ -22,7 +22,10 @@
 
     <section class="tab2">
       <Tab name="Style" id="Style" selected="true">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
+        <div
+          class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4"
+          id="custom_scrollbar"
+        >
           <!-- text color -->
           <div class="text_color">
             <p class="text-sm font-medium mb-2 text-gray-200">Text color</p>
@@ -66,7 +69,7 @@
             <p class="text-sm font-medium mb-2 text-gray-200">
               Background color
             </p>
-            <div class="flex gap-3 w-full flex-wrap text-sm mt-4 items-center">
+            <div class="flex gap-3 w-11/12 flex-wrap text-sm mt-4 items-center">
               <div
                 class="flex gap-3"
                 v-for="backgroundColor in selectBackgroundColor"
@@ -155,7 +158,7 @@
                   Border width
                 </p>
               </div>
-              <div class="flex gap-3 w-full flex-wrap text-sm items-center">
+              <div class="flex gap-3 w-11/12 flex-wrap text-sm items-center">
                 <div
                   v-for="borderWidth in selectBorderWidth"
                   :key="borderWidth.id"
@@ -176,7 +179,7 @@
                   Border color
                 </p>
               </div>
-              <div class="flex gap-3 w-full flex-wrap text-sm items-center">
+              <div class="flex gap-3 w-11/12 flex-wrap text-sm items-center">
                 <div
                   v-for="borderColor in selectBorderColor"
                   :key="borderColor.id"
@@ -264,7 +267,7 @@
             </div>
           </div>
           <!-- box shadow -->
-          <div class="box_shadow mt-6 mb-8">
+          <div class="box_shadow mt-6 mb-24 ">
             <p class="text-sm font-medium mb-2 text-gray-200">Box shadow</p>
             <div class="flex gap-3 w-full flex-wrap text-sm mt-4 items-center">
               <div v-for="boxShadow in selectBoxShadow" :key="boxShadow.id">
@@ -728,30 +731,6 @@ export default {
 </script>
 
 <style scoped>
-.border {
-  /* width: 10px; */
-  height: 0.2;
-}
-
-.after {
-  position: relative;
-}
-.after::after {
-  content: "";
-  position: absolute;
-  width: 335px;
-  height: 1px;
-  left: -8px;
-  right: 0;
-  background: rgb(242, 242, 242);
-  bottom: -1rem;
-}
-.snap-inline {
-  scroll-snap-type: inline mandatory;
-}
-.snap-inline > * {
-  scroll-snap-align: start;
-}
 .horizontal-scroll ::-webkit-scrollbar {
   width: 10px;
   height: 0.5em;

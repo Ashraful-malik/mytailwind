@@ -3,7 +3,7 @@
     <section class="bg-gray-800 w-96">
       <!-- Edit tab data -->
       <Tab name="Edit" selected="true" id="Edit">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
+        <div class="pl-4 h-screen overflow-y-auto pt-4">
           <!-- button text -->
 
           <p class="text-gray-200 text-sm font-medium mb-2">Button text</p>
@@ -74,7 +74,10 @@
 
     <section class="tab2">
       <Tab name="Style" id="Style">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
+        <div
+          class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4 container_height"
+          id="style-1"
+        >
           <!-- title color -->
           <div class="text_color">
             <p class="text-sm font-medium mb-2 text-gray-200">Title color</p>
@@ -278,7 +281,7 @@
                   Border width
                 </p>
               </div>
-              <div class="flex gap-3 w-full flex-wrap text-sm items-center">
+              <div class="flex gap-3 flex-wrap text-sm items-center w-11/12">
                 <div
                   v-for="borderWidth in selectBorderWidth"
                   :key="borderWidth.id"
@@ -300,7 +303,7 @@
                   Border color
                 </p>
               </div>
-              <div class="flex gap-3 w-full flex-wrap text-sm items-center">
+              <div class="flex gap-3 w-11/12 flex-wrap text-sm items-center">
                 <div
                   v-for="borderColor in selectBorderColor"
                   :key="borderColor.id"
@@ -349,7 +352,12 @@
               >
                 <div
                   class="px-3 py-1 text-center border cursor-pointer border-blue-500 rounded-md bg-gray-700"
-                  @click="getBorderRadius(borderRadius)"
+                  @click="
+                    getBorderRadius(
+                      borderRadius.value,
+                      borderRadius.radius_value
+                    )
+                  "
                   v-on:click="sendChange"
                 >
                   <p class="text-white">{{ borderRadius.value }}</p>
@@ -404,6 +412,7 @@
               </div>
             </div>
           </div>
+          <div class="mb-16"></div>
         </div>
       </Tab>
     </section>
@@ -472,7 +481,6 @@
               </div>
             </div>
           </div>
-          <div class="mb-4"></div>
         </div>
       </Tab>
     </section>
@@ -544,7 +552,8 @@ export default {
         padding_top: "pt-5",
         padding_bottom: "",
         background_color: "bg-gray-50",
-        border_radius: "",
+        border_radius: "rounded-md",
+        border_radius_value: "md",
         border_width: "",
         border_color: "",
         font_size: "text-2xl",
@@ -944,8 +953,9 @@ export default {
     getBackgroundColor(value) {
       this.selected_values.background_color = value;
     },
-    getBorderRadius(value) {
+    getBorderRadius(value, border_radius_value) {
       this.selected_values.border_radius = value;
+      this.selected_values.border_radius_value = border_radius_value;
     },
     getBorderColor(value) {
       this.selected_values.border_color = value;
@@ -981,30 +991,6 @@ export default {
 </script>
 
 <style scoped>
-.border {
-  /* width: 10px; */
-  height: 0.2;
-}
-
-.after {
-  position: relative;
-}
-.after::after {
-  content: "";
-  position: absolute;
-  width: 335px;
-  height: 1px;
-  left: -8px;
-  right: 0;
-  background: rgb(242, 242, 242);
-  bottom: -1rem;
-}
-.snap-inline {
-  scroll-snap-type: inline mandatory;
-}
-.snap-inline > * {
-  scroll-snap-align: start;
-}
 .horizontal-scroll ::-webkit-scrollbar {
   width: 10px;
   height: 0.5em;
@@ -1022,5 +1008,23 @@ export default {
 input:focus,
 textarea:focus {
   outline: 2px solid rgba(96, 165, 250);
+}
+
+.container_height {
+  height: 36.2rem;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+  background: #878787;
+  border-radius: 8px;
+}
+
+#style-1::-webkit-scrollbar-thumb:hover {
+  background: #737373;
+}
+#style-1::-webkit-scrollbar {
+  width: 8px;
+  background-color: #e2e2e2;
+  border-radius: 8px;
 }
 </style>

@@ -3,7 +3,7 @@
     <!-- Style Tab data -->
     <section class="tab_1">
       <Tab name="Style" id="Style" selected="true">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
+        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4" id="custom_scrollbar">
           <!-- text color -->
           <div class="text_color">
             <p class="text-sm font-medium mb-2 text-gray-200">Text color</p>
@@ -415,7 +415,7 @@ export default {
         "w-1/5",
         "w-2/5",
         "w-3/5 ",
-        "w-4/5L",
+        "w-4/5",
         "w-1/6",
         "w-2/6",
         "w-3/6",

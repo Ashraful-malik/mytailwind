@@ -2,7 +2,7 @@
   <tabNavigation>
     <section class="bg-gray-800 pt-4 w-96">
       <Tab name="Style" selected="true" id="Style">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto">
+        <div class="pl-4 overflow-y-auto container_height" id="style-1">
           <!-- text color -->
           <div class="text_color">
             <p class="text-sm font-medium mb-2 text-gray-200">Text color</p>
@@ -118,6 +118,7 @@
               </div>
             </div>
           </div>
+
           <!-- Font weight -->
           <div class="font_weight mt-6">
             <p class="text-sm font-medium mb-2 text-gray-200">Font Weight</p>
@@ -134,13 +135,13 @@
               </div>
             </div>
           </div>
-          <div class="mb-4"></div>
+          <div class="mb-28"></div>
         </div>
       </Tab>
     </section>
     <section class="bg-gray-800 w-96">
       <Tab name="Size" id="Size">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto">
+        <div class="pl-4 overflow-y-auto container_height" id="style-1">
           <div class="size">
             <p class="text-sm font-medium text-gray-200">Size</p>
 
@@ -194,21 +195,19 @@
               <div class="margin">
                 <p class="text-sm font-medium text-gray-200">Margin</p>
                 <p class="text-sm font-normal text-gray-400 mb-2 mt-4">
-                  m-right
+                  mx (margin left and right)
                 </p>
-                <div class="w-32 text-xs">
+                <div class="w-32 text-xs h-10">
                   <v-select
                     label="countryName"
-                    :options="margin_right"
-                    v-model="selected_values.margin_right"
+                    :options="margin_x"
+                    v-model="selected_values.margin_x"
                     v-on:input="sendChange"
                   ></v-select>
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- margin -->
         </div>
       </Tab>
     </section>
@@ -242,11 +241,11 @@ export default {
       // dropdown selected value
 
       selected_values: {
-        width: "",
-        height: "",
+        width: "w-full",
+        height: "h-12",
         text_color: "text-white",
         padding: "p-4",
-        margin_right: "mr-8",
+        margin_x: "mx-2",
         background_color: "bg-gray-900",
         justify_spacing: "justify-between",
         font_size: "text-base",
@@ -465,54 +464,24 @@ export default {
         "p-12",
         "p-14",
         "p-16",
-        "p-20",
-        "p-24",
-        "p-28",
-        "p-32",
-        "p-36",
-        "p-40",
-        "p-44",
-        "p-48",
-        "p-52",
-        "p-56",
-        "p-60",
-        "p-64",
-        "p-72",
-        "p-80",
-        "p-96",
       ],
 
-      margin_right: [
-        "mr-0",
-        "mr-1",
-        "mr-2",
-        "mr-3",
-        "mr-4",
-        "mr-5",
-        "mr-6",
-        "mr-7",
-        "mr-8",
-        "mr-9",
-        "mr-10",
-        "mr-11",
-        "mr-12",
-        "mr-14",
-        "mr-16",
-        "mr-20",
-        "mr-24",
-        "mr-28",
-        "mr-32",
-        "mr-36",
-        "mr-40",
-        "mr-44",
-        "mr-48",
-        "mr-52",
-        "mr-56",
-        "mr-60",
-        "mr-64",
-        "mr-72",
-        "mr-80",
-        "mr-96",
+      margin_x: [
+        "mx-0",
+        "mx-1",
+        "mx-2",
+        "mx-3",
+        "mx-4",
+        "mx-5",
+        "mx-6",
+        "mx-7",
+        "mx-8",
+        "mx-9",
+        "mx-10",
+        "mx-11",
+        "mx-12",
+        "mx-14",
+        "mx-16",
       ],
     };
   },
@@ -550,45 +519,20 @@ export default {
 </script>
 
 <style scoped>
-.border {
-  /* width: 10px; */
-  height: 0.2;
+.container_height {
+  height: 36.2rem;
+}
+#style-1::-webkit-scrollbar-thumb {
+  background: #878787;
+  border-radius: 8px;
 }
 
-.after {
-  position: relative;
+#style-1::-webkit-scrollbar-thumb:hover {
+  background: #737373;
 }
-.after::after {
-  content: "";
-  position: absolute;
-  width: 335px;
-  height: 1px;
-  left: -8px;
-  right: 0;
-  background: rgb(242, 242, 242);
-  bottom: -1rem;
-}
-.snap-inline {
-  scroll-snap-type: inline mandatory;
-}
-.snap-inline > * {
-  scroll-snap-align: start;
-}
-.horizontal-scroll ::-webkit-scrollbar {
-  width: 10px;
-  height: 0.5em;
-  margin-top: 1rem;
-}
-.horizontal-scroll ::-webkit-scrollbar-track {
-  background: rgb(240, 240, 240);
-  border-radius: 100vw;
-}
-.horizontal-scroll ::-webkit-scrollbar-thumb {
-  background: rgb(227, 227, 227);
-  width: 0.2rem;
-  border-radius: 100vw;
-}
-input:focus {
-  outline: 2px solid rgba(96, 165, 250);
+#style-1::-webkit-scrollbar {
+  width: 8px;
+  background-color: #e2e2e2;
+  border-radius: 8px;
 }
 </style>
