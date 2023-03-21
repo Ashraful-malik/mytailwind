@@ -6,8 +6,10 @@
         class="py-1 px-3 absolute right-0 z-10 bg-blue-500 rounded-b-xl"
         :class="{ active: active }"
       >
-        <button @click="toggleNav()" class="flex items-center justify-center">
-          <p class="text-base text-white mr-1 text-center font-medium">Menu</p>
+        <button
+          @click="toggleNav()"
+          class="flex items-center justify-center p-1"
+        >
           <font-awesome-icon icon="fa-solid fa-bars" class="text-white" />
         </button>
       </div>

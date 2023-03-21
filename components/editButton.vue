@@ -6,7 +6,7 @@
         <!-- options container -->
 
         <div
-          class="pl-4 overflow-y-auto container_height"
+          class="pl-4 overflow-y-auto component_height"
           id="custom_scrollbar"
         >
           <!-- button text -->
@@ -177,7 +177,10 @@
     </section>
     <section class="bg-gray-800 w-96">
       <Tab name="Size" id="Size">
-        <div class="pl-4 h-screen overflow-y-auto container_height">
+        <div
+          class="pl-4 h-screen overflow-y-auto component_height dropdown_scrollbar"
+          id="custom_scrollbar"
+        >
           <div class="padding relative">
             <p class="text-sm font-medium text-gray-200">Padding</p>
 
@@ -473,24 +476,7 @@ export default {
 </script>
 
 <style scoped>
-.container_height {
-  height: 36.2rem;
-}
-
 input:focus {
   outline: 2px solid rgba(96, 165, 250);
-}
-#style-1::-webkit-scrollbar-thumb {
-  background: #878787;
-  border-radius: 8px;
-}
-
-#style-1::-webkit-scrollbar-thumb:hover {
-  background: #737373;
-}
-#style-1::-webkit-scrollbar {
-  width: 8px;
-  background-color: #e2e2e2;
-  border-radius: 8px;
 }
 </style>

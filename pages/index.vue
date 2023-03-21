@@ -1,12 +1,11 @@
 <template>
   <div>
-    <!-- <Navbar /> -->
+    <div class="homepage bg-gray-800">
+      <Navbar />
 
-    <!-- <Sidebar /> -->
-
-    <!-- <SelectorB /> -->
+      <div class="home">hello</div>
+    </div>
   </div>
-  <!-- <Tutorial /> -->
 </template>
 
 <script>

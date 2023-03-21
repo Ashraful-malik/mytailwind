@@ -75,8 +75,8 @@
     <section class="tab2">
       <Tab name="Style" id="Style">
         <div
-          class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4 container_height"
-          id="style-1"
+          class="pl-4 h-screen  overflow-y-auto pt-4 component_height"
+          id="custom_scrollbar"
         >
           <!-- title color -->
           <div class="text_color">
@@ -420,7 +420,10 @@
     <!-- Size tab data -->
     <section class="tab3">
       <Tab name="Size" id="Size">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
+        <div
+          class="pl-4 h-screen dropdown_scrollbar overflow-y-auto pt-4 component_height"
+          id="custom_scrollbar"
+        >
           <div class="padding relative">
             <p class="text-sm font-medium text-gray-200">Size</p>
 
@@ -991,40 +994,8 @@ export default {
 </script>
 
 <style scoped>
-.horizontal-scroll ::-webkit-scrollbar {
-  width: 10px;
-  height: 0.5em;
-  margin-top: 1rem;
-}
-.horizontal-scroll ::-webkit-scrollbar-track {
-  background: rgb(240, 240, 240);
-  border-radius: 100vw;
-}
-.horizontal-scroll ::-webkit-scrollbar-thumb {
-  background: rgb(227, 227, 227);
-  width: 0.2rem;
-  border-radius: 100vw;
-}
 input:focus,
 textarea:focus {
   outline: 2px solid rgba(96, 165, 250);
-}
-
-.container_height {
-  height: 36.2rem;
-}
-
-#style-1::-webkit-scrollbar-thumb {
-  background: #878787;
-  border-radius: 8px;
-}
-
-#style-1::-webkit-scrollbar-thumb:hover {
-  background: #737373;
-}
-#style-1::-webkit-scrollbar {
-  width: 8px;
-  background-color: #e2e2e2;
-  border-radius: 8px;
 }
 </style>

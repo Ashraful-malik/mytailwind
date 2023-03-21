@@ -5,7 +5,7 @@
       <Tab name="Edit" selected="true" id="Edit">
         <div
           class="pl-4 h-screen overflow-y-auto pt-4 container_height"
-          id="style-1"
+          id="custom_scrollbar"
         >
           <!-- Card content textarea -->
           <div class="">
@@ -28,8 +28,8 @@
     <section class="tab2">
       <Tab name="Style" id="Style">
         <div
-          class="pl-4 h-screen overflow-y-auto pt-4 container_height"
-          id="style-1"
+          class="pl-4 h-screen overflow-y-auto pt-4 component_height"
+          id="custom_scrollbar"
         >
           <!-- text color -->
           <div class="text_color">
@@ -228,7 +228,7 @@
             </div>
           </div>
           <!-- box shadow -->
-          <div class="box_shadow mt-6 mb-32">
+          <div class="box_shadow mt-6 mb-16">
             <p class="text-sm font-medium mb-2 text-gray-200">Box shadow</p>
             <div class="flex gap-3 w-full flex-wrap text-sm mt-4 items-center">
               <div v-for="boxShadow in selectBoxShadow" :key="boxShadow.id">
@@ -577,19 +577,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.container_height::-webkit-scrollbar-thumb {
-  background: #878787;
-  border-radius: 8px;
-}
-
-#style-1::-webkit-scrollbar-thumb:hover {
-  background: #737373;
-}
-#style-1::-webkit-scrollbar {
-  width: 8px;
-  background-color: #e2e2e2;
-  border-radius: 8px;
-}
-</style>

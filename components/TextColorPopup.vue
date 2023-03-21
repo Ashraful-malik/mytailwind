@@ -183,6 +183,36 @@
         </div>
       </div>
     </div>
+    <div v-else-if="IconButtonColorPopup">
+      <div class="popup-inner bg-red-600s">
+        <div
+          class="flex items-center justify-between text-center bg-gray-900 mb-2 p-2 rounded-tr-xl rounded-tl-xl"
+        >
+          <p class="text-sm ml-2 text-gray-300 font-medium">Choose Color</p>
+
+          <p
+            class="text-lg mr-2 text-red-600 cursor-pointer px-2 rounded-lg hover:bg-red-300"
+            @click="IconButtonColorPopup()"
+          >
+            <span> &#10005; </span>
+          </p>
+        </div>
+
+        <div class="flex items-center flex-wrap gap-4 p-4">
+          <div
+            class="color"
+            v-for="(colors, index) in textColor"
+            :key="index"
+            @click="[IconButtonColorPopup(), getIconColor(colors.value)]"
+          >
+            <div
+              class="p-3 rounded-full cursor-pointer border border-gray-600"
+              :class="colors.color"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -202,6 +232,7 @@ export default {
     "buttonColorPopup",
     "hoverTextPopup",
     "buttonTextColorPopup",
+    "IconButtonColorPopup",
   ],
 
   methods: {
@@ -222,6 +253,9 @@ export default {
     },
     getButtonTextColor(value) {
       this.$emit("button-text-color", value);
+    },
+    getIconColor(value) {
+      this.$emit("icon-color", value);
     },
   },
 };

@@ -3,7 +3,7 @@
     <section class="tab1">
       <Tab name="Style" id="Style" selected="true">
         <div
-          class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4 "
+          class="pl-4 h-screen overflow-y-auto pt-4 component_height"
           id="custom_scrollbar"
         >
           <!-- text color -->
@@ -210,7 +210,7 @@
     <!-- Size tab data -->
     <section class="tab3">
       <Tab name="Size" id="Size">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
+        <div class="pl-4 h-screen dropdown_scrollbar overflow-y-auto pt-4">
           <div class="padding relative">
             <p class="text-sm font-medium text-gray-200">Size</p>
 
@@ -603,27 +603,6 @@ export default {
 </script>
 
 <style scoped>
-
-.snap-inline {
-  scroll-snap-type: inline mandatory;
-}
-.snap-inline > * {
-  scroll-snap-align: start;
-}
-.horizontal-scroll ::-webkit-scrollbar {
-  width: 10px;
-  height: 0.5em;
-  margin-top: 1rem;
-}
-.horizontal-scroll ::-webkit-scrollbar-track {
-  background: rgb(240, 240, 240);
-  border-radius: 100vw;
-}
-.horizontal-scroll ::-webkit-scrollbar-thumb {
-  background: rgb(227, 227, 227);
-  width: 0.2rem;
-  border-radius: 100vw;
-}
 input:focus,
 textarea:focus {
   outline: 2px solid rgba(96, 165, 250);

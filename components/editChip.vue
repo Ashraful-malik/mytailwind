@@ -3,7 +3,7 @@
     <section class="bg-gray-800 w-96">
       <!-- Edit tab data -->
       <Tab name="Edit" selected="true" id="Edit">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
+        <div class="pl-4 h-screen overflow-y-auto pt-4">
           <!-- Card content textarea -->
           <div class="">
             <p class="text-gray-200 text-sm font-medium mb-2">Chip text</p>
@@ -16,14 +16,14 @@
               v-on:input="sendChange"
             />
           </div>
-        </div> </Tab
-      >/ b
+        </div>
+      </Tab>
     </section>
 
     <section class="tab2">
       <Tab name="Style" id="Style">
         <div
-          class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4"
+          class="pl-4 h-screen overflow-y-auto pt-4 component_height"
           id="custom_scrollbar"
         >
           <!-- text color -->
@@ -114,7 +114,7 @@
                   Border width
                 </p>
               </div>
-              <div class="flex gap-3 w-full flex-wrap text-sm items-center">
+              <div class="flex gap-3 w-11/12 flex-wrap text-sm items-center">
                 <div
                   v-for="borderWidth in selectBorderWidth"
                   :key="borderWidth.id"
@@ -135,7 +135,7 @@
                   Border color
                 </p>
               </div>
-              <div class="flex gap-3 w-full flex-wrap text-sm items-center">
+              <div class="flex gap-3 w-11/12 flex-wrap text-sm items-center">
                 <div
                   v-for="borderColor in selectBorderColor"
                   :key="borderColor.id"
@@ -242,7 +242,7 @@
     <!-- Size tab data -->
     <section class="tab3">
       <Tab name="Size" id="Size">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
+        <div class="pl-4 h-screen dropdown_scrollbar overflow-y-auto pt-4">
           <!-- padding -->
           <div class="padding relative">
             <p class="text-sm font-medium text-gray-200">padding</p>
@@ -696,19 +696,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.horizontal-scroll ::-webkit-scrollbar {
-  width: 10px;
-  height: 0.5em;
-  margin-top: 1rem;
-}
-.horizontal-scroll ::-webkit-scrollbar-track {
-  background: rgb(240, 240, 240);
-  border-radius: 100vw;
-}
-.horizontal-scroll ::-webkit-scrollbar-thumb {
-  background: rgb(227, 227, 227);
-  width: 0.2rem;
-  border-radius: 100vw;
-}
-</style>
+<style scoped></style>

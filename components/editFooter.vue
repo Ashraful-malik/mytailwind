@@ -3,7 +3,10 @@
     <!-- Style Tab data -->
     <section class="tab_1">
       <Tab name="Style" id="Style" selected="true">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4" id="custom_scrollbar">
+        <div
+          class="pl-4 h-screen overflow-y-auto pt-4 component_height"
+          id="custom_scrollbar"
+        >
           <!-- text color -->
           <div class="text_color">
             <p class="text-sm font-medium mb-2 text-gray-200">Text color</p>
@@ -61,20 +64,20 @@
                   type="button"
                   value="1"
                   class="bg-blue-500 px-3 py-1 text-white rounded-full flex items-center content-center text-center"
-                  @click="() => buttonColorPopup('buttonColorTrigger')"
+                  @click="() => IconButtonColorPopup('iconButtonColorTrigger')"
                   v-on:click="sendChange"
                 >
                   <p class="text-center">More Colors</p>
                 </button>
                 <!-- sending data in popup component  -->
                 <textColorPopup
-                  v-if="popupTriggers.buttonColorTrigger"
-                  :buttonColorPopup="
-                    () => buttonColorPopup('buttonColorTrigger')
+                  v-if="popupTriggers.iconButtonColorTrigger"
+                  :IconButtonColorPopup="
+                    () => IconButtonColorPopup('iconButtonColorTrigger')
                   "
                   :text-color="colors"
-                  v-on:popup-value="getIconColor($event)"
-                />
+                  v-on:icon-color="getIconColor($event)"
+                />z
               </div>
             </div>
           </div>
@@ -154,7 +157,7 @@
             </div>
           </div>
           <!-- Font weight -->
-          <div class="font_weight mt-6">
+          <div class="font_weight mt-6 mb-16">
             <p class="text-sm font-medium mb-2 text-gray-200">Font Weight</p>
             <div class="flex gap-3 w-full flex-wrap text-sm mt-4 items-center">
               <div v-for="fontWeight in selectFountWeight" :key="fontWeight.id">
@@ -174,7 +177,7 @@
     <!-- Size tab data -->
     <section class="tab_2">
       <Tab name="Size" id="Size">
-        <div class="pl-4 h-screen horizontal-scroll overflow-y-auto pt-4">
+        <div class="pl-4 h-screen dropdown_scrollbar overflow-y-auto pt-4">
           <div class="padding relative">
             <p class="text-sm font-medium text-gray-200">Size</p>
 
@@ -237,7 +240,7 @@ export default {
     const popupTriggers = ref({
       TextColorTrigger: false,
       bgColorTrigger: false,
-      buttonColorTrigger: false,
+      iconButtonColorTrigger: false,
     });
     const TextPopup = (trigger) => {
       popupTriggers.value[trigger] = !popupTriggers.value[trigger];
@@ -245,7 +248,7 @@ export default {
     const bgPopup = (trigger) => {
       popupTriggers.value[trigger] = !popupTriggers.value[trigger];
     };
-    const buttonColorPopup = (trigger) => {
+    const IconButtonColorPopup = (trigger) => {
       popupTriggers.value[trigger] = !popupTriggers.value[trigger];
     };
 
@@ -253,7 +256,7 @@ export default {
       popupTriggers,
       TextPopup,
       bgPopup,
-      buttonColorPopup,
+      IconButtonColorPopup,
     };
   },
   data() {
@@ -264,16 +267,7 @@ export default {
         width: "w-2/4",
         height: "",
         text_color: "text-gray-400",
-        padding: "",
-        padding_top: "",
-        padding_bottom: "",
-        padding_left: "",
-        padding_right: "",
-        margin: "",
         margin_top: "mt-8",
-        margin_bottom: "",
-        margin_left: "",
-        margin_right: "",
         background_color: "bg-gray-800",
         border_radius: "",
         font_size: "text-base",
@@ -434,7 +428,6 @@ export default {
         "w-11/12",
         "w-0",
         "w-full",
-        "w-screen",
         "w-1",
         "w-2",
         "w-3",
@@ -479,23 +472,9 @@ export default {
         "h-1/5",
         "h-2/5",
         "h-3/5 ",
-        "h-4/5L",
+        "h-4/5",
         "h-1/6",
         "h-2/6",
-        "h-3/6",
-        "h-4/6",
-        "h-5/6",
-        "h-1/12",
-        "h-2/12",
-        "h-3/12",
-        "h-4/12",
-        "h-5/12",
-        "h-6/12",
-        "h-7/12",
-        "h-8/12",
-        "h-9/12",
-        "h-10/12",
-        "h-11/12",
       ],
       padding: [
         "p-0",
@@ -779,44 +758,6 @@ export default {
 </script>
 
 <style scoped>
-.border {
-  /* width: 10px; */
-  height: 0.2;
-}
-
-.after {
-  position: relative;
-}
-.after::after {
-  content: "";
-  position: absolute;
-  width: 335px;
-  height: 1px;
-  left: -8px;
-  right: 0;
-  background: rgb(242, 242, 242);
-  bottom: -1rem;
-}
-.snap-inline {
-  scroll-snap-type: inline mandatory;
-}
-.snap-inline > * {
-  scroll-snap-align: start;
-}
-.horizontal-scroll ::-webkit-scrollbar {
-  width: 10px;
-  height: 0.5em;
-  margin-top: 1rem;
-}
-.horizontal-scroll ::-webkit-scrollbar-track {
-  background: rgb(240, 240, 240);
-  border-radius: 100vw;
-}
-.horizontal-scroll ::-webkit-scrollbar-thumb {
-  background: rgb(227, 227, 227);
-  width: 0.2rem;
-  border-radius: 100vw;
-}
 input:focus,
 textarea:focus {
   outline: 2px solid rgba(96, 165, 250);

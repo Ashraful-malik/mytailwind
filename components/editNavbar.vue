@@ -2,7 +2,10 @@
   <tabNavigation>
     <section class="bg-gray-800 pt-4 w-96">
       <Tab name="Style" selected="true" id="Style">
-        <div class="pl-4 overflow-y-auto container_height" id="style-1">
+        <div
+          class="pl-4 overflow-y-auto component_height"
+          id="custom_scrollbar"
+        >
           <!-- text color -->
           <div class="text_color">
             <p class="text-sm font-medium mb-2 text-gray-200">Text color</p>
@@ -141,7 +144,10 @@
     </section>
     <section class="bg-gray-800 w-96">
       <Tab name="Size" id="Size">
-        <div class="pl-4 overflow-y-auto container_height" id="style-1">
+        <div
+          class="pl-4 overflow-y-auto component_height dropdown_scrollbar"
+          id="custom_scrollbar"
+        >
           <div class="size">
             <p class="text-sm font-medium text-gray-200">Size</p>
 
@@ -517,22 +523,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.container_height {
-  height: 36.2rem;
-}
-#style-1::-webkit-scrollbar-thumb {
-  background: #878787;
-  border-radius: 8px;
-}
-
-#style-1::-webkit-scrollbar-thumb:hover {
-  background: #737373;
-}
-#style-1::-webkit-scrollbar {
-  width: 8px;
-  background-color: #e2e2e2;
-  border-radius: 8px;
-}
-</style>
