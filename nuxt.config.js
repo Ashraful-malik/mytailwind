@@ -5,7 +5,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "tailwind_components",
+    title: "Mytailwind",
     htmlAttrs: {
       lang: "en",
     },
@@ -14,8 +14,74 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
+
+      // seo social cards
+      {
+        hid: "twitter:title",
+        name: "twitter:title",
+        content: "Mytailwind-create and copy tailwind components",
+      },
+      {
+        hid: "twitter:description",
+        name: "twitter:description",
+        content: "Create and copy tailwind components with few clicks ",
+      },
+      {
+        hid: "twitter:image",
+        name: "twitter:image",
+        content: this.image,
+      },
+      {
+        hid: "twitter:image:alt",
+        name: "twitter:image:alt",
+        content: this.title,
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: this.title,
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content: this.description,
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: this.image,
+      },
+      {
+        hid: "og:image:secure_url",
+        property: "og:image:secure_url",
+        content: this.image,
+      },
+      {
+        hid: "og:image:alt",
+        property: "og:image:alt",
+        content: this.title,
+      },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [
+      // { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      {
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        href: "/apple-touch-icon.png",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href: "/favicon-32x32.png",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        href: "/favicon-16x16.png",
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

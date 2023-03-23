@@ -11,14 +11,16 @@
           </a>
         </div>
         <ul class="flex items-center justify-center">
-          <li class="text-gray-200"><a href="#">Home</a></li>
-          <li class="ml-8 text-gray-200"><a href="#">Feature</a></li>
-          <button
-            class="px-5 py-1 text-gray-50 font-medium ml-8 rounded-md gradient_border"
-          >
-            Get started
-            <font-awesome-icon icon="fa-solid fa-arrow-right" />
-          </button>
+          <li class="text-gray-200"><a href="#home">Home</a></li>
+          <li class="ml-8 text-gray-200"><a href="#features">Feature</a></li>
+          <nuxt-link to="component/button">
+            <button
+              class="px-5 py-1 text-gray-50 font-medium ml-8 rounded-md gradient_border"
+            >
+              Get started
+              <font-awesome-icon icon="fa-solid fa-arrow-right" />
+            </button>
+          </nuxt-link>
         </ul>
       </nav>
     </div>
@@ -29,7 +31,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .gradient_border {
   border: 1px solid;
   color: #35ec94;
@@ -43,7 +45,4 @@ export default {};
     #4c6fea 127.12%
   );
 }
-/* background: linear-gradient(178.89deg, #35EC94 -20.07%, #4C6FEA 127.12%); */
-
-/* background: linear-gradient(178.89deg, #35EC94 -20.07%, #4C6FEA 127.12%); */
 </style>

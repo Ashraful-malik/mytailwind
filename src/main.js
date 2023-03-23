@@ -16,6 +16,7 @@ import {
   faGear,
   faCode,
   faArrowRight,
+  faArrowUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -40,7 +41,8 @@ library.add(
   faFacebook,
   faDev,
   faCode,
-  faArrowRight
+  faArrowRight,
+  faArrowUpRightFromSquare
 );
 
 /* add font awesome icon component */
