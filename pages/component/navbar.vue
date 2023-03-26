@@ -13,8 +13,8 @@
               @click="copyCode(value)"
               :class="[isCopy ? 'bg-green-400' : 'bg-blue-400']"
             >
-              <p class="mr-2">{{ isCopy ? "Copied" : "Copy code" }}</p>
-              <font-awesome-icon icon="fa-solid fa-code" />
+              <p class="mr-2">{{ isCopy ? "Copied!" : "Copy code" }}</p>
+              <font-awesome-icon icon="fa-bold fa-copy" />
             </button>
           </div>
           <!-- copy button end -->
@@ -248,9 +248,9 @@ export default {
 </script>
 
 <style scoped>
-.container_height {
+/* .container_height {
   height: 36.7rem;
-}
+} */
 .sidebar {
   flex: 1 1 13%;
 }

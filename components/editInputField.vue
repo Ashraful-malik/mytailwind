@@ -137,7 +137,7 @@
                   Border width
                 </p>
               </div>
-              <div class="flex gap-3 w-full flex-wrap text-sm items-center">
+              <div class="flex gap-3 w-11/12 flex-wrap text-sm items-center">
                 <div
                   v-for="borderWidth in selectBorderWidth"
                   :key="borderWidth.id"
@@ -158,7 +158,7 @@
                   Border color
                 </p>
               </div>
-              <div class="flex gap-3 w-full flex-wrap text-sm items-center">
+              <div class="flex gap-3 w-11/12 flex-wrap text-sm items-center">
                 <div
                   v-for="borderColor in selectBorderColor"
                   :key="borderColor.id"

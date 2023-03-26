@@ -15,14 +15,14 @@
               :class="[isCopy ? 'bg-green-400' : 'bg-blue-400']"
             >
               <p class="mr-2">{{ isCopy ? "Copied" : "Copy code" }}</p>
-              <font-awesome-icon icon="fa-solid fa-code" />
+              <font-awesome-icon icon="fa-bold fa-copy" />
             </button>
           </div>
           <!-- copy button end -->
           <div class="flex items-center justify-center p-4 w-full h-4/5">
             <!-- alert start -->
             <div
-              class="alert-box h-12 flex items-center justify-between"
+              class="alert-box flex items-center justify-between px-4 p-4"
               :class="[
                 value.background_color,
                 value.border_width,
@@ -32,7 +32,7 @@
                 value.box_shadow,
               ]"
             >
-              <div class="alert-content px-4 w-full">
+              <div class="alert-content pr-4">
                 <p
                   :class="[value.text_color, value.font_width, value.font_size]"
                 >
@@ -81,8 +81,8 @@ export default {
     async copyCode(value) {
       try {
         const code = `
-      <div class="alert-box h-12 flex items-center justify-between ${value.background_color} ${value.border_width} ${value.border_color} ${value.border_radius} ${value.width} ${value.box_shadow}">
-              <div class="alert-content ml-4 w-full">
+      <div class="alert-box flex items-center justify-between px-4 p-4 ${value.background_color} ${value.border_width} ${value.border_color} ${value.border_radius} ${value.width} ${value.box_shadow}">
+              <div class="alert-content pr-4 ">
                 <p
                   class="${value.text_color} ${value.font_width} ${value.font_size}">
                   ${value.alert_message}
@@ -127,8 +127,5 @@ export default {
 }
 .toolbar {
   flex: 1 1 27%;
-}
-.container_height {
-  height: 36.7rem;
 }
 </style>

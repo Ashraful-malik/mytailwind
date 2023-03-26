@@ -77,7 +77,7 @@
                   "
                   :text-color="colors"
                   v-on:icon-color="getIconColor($event)"
-                />z
+                />
               </div>
             </div>
           </div>

@@ -3,6 +3,10 @@ export default {
   // ssr: false,
   target: "static",
 
+  generate: {
+    fallback: true,
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "Mytailwind",
@@ -12,58 +16,66 @@ export default {
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
 
       // seo social cards
       {
+        hid: "twitter:card",
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+      {
+        hid: "twitter:site",
+        name: "twitter:site",
+        content: "https://mytailwind.xyz",
+      },
+      {
+        hid: "twitter:url",
+        name: "twitter:url",
+      },
+
+      {
         hid: "twitter:title",
         name: "twitter:title",
-        content: "Mytailwind-create and copy tailwind components",
+        content: "Mytailwind- Customize and copy tailwind components ",
       },
       {
         hid: "twitter:description",
         name: "twitter:description",
-        content: "Create and copy tailwind components with few clicks ",
+        content:
+          "Mytailwind is a website that allows you to easily copy and customize Tailwind components with just a few clicks.",
       },
       {
         hid: "twitter:image",
         name: "twitter:image",
-        content: this.image,
-      },
-      {
-        hid: "twitter:image:alt",
-        name: "twitter:image:alt",
-        content: this.title,
+        content:
+          "https://github.com/Ashraful-malik/mytailwind/blob/main/static/android-chrome-512x512.png",
       },
       {
         hid: "og:title",
         property: "og:title",
-        content: this.title,
+        content: "Mytailwind-Customize and copy tailwind components",
       },
       {
         hid: "og:description",
         property: "og:description",
-        content: this.description,
+        content:
+          "Mytailwind is a website that allows you to easily copy and customize Tailwind components with just a few clicks.",
       },
       {
         hid: "og:image",
         property: "og:image",
-        content: this.image,
+        content:
+          "https://github.com/Ashraful-malik/mytailwind/blob/main/static/android-chrome-512x512.png",
       },
       {
         hid: "og:image:secure_url",
         property: "og:image:secure_url",
-        content: this.image,
-      },
-      {
-        hid: "og:image:alt",
-        property: "og:image:alt",
-        content: this.title,
+        content:
+          "https://github.com/Ashraful-malik/mytailwind/blob/main/static/android-chrome-512x512.png",
       },
     ],
     link: [
-      // { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "apple-touch-icon",
         sizes: "180x180",
@@ -97,7 +109,14 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/google-analytics",
   ],
+
+  googleAnalytics: {
+    id: "UA-XXX-X",
+  },
+
+  loading: "~/components/loading.vue",
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],

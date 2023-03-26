@@ -28,9 +28,9 @@
             {{ contactLink.name }}
           </p>
           <p class="text-blue-500 font-normal">
-            <a href="mailto:mytailwind.inbox@gmail.com" title="gmail"
-              >mytailwind.inbox@gmail.com</a
-            >
+            <a href="mailto:mytailwind.inbox@gmail.com" title="Gmail">{{
+              contactLink.name
+            }}</a>
           </p>
         </div>
 
@@ -61,6 +61,11 @@
           </ul>
         </div>
       </div>
+      <div
+        class="copyrights bg-gray-900 px-4 py-2 text-gray-100 text-base font-light"
+      >
+        <p title="Mytailwind">© Mytailwind 2023</p>
+      </div>
     </footer>
   </div>
 </template>
@@ -72,6 +77,7 @@ export default {
       pageLinks: [
         { id: 1, name: "Home", link: "#home" },
         { id: 2, name: "Features", link: "#features" },
+        { id: 2, name: "About", link: "#about" },
       ],
       contactLinks: [
         { id: 1, name: "Email", link: "mytailwind.inbox@gmail.com" },

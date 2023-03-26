@@ -5,14 +5,16 @@
         class="w-11/12 m-auto flex items-center justify-between h-16 flex-wrap"
       >
         <div class="logo">
-          <a href="#" class="flex items-center">
+          <nuxt-link to="/" class="flex items-center">
             <img src="@/assets/images/Logo.svg" alt="Logo" class="w-8" />
             <p class="text-xl ml-2 font-bold pt-2 text-white">Mytailwind</p>
-          </a>
+          </nuxt-link>
         </div>
-        <ul class="flex items-center justify-center">
-          <li class="text-gray-200"><a href="#home">Home</a></li>
-          <li class="ml-8 text-gray-200"><a href="#features">Feature</a></li>
+        <ul class="lg:flex items-center justify-center hidden">
+          <li class="text-gray-200 ml-6" v-for="link in links" :key="link.id">
+            <a :href="link.link">{{ link.name }}</a>
+          </li>
+
           <nuxt-link to="component/button">
             <button
               class="px-5 py-1 text-gray-50 font-medium ml-8 rounded-md gradient_border"
@@ -28,7 +30,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      links: [
+        { id: 1, name: "Home", link: "#home" },
+        { id: 2, name: "Features", link: "#features" },
+        { id: 3, name: "About", link: "#about" },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>

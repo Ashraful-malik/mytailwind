@@ -15,7 +15,6 @@
               name="card-content"
               cols="5"
               rows="5"
-              maxlength="80"
               placeholder="Alert Message..."
               v-model="selected_values.alert_message"
               class="w-3/4 bg-gray-600 pl-2 text-gray-50 rounded"
@@ -286,7 +285,7 @@ export default {
         border_color: "border-green-500",
         border_width: "border",
         border_radius: "rounded-md",
-        font_size: "text-base",
+        font_size: "text-sm",
         font_width: "font-medium ",
         box_shadow: "",
         alert_message: "You successfully completed the task",

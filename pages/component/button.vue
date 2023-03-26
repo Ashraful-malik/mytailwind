@@ -15,8 +15,8 @@
               @click="copyCode(value)"
               :class="[isCopy ? 'bg-green-400' : 'bg-blue-400']"
             >
-              <p class="mr-2">{{ isCopy ? "Copied" : "Copy code" }}</p>
-              <font-awesome-icon icon="fa-solid fa-code" />
+              <p class="mr-2">{{ isCopy ? "Copied!" : "Copy code" }}</p>
+              <font-awesome-icon icon="fa-bold fa-copy" />
             </button>
           </div>
           <!-- copy button end -->
@@ -80,7 +80,7 @@ export default {
             >
               ${value.button_text}
             </button>
-        
+
         `;
         await navigator.clipboard.writeText(code);
         this.isCopy = true;
@@ -92,6 +92,12 @@ export default {
         alert(error);
       }
     },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start();
+      setTimeout(() => this.$nuxt.$loading.finish());
+    });
   },
 };
 </script>
@@ -105,8 +111,5 @@ export default {
 }
 .flex .toolbar {
   flex: 1 1 27%;
-}
-.container_height {
-  height: 36.7rem;
 }
 </style>

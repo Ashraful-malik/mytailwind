@@ -17,6 +17,7 @@ import {
   faCode,
   faArrowRight,
   faArrowUpRightFromSquare,
+  faCopy,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -42,7 +43,8 @@ library.add(
   faDev,
   faCode,
   faArrowRight,
-  faArrowUpRightFromSquare
+  faArrowUpRightFromSquare,
+  faCopy
 );
 
 /* add font awesome icon component */
