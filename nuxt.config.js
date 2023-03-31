@@ -9,6 +9,7 @@ export default {
     htmlAttrs: {
       lang: "en",
     },
+
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -105,17 +106,18 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
-    "@nuxtjs/google-analytics",
   ],
-
-  // googleAnalytics: {
-  //   id: "UA-XXX-X",
-  // },
 
   loading: "~/components/loading.vue",
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ["nuxt-smartlook"],
+
+  // smartlook analytics
+  smartlook: {
+    id: process.env.SMARTLOOK_KEY,
+    enabled: process.env.NODE_ENV === "production",
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

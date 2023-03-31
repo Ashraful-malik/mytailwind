@@ -7,7 +7,7 @@
         <div
           class="flex flex-col items-center justify-center mt-12 w-11/12 m-auto"
         >
-          <img src="@/assets/images/Logo.svg" alt="Mytailwind " class="w-14" />
+          <img src="@/assets/images/logo.png" alt="Mytailwind " class="w-14" />
           <h1 class="font-semibold text-2xl text-blue-100">MYTAILWIND</h1>
           <p class="mt-4 text-gray-400 text-center w-2/5 text-lg font-normal">
             {{ about }}

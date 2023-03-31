@@ -1,7 +1,7 @@
 <br />
 <div align="center">
-  <a href="https://github.com/Ashraful-malik/uibuttons">
-    <img src="assets/images/Logo.svg" alt="Logo" >
+  <a href="https://github.com/Ashraful-malik/mytailwind">
+    <img src="https://mytailwind.xyz/_nuxt/img/.png" alt="Logo" >
   </a>
   <p align="center">
     <br />
@@ -19,7 +19,7 @@
 
 ## About The Project
 
-<img src="assets/images/mytailwind.png" alt="Logo" style='border-radius:10px' >
+<img src="https://mytailwind.xyz/_nuxt/img/mytailwind.670aa1c.png" alt="mytailwind" style='border-radius:10px' >
 
 <br>
 
@@ -70,5 +70,3 @@ $ npm run generate
 Instagram - [@devxmedia](https://www.instagram.com/devxmedia/)
 <br>
 Email - [Mytailwind](mytailwind.inbox@gmail.com)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
