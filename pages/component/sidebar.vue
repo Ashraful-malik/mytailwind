@@ -29,7 +29,7 @@
             >
               <div class="logo flex items-center pt-6 pl-4">
                 <img
-                  src="~/assets/images/Logo.svg"
+                  src="https://mytailwind.xyz/_nuxt/img/logo.606ea04.png"
                   alt="logo"
                   class="w-8 mr-2"
                 />
@@ -269,7 +269,7 @@ export default {
         <div class="h-screen bg-white p-4 overflow-y-scroll ${value.background_color} ${value.width}">
           <div class="logo flex items-center pt-6 pl-4">
                 <img
-                  src="~/assets/images/Logo.svg"
+                  src="https://mytailwind.xyz/_nuxt/img/logo.606ea04.png"
                   alt="logo"
                   class="w-8 mr-2"
                 />

@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Ashraful-malik/mytailwind">
-    <img src="https://mytailwind.xyz/_nuxt/img/.png" alt="Logo" >
+    <img src="https://mytailwind.xyz/_nuxt/img/logo.606ea04.png" style="width:5rem;" alt="Logo" >
   </a>
   <p align="center">
     <br />

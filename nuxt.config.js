@@ -112,8 +112,6 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["nuxt-smartlook"],
-
-  // smartlook analytics
   smartlook: {
     id: process.env.SMARTLOOK_KEY,
     enabled: process.env.NODE_ENV === "production",
