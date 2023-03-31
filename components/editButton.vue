@@ -44,12 +44,6 @@
                   @click="() => TextPopup('TextColorTrigger')"
                   v-on:click="sendChange"
                 >
-                  <unicon
-                    name="plus"
-                    fill="white"
-                    width="20"
-                    class="mr-2"
-                  ></unicon>
                   <p class="text-center">More Colors</p>
                 </button>
 
@@ -90,12 +84,6 @@
                   @click="() => bgPopup('bgColorTrigger')"
                   v-on:click="sendChange"
                 >
-                  <unicon
-                    name="plus"
-                    fill="white"
-                    width="20"
-                    class="mr-2"
-                  ></unicon>
                   <p class="text-center">More Colors</p>
                 </button>
 
@@ -178,7 +166,7 @@
     <section class="bg-gray-800 w-96">
       <Tab name="Size" id="Size">
         <div
-          class="pl-4 h-screen overflow-y-auto component_height dropdown_scrollbar"
+          class="pl-4 screen overflow-y-auto component_height dropdown_scrollbar"
           id="custom_scrollbar"
         >
           <div class="padding relative">
@@ -272,9 +260,9 @@ export default {
       selectBorderRadius: [
         { value: "rounded-none", id: 1 },
         { value: "rounded", id: 2 },
-        { value: "rounded-md", id: 4 },
-        { value: "rounded-xl", id: 3 },
-        { value: "rounded-full", id: 4 },
+        { value: "rounded-md", id: 3 },
+        { value: "rounded-xl", id: 4 },
+        { value: "rounded-full", id: 5 },
       ],
       selectFountSize: [
         { text: "Aa", value: "text-sm", id: 1 },

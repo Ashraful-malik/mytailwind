@@ -75,7 +75,7 @@
     <section class="tab2">
       <Tab name="Style" id="Style">
         <div
-          class="pl-4 h-screen  overflow-y-auto pt-4 component_height"
+          class="pl-4 h-screen overflow-y-auto pt-4 component_height"
           id="custom_scrollbar"
         >
           <!-- title color -->
@@ -355,7 +355,7 @@
                   @click="
                     getBorderRadius(
                       borderRadius.value,
-                      borderRadius.radius_value
+                      borderRadius.img_border_radius_value
                     )
                   "
                   v-on:click="sendChange"
@@ -556,7 +556,7 @@ export default {
         padding_bottom: "",
         background_color: "bg-gray-50",
         border_radius: "rounded-md",
-        border_radius_value: "md",
+        img_border_radius: "rounded-t-md",
         border_width: "",
         border_color: "",
         font_size: "text-2xl",
@@ -589,12 +589,24 @@ export default {
       ],
 
       selectBorderRadius: [
-        { value: "rounded-none", radius_value: "none", id: 1 },
-        { value: "rounded", radius_value: "rounded", id: 2 },
-        { value: "rounded-md", radius_value: "md", id: 4 },
-        { value: "rounded-xl", radius_value: "xl", id: 5 },
-        { value: "rounded-2xl", radius_value: "2xl", id: 6 },
-        { value: "rounded-3xl", radius_value: "3xl", id: 7 },
+        {
+          value: "rounded-none",
+          img_border_radius_value: "rounded-t-none",
+          id: 1,
+        },
+        { value: "rounded", img_border_radius_value: "rounded-t", id: 2 },
+        { value: "rounded-md", img_border_radius_value: "rounded-t-md", id: 4 },
+        { value: "rounded-xl", img_border_radius_value: "rounded-t-xl", id: 5 },
+        {
+          value: "rounded-2xl",
+          img_border_radius_value: "rounded-t-2xl",
+          id: 6,
+        },
+        {
+          value: "rounded-3xl",
+          img_border_radius_value: "rounded-t-3xl",
+          id: 7,
+        },
       ],
       selectFountSize: [
         { text: "Aa", value: "text-sm", id: 1 },
@@ -958,7 +970,7 @@ export default {
     },
     getBorderRadius(value, border_radius_value) {
       this.selected_values.border_radius = value;
-      this.selected_values.border_radius_value = border_radius_value;
+      this.selected_values.img_border_radius = border_radius_value;
     },
     getBorderColor(value) {
       this.selected_values.border_color = value;

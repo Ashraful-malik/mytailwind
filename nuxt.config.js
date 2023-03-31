@@ -1,11 +1,7 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  // ssr: false,
   target: "static",
-
-  generate: {
-    fallback: true,
-  },
+  // ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -97,7 +93,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["@/assets/css/main.css"],
+  css: ["~/assets/css/main.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [{ src: "~/src/main", mode: "client" }],
@@ -112,9 +108,9 @@ export default {
     "@nuxtjs/google-analytics",
   ],
 
-  googleAnalytics: {
-    id: "UA-XXX-X",
-  },
+  // googleAnalytics: {
+  //   id: "UA-XXX-X",
+  // },
 
   loading: "~/components/loading.vue",
 
@@ -122,5 +118,17 @@ export default {
   modules: [],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    postcss: {
+      postcssOptions: {
+        plugins: {
+          tailwindcss: {},
+          autoprefixer: {},
+        },
+      },
+    },
+  },
+  generate: {
+    fallback: true,
+  },
 };

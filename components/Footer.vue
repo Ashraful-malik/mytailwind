@@ -77,7 +77,7 @@ export default {
       pageLinks: [
         { id: 1, name: "Home", link: "#home" },
         { id: 2, name: "Features", link: "#features" },
-        { id: 2, name: "About", link: "#about" },
+        { id: 3, name: "About", link: "#about" },
       ],
       contactLinks: [
         { id: 1, name: "Email", link: "mytailwind.inbox@gmail.com" },

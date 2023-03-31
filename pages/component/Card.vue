@@ -10,12 +10,14 @@
           <!-- Copy Button Start-->
           <div class="copy_button m-3 absolute right-0">
             <button
-              class="px-4 py-1 text-white font-medium text-base rounded-full flex items-center"
+              class="px-4 py-1 text-white font-medium text-base rounded-full"
               @click="copyCode(value)"
               :class="[isCopy ? 'bg-green-400' : 'bg-blue-400']"
             >
-              <p class="mr-2">{{ isCopy ? "Copied!" : "Copy code" }}</p>
-              <font-awesome-icon icon="fa-bold fa-copy" />
+              <p class="mr-2">
+                {{ isCopy ? "Copied!" : "Copy code" }}
+                <font-awesome-icon icon="fa-bold fa-copy" />
+              </p>
             </button>
           </div>
           <!-- copy button end -->
@@ -38,7 +40,7 @@
                   :src="value.image_link"
                   alt="card image"
                   class="w-full overflow-hidden h-full object-cover object-top"
-                  :class="`rounded-t-${[value.border_radius_value]}`"
+                  :class="value.img_border_radius"
                 />
               </div>
               <div
@@ -137,7 +139,7 @@ export default {
                 <img
                   src="${value.image_link}"
                   alt="card image"
-                  class="rounded-t-${value.border_radius_value} w-full overflow-hidden h-full object-cover object-top"
+                  class="${value.img_border_radius} w-full overflow-hidden h-full object-cover object-top"
                 />
               </div>
               <div

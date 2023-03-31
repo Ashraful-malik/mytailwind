@@ -63,9 +63,9 @@
   height: 36.2rem;
 }
 .container_height {
-  height: 587px;
-  max-height: 603px;
+  height: max(603px, 587px);
 }
+
 .dropdown_scrollbar ::-webkit-scrollbar {
   width: 10px;
   height: 0.5em;

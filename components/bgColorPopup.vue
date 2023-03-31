@@ -52,7 +52,9 @@
             class="color"
             v-for="(colors, index) in backgroundColor"
             :key="index"
-            @click="gerHoverBgColor(colors.color), hoverBgPopup()"
+            @click="
+              gerHoverBgColor(colors.hover_background_color), hoverBgPopup()
+            "
           >
             <div
               class="p-3 rounded-full cursor-pointer border border-gray-600"

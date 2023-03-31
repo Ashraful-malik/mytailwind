@@ -173,7 +173,9 @@
             class="color"
             v-for="(colors, index) in textColor"
             :key="index"
-            @click="[hoverTextPopup(), getHoverTextColor(colors.value)]"
+            @click="
+              [hoverTextPopup(), getHoverTextColor(colors.hover_text_color)]
+            "
           >
             <div
               class="p-3 rounded-full cursor-pointer border border-gray-600"

@@ -10,12 +10,14 @@
           <!-- Copy Button Start-->
           <div class="copy_button m-3 absolute right-0">
             <button
-              class="px-4 py-1 text-white font-medium text-base rounded-full flex items-center"
+              class="px-4 py-1 text-white font-medium text-base rounded-full"
               @click="copyCode(value)"
               :class="[isCopy ? 'bg-green-400' : 'bg-blue-400']"
             >
-              <p class="mr-2">{{ isCopy ? "Copied!" : "Copy code" }}</p>
-              <font-awesome-icon icon="fa-bold fa-copy" />
+              <p class="mr-2">
+                {{ isCopy ? "Copied!" : "Copy code" }}
+                <font-awesome-icon icon="fa-bold fa-copy" />
+              </p>
             </button>
           </div>
           <!-- copy button end -->
@@ -47,8 +49,8 @@
                       class="cursor-pointer rounded-xl flex items-center mb-2"
                       :class="[
                         value.text_color,
-                        `hover:${value.hover_bg_color}`,
-                        `hover:${value.hover_text_color}`,
+                        value.hover_bg_color,
+                        value.hover_text_color,
                         value.font_size,
                         value.font_width,
                         value.padding_left,
@@ -72,8 +74,8 @@
                       class="flex items-center cursor-pointer rounded-xl mb-2"
                       :class="[
                         value.text_color,
-                        `hover:${value.hover_bg_color}`,
-                        `hover:${value.hover_text_color}`,
+                        value.hover_bg_color,
+                        value.hover_text_color,
                         value.font_size,
                         value.font_width,
                         value.padding_left,
@@ -100,8 +102,8 @@
                       class="flex items-center cursor-pointer rounded-xl mb-2"
                       :class="[
                         value.text_color,
-                        `hover:${value.hover_bg_color}`,
-                        `hover:${value.hover_text_color}`,
+                        value.hover_bg_color,
+                        value.hover_text_color,
                         value.font_size,
                         value.font_width,
                         value.padding_left,
@@ -125,8 +127,8 @@
                       class="flex items-center cursor-pointer rounded-xl mb-2"
                       :class="[
                         value.text_color,
-                        `hover:${value.hover_bg_color}`,
-                        `hover:${value.hover_text_color}`,
+                        value.hover_bg_color,
+                        value.hover_text_color,
                         value.font_size,
                         value.font_width,
                         value.padding_left,
@@ -150,8 +152,8 @@
                       class="flex items-center cursor-pointer rounded-xl mb-2"
                       :class="[
                         value.text_color,
-                        `hover:${value.hover_bg_color}`,
-                        `hover:${value.hover_text_color}`,
+                        value.hover_bg_color,
+                        value.hover_text_color,
                         value.font_size,
                         value.font_width,
                         value.padding_left,
@@ -181,8 +183,8 @@
                       class="flex items-center cursor-pointer rounded-xl mb-2"
                       :class="[
                         value.text_color,
-                        `hover:${value.hover_bg_color}`,
-                        `hover:${value.hover_text_color}`,
+                        value.hover_bg_color,
+                        value.hover_text_color,
                         value.font_size,
                         value.font_width,
                         value.padding_left,
@@ -281,7 +283,7 @@ export default {
                 <div  class="items ${value.padding_top}">
                   <ul>
                     <li
-                      class="cursor-pointer rounded-xl flex items-center mb-2 ${value.text_color} hover:${value.hover_bg_color} hover:${value.hover_text_color} ${value.font_size} ${value.font_width} ${value.padding_left} ${value.padding}">
+                      class="cursor-pointer rounded-xl flex items-center mb-2 ${value.text_color} ${value.hover_bg_color} ${value.hover_text_color} ${value.font_size} ${value.font_width} ${value.padding_left} ${value.padding}">
                     
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -296,7 +298,7 @@ export default {
                       <p>Home</p>
                     </li>
                     <li
-                      class="cursor-pointer rounded-xl flex items-center mb-2 ${value.text_color} hover:${value.hover_bg_color} hover:${value.hover_text_color} ${value.font_size} ${value.font_width} ${value.padding_left} ${value.padding}">
+                      class="cursor-pointer rounded-xl flex items-center mb-2 ${value.text_color} ${value.hover_bg_color} ${value.hover_text_color} ${value.font_size} ${value.font_width} ${value.padding_left} ${value.padding}">
 
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -316,7 +318,7 @@ export default {
                       <p>Dashboard</p>
                     </li>
                     <li
-                      class="cursor-pointer rounded-xl flex items-center mb-2 ${value.text_color} hover:${value.hover_bg_color} hover:${value.hover_text_color} ${value.font_size} ${value.font_width} ${value.padding_left} ${value.padding}">
+                      class="cursor-pointer rounded-xl flex items-center mb-2 ${value.text_color} ${value.hover_bg_color} ${value.hover_text_color} ${value.font_size} ${value.font_width} ${value.padding_left} ${value.padding}">
                     
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -331,7 +333,7 @@ export default {
                       <p>Product</p>
                     </li>
                     <li
-                      class="cursor-pointer rounded-xl flex items-center mb-2 ${value.text_color} hover:${value.hover_bg_color} hover:${value.hover_text_color} ${value.font_size} ${value.font_width} ${value.padding_left} ${value.padding}">
+                      class="cursor-pointer rounded-xl flex items-center mb-2 ${value.text_color} ${value.hover_bg_color} ${value.hover_text_color} ${value.font_size} ${value.font_width} ${value.padding_left} ${value.padding}">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="bi bi-person mr-3 w-5 h-5"
@@ -345,7 +347,7 @@ export default {
                       <p>Order</p>
                     </li>
                     <li
-                      class=" cursor-pointer rounded-xl flex items-center mb-2 ${value.text_color} hover:${value.hover_bg_color} hover:${value.hover_text_color} ${value.font_size} ${value.font_width} ${value.padding_left} ${value.padding}">
+                      class=" cursor-pointer rounded-xl flex items-center mb-2 ${value.text_color} ${value.hover_bg_color} ${value.hover_text_color} ${value.font_size} ${value.font_width} ${value.padding_left} ${value.padding}">
                     
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -366,7 +368,7 @@ export default {
                   <div class="border border-gray-100 mb-4"></div>
                   <ul>
                     <li
-                      class="cursor-pointer rounded-xl flex items-center mb-2 ${value.text_color} hover:${value.hover_bg_color} hover:${value.hover_text_color} ${value.font_size} ${value.font_width} ${value.padding_left} ${value.padding}">
+                      class="cursor-pointer rounded-xl flex items-center mb-2 ${value.text_color} ${value.hover_bg_color} ${value.hover_text_color} ${value.font_size} ${value.font_width} ${value.padding_left} ${value.padding}">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"

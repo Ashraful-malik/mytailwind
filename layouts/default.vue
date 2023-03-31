@@ -7,7 +7,7 @@
 <script>
 export default {
   head: {
-    title: "Mytailwind | Copy and customize Tailwind components",
+    title: "Mytailwind-Copy and customize Tailwind components",
     meta: [
       {
         hid: "description",
