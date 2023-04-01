@@ -4,6 +4,7 @@ export default {
   // ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
+
   head: {
     title: "Mytailwind",
     htmlAttrs: {
@@ -106,28 +107,30 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/google-fonts",
   ],
+
+  googleFonts: {
+    display: "swap",
+    families: {
+      Roboto: true,
+      Inter: [300, 400, 500, 600, 700],
+    },
+  },
 
   loading: "~/components/loading.vue",
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["nuxt-smartlook"],
+
   smartlook: {
-    id: process.env.SMARTLOOK_KEY,
+    id: `${process.env.SMARTLOOK_KEY}`,
     enabled: process.env.NODE_ENV === "production",
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
-    },
-  },
+  build: {},
+
   generate: {
     fallback: true,
   },
