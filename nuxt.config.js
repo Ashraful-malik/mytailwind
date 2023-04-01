@@ -24,11 +24,7 @@ export default {
       { name: "format-detection", content: "telephone=no" },
 
       // seo social cards
-      {
-        hid: "twitter:card",
-        name: "twitter:card",
-        content: "summary_large_image",
-      },
+
       {
         hid: "twitter:site",
         name: "twitter:site",
@@ -53,8 +49,7 @@ export default {
       {
         hid: "twitter:image",
         name: "twitter:image",
-        content:
-          "https://github.com/Ashraful-malik/mytailwind/blob/main/static/android-chrome-512x512.png",
+        content: "https://mytailwind.xyz/_nuxt/img/logo.606ea04.png",
       },
       {
         hid: "og:title",
@@ -70,14 +65,12 @@ export default {
       {
         hid: "og:image",
         property: "og:image",
-        content:
-          "https://github.com/Ashraful-malik/mytailwind/blob/main/static/android-chrome-512x512.png",
+        content: "https://mytailwind.xyz/_nuxt/img/logo.606ea04.png",
       },
       {
         hid: "og:image:secure_url",
         property: "og:image:secure_url",
-        content:
-          "https://github.com/Ashraful-malik/mytailwind/blob/main/static/android-chrome-512x512.png",
+        content: "https://mytailwind.xyz/_nuxt/img/logo.606ea04.png",
       },
     ],
     link: [
