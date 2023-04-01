@@ -24,7 +24,11 @@ export default {
       { name: "format-detection", content: "telephone=no" },
 
       // seo social cards
-
+      {
+        hid: "twitter:card",
+        name: "twitter:card",
+        content: "https://mytailwind.xyz/_nuxt/img/logo.606ea04.png",
+      },
       {
         hid: "twitter:site",
         name: "twitter:site",
