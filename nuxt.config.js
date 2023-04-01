@@ -10,6 +10,13 @@ export default {
     htmlAttrs: {
       lang: "en",
     },
+    script: [
+      {
+        src: "https://umami-production-55c0.up.railway.app/umami.js",
+        async: true,
+        "data-website-id": "8f749b38-eaa8-4269-8b21-5af3573b040b",
+      },
+    ],
 
     meta: [
       { charset: "utf-8" },
@@ -121,12 +128,7 @@ export default {
   loading: "~/components/loading.vue",
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["nuxt-smartlook"],
-
-  smartlook: {
-    id: `${process.env.SMARTLOOK_KEY}`,
-    enabled: process.env.NODE_ENV === "production",
-  },
+  modules: [],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
