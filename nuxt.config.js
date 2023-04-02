@@ -116,6 +116,8 @@ export default {
 
   googleFonts: {
     display: "swap",
+    download: true,
+    overwriting: false,
     families: {
       Roboto: true,
       Inter: [300, 400, 500, 600, 700],

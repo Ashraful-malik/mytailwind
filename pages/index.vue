@@ -7,9 +7,11 @@
         <div
           class="flex flex-col items-center justify-center mt-12 w-11/12 m-auto"
         >
-          <img src="@/assets/images/logo.png" alt="Mytailwind " class="w-14" />
+          <img src="/logo.png" alt="Mytailwind " class="w-14 h-auto" />
           <h1 class="font-semibold text-2xl text-blue-100">MYTAILWIND</h1>
-          <p class="mt-4 text-gray-400 text-center w-2/5 text-lg font-normal">
+          <p
+            class="mt-4 text-gray-400 text-center lg:w-2/5 text-lg font-normal"
+          >
             {{ about }}
           </p>
           <div class="button mt-4">
@@ -24,20 +26,22 @@
             </nuxt-link>
           </div>
         </div>
-        <div class="app_image mt-40 p-3 w-11/12 m-auto">
+        <div class="app_image lg:mt-40 lg:p-3 w-11/12 m-auto mt-16">
           <figure>
             <img
-              src="@/assets/images/mytailwind.png"
+              src="~/assets/images/mytailwind.png"
               alt="mytailwind"
-              class="border border-gray-600 rounded-2xl drop-shadow-2xl w-full h-full"
+              class="border border-gray-600 lg:rounded-2xl drop-shadow-2xl w-full h-full"
             />
           </figure>
         </div>
+        <!-- importing about component -->
         <about />
+
         <!-- feature section -->
         <div class="features mt-24 w-11/12 m-auto" id="features">
           <div class="title">
-            <h2 class="text-3xl font-semibold text-gray-100">Features</h2>
+            <h1 class="text-3xl font-semibold text-gray-100">Features</h1>
           </div>
 
           <div
@@ -48,9 +52,9 @@
               v-for="feature in features"
               :key="feature.id"
             >
-              <h3 class="text-xl font-semibold text-gray-300">
+              <h2 class="text-xl font-semibold text-gray-300">
                 {{ feature.title }}
-              </h3>
+              </h2>
               <p class="text-gray-400 text-sm font-normal pt-2">
                 {{ feature.content }}
               </p>

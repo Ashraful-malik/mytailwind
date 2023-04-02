@@ -10,19 +10,21 @@
             <p class="text-xl ml-2 font-bold pt-2 text-white">Mytailwind</p>
           </nuxt-link>
         </div>
+
         <ul class="lg:flex items-center justify-center hidden">
           <li class="text-gray-200 ml-6" v-for="link in links" :key="link.id">
             <a :href="link.link">{{ link.name }}</a>
           </li>
 
-          <nuxt-link to="component/button">
-            <button
+          <li>
+            <nuxt-link
+              to="component/button"
               class="px-5 py-1 text-gray-50 font-medium ml-8 rounded-md gradient_border"
             >
               Get started
               <font-awesome-icon icon="fa-solid fa-arrow-right" />
-            </button>
-          </nuxt-link>
+            </nuxt-link>
+          </li>
         </ul>
       </nav>
     </div>

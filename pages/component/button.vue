@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div class="mobile-message">
+      <p>
+        Sorry, this website is designed for desktop users. For the best
+        experience, please switch to a desktop device.
+      </p>
+    </div>
     <div class="overflow-hidden example">
       <ComponentNavbar />
       <div class="flex flex-row bg-gray-50 container_height overflow-y-hidden">
@@ -114,5 +120,18 @@ export default {
 }
 .flex .toolbar {
   flex: 1 1 27%;
+}
+.mobile-message {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .mobile-message {
+    display: block;
+    text-align: center;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+  }
 }
 </style>
