@@ -28,7 +28,7 @@
                 v-for="item in components_name"
                 :key="item.id"
               >
-                <NuxtLink :to="item.link">{{ item.name }} </NuxtLink>
+                <NuxtLink :to="item.link" >{{ item.name }} </NuxtLink>
               </li>
             </ul>
           </div>

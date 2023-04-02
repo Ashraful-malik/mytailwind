@@ -1,10 +1,19 @@
 <template>
   <div>
+    <loading v-if="showHideSpinner" />
     <Nuxt />
   </div>
 </template>
 <script>
 export default {
+  data() {
+    return {
+      showHideSpinner: true,
+    };
+  },
+  beforeCreate() {
+    this.showHideSpinner = true;
+  },
   head: {
     title: "Mytailwind-Copy and customize Tailwind components",
 
@@ -22,6 +31,9 @@ export default {
           "tailwind,mytailwind,tailwind components,tailwindcss, css background image,css ui,tailwind ui,components,tailwind css components,customize tailwind component,customize tailwind",
       },
     ],
+  },
+  mounted() {
+    this.showHideSpinner = false;
   },
 };
 </script>

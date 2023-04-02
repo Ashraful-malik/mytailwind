@@ -19,7 +19,7 @@
           <li>
             <nuxt-link
               to="component/button"
-              class="px-5 py-1 text-gray-50 font-medium ml-8 rounded-md gradient_border"
+              class="px-5 py-2 text-gray-50 font-medium ml-8 rounded-md gradient_border"
             >
               Get started
               <font-awesome-icon icon="fa-solid fa-arrow-right" />

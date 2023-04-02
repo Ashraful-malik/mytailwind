@@ -112,6 +112,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
+    "@nuxtjs/fontawesome",
   ],
 
   googleFonts: {
@@ -134,5 +135,28 @@ export default {
 
   generate: {
     fallback: true,
+  },
+
+  // fontawesome icons
+  fontawesome: {
+    components: "fa",
+    suffix: true,
+    icons: {
+      solid: [
+        "faHouse",
+        "faBars",
+        "faUser",
+        "faTable",
+        "faGauge",
+        "faFire",
+        "faArrowRightFromBracket",
+        "faGear",
+        "faCode",
+        "faArrowRight",
+        "faArrowUpRightFromSquare",
+        "faCopy",
+      ],
+      brands: ["faTwitter", "faSquareBehance", "faFacebook", "faDev"],
+    },
   },
 };
