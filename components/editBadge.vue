@@ -1,6 +1,6 @@
 <template>
   <tabNavigation>
-    <section class="bg-gray-800 w-96">
+    <section class="bg-gray-800 w-96 border-l border-gray-700">
       <!-- Edit tab data -->
       <Tab name="Edit" id="Edit">
         <div class="pl-4 h-screen overflow-y-auto pt-4">
@@ -20,7 +20,7 @@
       </Tab>
     </section>
 
-    <section class="tab2">
+    <section class="tab2 border-l border-gray-700">
       <Tab name="Style" id="Style" selected="true">
         <div
           class="pl-4 h-screen overflow-y-auto pt-4 component_height"
@@ -284,7 +284,7 @@
       </Tab>
     </section>
     <!-- Size tab data -->
-    <section class="tab3">
+    <section class="tab3 border-l border-gray-700">
       <Tab name="Size" id="Size">
         <div class="pl-4 h-screen dropdown_scrollbar overflow-y-auto pt-4">
           <div class="padding relative">

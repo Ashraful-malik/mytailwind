@@ -2,11 +2,11 @@
   <div>
     <div class="overflow-hidden">
       <ComponentNavbar />
-      <div class="flex flex-row bg-gray-50 container_height">
+      <div class="flex flex-row bg-gray-800 container_height">
         <div class="sidebar">
           <Sidebar />
         </div>
-        <div class="alert relative overflow-scroll" id="custom_scrollbar">
+        <div class="alert relative overflow-auto" id="custom_scrollbar">
           <!-- Copy Button Start-->
           <div class="copy_button m-3 absolute right-0">
             <button

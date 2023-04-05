@@ -1,7 +1,7 @@
 <template>
   <tabNavigation>
     <!-- Style Tab data -->
-    <section class="tab_1">
+    <section class="tab_1 border-l border-gray-700">
       <Tab name="Style" id="Style" selected="true">
         <div
           class="pl-4 h-screen overflow-y-auto pt-4 component_height"
@@ -175,7 +175,7 @@
       </Tab>
     </section>
     <!-- Size tab data -->
-    <section class="tab_2">
+    <section class="tab_2 border-l border-gray-700">
       <Tab name="Size" id="Size">
         <div class="pl-4 h-screen dropdown_scrollbar overflow-y-auto pt-4">
           <div class="padding relative">
@@ -268,11 +268,11 @@ export default {
         height: "",
         text_color: "text-gray-400",
         margin_top: "mt-8",
-        background_color: "bg-gray-800",
+        background_color: "bg-gray-700",
         border_radius: "",
         font_size: "text-base",
         font_width: "",
-        icon_color: "text-gray-400",
+        icon_color: "text-green-400",
       },
 
       selectTextColor: [

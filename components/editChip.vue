@@ -1,6 +1,6 @@
 <template>
   <tabNavigation>
-    <section class="bg-gray-800 w-96">
+    <section class="bg-gray-800 w-96 border-l border-gray-700">
       <!-- Edit tab data -->
       <Tab name="Edit" selected="true" id="Edit">
         <div class="pl-4 h-screen overflow-y-auto pt-4">
@@ -20,7 +20,7 @@
       </Tab>
     </section>
 
-    <section class="tab2">
+    <section class="tab2 border-l border-gray-700">
       <Tab name="Style" id="Style">
         <div
           class="pl-4 h-screen overflow-y-auto pt-4 component_height"
@@ -240,7 +240,7 @@
     </section>
 
     <!-- Size tab data -->
-    <section class="tab3">
+    <section class="tab3 border-l border-gray-700">
       <Tab name="Size" id="Size">
         <div class="pl-4 h-screen dropdown_scrollbar overflow-y-auto pt-4">
           <!-- padding -->
@@ -313,16 +313,16 @@ export default {
 
       selected_values: {
         chip_text: "Suggested",
-        text_color: "text-gray-800",
+        text_color: "text-gray-400",
         padding_x: "px-3",
         padding_y: "py-1",
-        background_color: "",
+        background_color: "bg-gray-700",
         border_radius: "rounded-full",
         font_size: "text-base",
         font_width: "font-normal",
         box_shadow: "",
         border_width: "border",
-        border_color: "border-gray-300",
+        border_color: "border-gray-600",
       },
 
       selectTextColor: [

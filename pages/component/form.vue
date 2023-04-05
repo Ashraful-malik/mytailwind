@@ -2,7 +2,7 @@
   <div>
     <div class="overflow-hidden">
       <ComponentNavbar />
-      <div class="flex flex-row bg-gray-50 container_height">
+      <div class="flex flex-row bg-gray-800 container_height">
         <div class="sidebar">
           <Sidebar />
         </div>
@@ -22,7 +22,7 @@
           <div class="flex items-center justify-center p-4 w-full h-4/5">
             <div class="form">
               <form
-                class="w-80 bg-white px-6"
+                class="w-80 bg-gray-700 px-6"
                 :class="[
                   value.box_shadow,
                   value.border_color,
@@ -39,23 +39,23 @@
                 </div>
                 <div class="input-forms mt-8">
                   <div class="field-1">
-                    <p class="mb-3 text-base font-regular text-gray-600">
+                    <p class="mb-3 text-base font-regular text-gray-400">
                       Email address
                     </p>
                     <input
                       type="email"
                       placeholder="example@gmail.com"
-                      class="w-full h-9 pl-2 text-gray-800 text-sm font-medium rounded-md bg-white border focus:outline-none focus:ring focus:border-blue-400"
+                      class="w-full h-9 pl-2 text-gray-100 text-sm font-medium rounded-md bg-gray-600 focus:outline-none focus:ring focus:border-blue-400"
                     />
                   </div>
                   <div class="field-2 mt-6">
-                    <p class="mb-3 text-base font-regular text-gray-600">
+                    <p class="mb-3 text-base font-regular text-gray-400">
                       Password
                     </p>
                     <input
                       type="password"
                       placeholder="Password"
-                      class="w-full h-9 pl-2 text-gray-800 text-sm font-medium rounded-md bg-white border focus:outline-none focus:ring focus:border-blue-400"
+                      class="w-full h-9 pl-2 text-gray-100 text-sm font-medium rounded-md bg-gray-600 focus:outline-none focus:ring focus:border-blue-400"
                     />
                   </div>
                   <div class="button mt-8 block">

@@ -8,10 +8,8 @@
     </div>
     <div class="overflow-hidden example">
       <ComponentNavbar />
-      <div class="flex flex-row bg-gray-50 container_height overflow-y-hidden">
-        <div class="sidebar">
-          <Sidebar />
-        </div>
+      <div class="flex flex-row bg-gray-800 container_height overflow-y-hidden">
+        <div class="sidebar"><Sidebar /></div>
 
         <div class="button relative">
           <!-- Copy Button Start-->
@@ -48,7 +46,9 @@
             </button>
           </div>
         </div>
-        <div class="toolbar bg-red">
+        <!-- show sidebar -->
+
+        <div class="toolbar">
           <editButton v-on:button-value="getButtonValue($event)" />
         </div>
       </div>

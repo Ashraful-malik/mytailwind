@@ -7,10 +7,10 @@
         <div
           class="flex flex-col items-center justify-center mt-12 w-11/12 m-auto"
         >
-          <img src="/logo.png" alt="Mytailwind" width="80" height="100" />
-          <h1 class="font-semibold text-2xl text-blue-100">MYTAILWIND</h1>
+          <img src="/logo.png" alt="Mytailwind" width="60" height="100" />
+          <h1 class="font-semibold text-xl text-blue-100">MYTAILWIND</h1>
           <p
-            class="mt-4 text-gray-400 text-center lg:w-2/5 text-lg font-normal"
+            class="mt-4 text-gray-300 text-center lg:w-2/5 text-2xl font-normal"
           >
             {{ about }}
           </p>
@@ -20,18 +20,20 @@
                 type="button"
                 class="px-4 py-2 gradient_background rounded-lg"
               >
-                Get Started Today
+                {{ callToAction }}
                 <font-awesome-icon icon="fa-solid fa-arrow-right" />
               </button>
             </nuxt-link>
           </div>
         </div>
-        <div class="app_image lg:mt-40 lg:p-3 w-11/12 m-auto mt-16">
+        <div
+          class="app_image lg:mt-40 lg:p-3 w-11/12 m-auto mt-16 lg:rounded-2xl"
+        >
           <figure>
             <img
               src="~/assets/images/mytailwind.png"
               alt="mytailwind"
-              class="border border-gray-600 lg:rounded-2xl drop-shadow-2xl w-full h-full"
+              class="border border-gray-600 lg:rounded-2xl w-full h-full lg:shadow-2xl"
             />
           </figure>
         </div>
@@ -72,8 +74,8 @@ export default {
   name: "IndexPage",
   data() {
     return {
-      about:
-        " Mytailwind helps you to easily copy and customize Tailwind components.",
+      callToAction: "Try it now!",
+      about: "Customize your tailwind component with MyTailwind.",
 
       features: [
         {
@@ -98,7 +100,7 @@ export default {
           id: 4,
           title: "Free",
           content:
-            "Mytailwind is free to use and can help you build professional-quality websites quickly and easily.",
+            "Mytailwind is free to use and it can help you build professional-quality websites quickly and easily.",
         },
       ],
     };
@@ -113,7 +115,6 @@ html {
 }
 
 .gradient_background {
-  background: linear-gradient(178.89deg, #35ec94 -20.07%, #4c6fea 127.12%);
-  color: white;
+  background: #ffc857;
 }
 </style>

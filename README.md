@@ -26,7 +26,7 @@
 ## What is Mytailwind?
 
 <p style='width:60%'>
-No more wasting time searching for the perfect code snippet or struggling to get your design just right – Mytailwind has it all.
+Mytailwind is a website that allows you to easily copy and customize Tailwind components with just a few clicks. No more wasting time searching for the perfect code snippet or struggling to get your design just right – Mytailwind has it all.
 </p>
 <br>
 

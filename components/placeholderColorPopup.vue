@@ -20,7 +20,7 @@
             class="color"
             v-for="(colors, index) in placeholderColor"
             :key="index"
-            @click="    
+            @click="
               getValue(colors.placeholderColor);
               placeholderPopup();
             "
@@ -73,7 +73,8 @@ export default {
   background: #1f2937;
   width: 30rem;
   border-radius: 12px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 10px;
+
   padding: 0;
 }
 </style>

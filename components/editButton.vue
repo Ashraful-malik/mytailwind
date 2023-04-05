@@ -1,7 +1,7 @@
 <template>
   <tabNavigation>
     <!-- Edit tab data -->
-    <section class="bg-gray-800 pt-4 w-96">
+    <section class="bg-gray-800 pt-4 w-96 border-l border-gray-700">
       <Tab name="Style" selected="true" id="Style">
         <!-- options container -->
 
@@ -163,7 +163,7 @@
         </div>
       </Tab>
     </section>
-    <section class="bg-gray-800 w-96">
+    <section class="bg-gray-800 w-96 border-l border-gray-700">
       <Tab name="Size" id="Size">
         <div
           class="pl-4 screen overflow-y-auto component_height dropdown_scrollbar"

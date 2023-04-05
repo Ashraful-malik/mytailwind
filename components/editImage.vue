@@ -1,9 +1,9 @@
 <template>
   <tabNavigation>
-    <section class="bg-gray-800 w-96">
+    <section class="bg-gray-800 w-96 border-l border-gray-700">
       <!-- Edit tab data -->
       <Tab name="Edit" selected="true" id="Edit">
-        <div class="pl-4 h-screen  overflow-y-auto pt-4">
+        <div class="pl-4 h-screen overflow-y-auto pt-4">
           <!-- image link -->
           <div class="image_link">
             <p class="text-gray-200 text-sm font-medium mb-2">Image link</p>
@@ -20,10 +20,10 @@
       </Tab>
     </section>
 
-    <section class="tab2">
+    <section class="tab2 border-l border-gray-700">
       <Tab name="Style" id="Style">
         <div
-          class="pl-4 pr-4 h-screen  overflow-y-auto pt-4 component_height"
+          class="pl-4 pr-4 h-screen overflow-y-auto pt-4 component_height"
           id="custom_scrollbar"
         >
           <!-- border Styling-->
@@ -130,7 +130,7 @@
       </Tab>
     </section>
     <!-- Size tab data -->
-    <section class="tab3">
+    <section class="tab3 border-l border-gray-700">
       <Tab name="Size" id="Size">
         <div class="pl-4 h-screen dropdown_scrollbar overflow-y-auto pt-4">
           <div class="padding relative">
@@ -223,7 +223,7 @@ export default {
         width: "w-64 ",
         height: "h-64",
         image_link:
-          "https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
+          "https://images.unsplash.com/photo-1679946027434-c207e6130a66?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=408&q=80",
         padding: "",
         border_radius: "rounded-xl",
         box_shadow: "shadow",
@@ -604,7 +604,6 @@ export default {
 </script>
 
 <style scoped>
-
 input:focus,
 textarea:focus {
   outline: 2px solid rgba(96, 165, 250);

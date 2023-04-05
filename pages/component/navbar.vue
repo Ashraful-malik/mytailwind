@@ -2,11 +2,11 @@
   <div>
     <div class="">
       <ComponentNavbar />
-      <div class="flex flex-row bg-gray-50 container_height overflow-hidden">
+      <div class="flex flex-row bg-gray-800 container_height overflow-hidden">
         <div class="sidebar">
           <Sidebar />
         </div>
-        <div class="navbar relative p-5 overflow-scroll" id="custom_scrollbar">
+        <div class="navbar relative p-5 overflow-auto" id="custom_scrollbar">
           <div class="copy_button m-3 absolute right-0">
             <button
               class="px-4 py-1 text-white font-medium text-base rounded-full"

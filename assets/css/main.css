@@ -45,7 +45,7 @@
 
 /* custom scroll bar */
 #custom_scrollbar::-webkit-scrollbar-thumb {
-  background: #878787;
+  background: #5e5e5e;
   border-radius: 8px;
 }
 
@@ -54,7 +54,7 @@
 }
 #custom_scrollbar::-webkit-scrollbar {
   width: 8px;
-  background-color: #e2e2e2;
+  background-color: #403f3f;
   border-radius: 8px;
 }
 .component_height {

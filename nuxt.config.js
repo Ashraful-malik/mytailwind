@@ -24,19 +24,11 @@ export default {
       { name: "format-detection", content: "telephone=no" },
 
       // seo social cards
-      {
-        hid: "twitter:card",
-        name: "twitter:card",
-        content: "https://mytailwind.xyz/_nuxt/img/logo.606ea04.png",
-      },
+      { hid: "t-type", name: "twitter:card", content: "summary_large_image" },
       {
         hid: "twitter:site",
         name: "twitter:site",
         content: "https://mytailwind.xyz",
-      },
-      {
-        hid: "twitter:url",
-        name: "twitter:url",
       },
 
       {
@@ -53,7 +45,7 @@ export default {
       {
         hid: "twitter:image",
         name: "twitter:image",
-        content: "https://mytailwind.xyz/_nuxt/img/logo.606ea04.png",
+        content: "https://mytailwind.xyz/mytailwind_screenshot.png",
       },
       {
         hid: "og:title",
@@ -155,6 +147,8 @@ export default {
         "faArrowRight",
         "faArrowUpRightFromSquare",
         "faCopy",
+        "faXmark",
+        "faHeart",
       ],
       brands: ["faTwitter", "faSquareBehance", "faFacebook", "faDev"],
     },

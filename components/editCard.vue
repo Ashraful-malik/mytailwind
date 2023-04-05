@@ -1,6 +1,6 @@
 <template>
   <tabNavigation>
-    <section class="bg-gray-800 w-96">
+    <section class="bg-gray-800 w-96 border-l border-gray-700">
       <!-- Edit tab data -->
       <Tab name="Edit" selected="true" id="Edit">
         <div class="pl-4 h-screen overflow-y-auto pt-4">
@@ -72,7 +72,7 @@
 
     <!-- Style Tab data -->
 
-    <section class="tab2">
+    <section class="tab2 border-l border-gray-700">
       <Tab name="Style" id="Style">
         <div
           class="pl-4 h-screen overflow-y-auto pt-4 component_height"
@@ -418,7 +418,7 @@
     </section>
 
     <!-- Size tab data -->
-    <section class="tab3">
+    <section class="tab3 border-l border-gray-700">
       <Tab name="Size" id="Size">
         <div
           class="pl-4 h-screen dropdown_scrollbar overflow-y-auto pt-4 component_height"
@@ -548,21 +548,21 @@ export default {
         subtitle_text: "15-02-2023",
         card_content_text:
           "2023 is the current year, and is a common year starting on Sunday",
-        text_color: "text-gray-700",
-        card_content_color: "text-gray-700",
+        text_color: "text-gray-300",
+        card_content_color: "text-gray-300",
         subtitle_text_color: "text-gray-500",
         padding: "p-4",
         padding_top: "pt-5",
         padding_bottom: "",
-        background_color: "bg-gray-50",
+        background_color: "bg-gray-700",
         border_radius: "rounded-md",
         img_border_radius: "rounded-t-md",
-        border_width: "",
-        border_color: "",
+        border_width: "border",
+        border_color: "border-gray-700",
         font_size: "text-2xl",
         font_width: "font-bold",
         box_shadow: "shadow-md",
-        button_color: "text-blue-700",
+        button_color: "text-green-500",
         subtitle_color: "text-gray-400",
       },
 

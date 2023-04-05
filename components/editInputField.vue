@@ -1,6 +1,6 @@
 <template>
   <tabNavigation>
-    <section class="tab_2">
+    <section class="tab_2 border-l border-gray-700">
       <Tab name="Style" id="Style" selected="true">
         <div
           class="pl-4 h-screen overflow-y-auto pt-4 component_height"
@@ -358,16 +358,16 @@ export default {
       selected_values: {
         width: "w-80",
         height: "h-9",
-        text_color: "text-gray-800",
+        text_color: "text-gray-100",
         padding: "p-2",
-        background_color: "",
+        background_color: "bg-gray-700",
         border_radius: "rounded-md",
         font_size: " text-base",
         font_width: "font-normal",
         box_shadow: "",
-        border_width: "border",
+        border_width: "",
         border_color: "",
-        placeholder_color: "",
+        placeholder_color: "bg-gray-400",
       },
 
       selectTextColor: [

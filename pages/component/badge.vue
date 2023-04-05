@@ -2,7 +2,7 @@
   <div>
     <div class="overflow-hidden">
       <ComponentNavbar />
-      <div class="flex flex-row bg-gray-50 container_height">
+      <div class="flex flex-row bg-gray-800 container_height">
         <div class="sidebar">
           <Sidebar />
         </div>
@@ -35,7 +35,7 @@
               ]"
             >
               <div
-                class="notification-icon w-5 h-5 absolute top-0 -right-1 rounded-full border-2 border-white"
+                class="notification-icon w-5 h-5 absolute top-0 -right-1 rounded-full border-2 border-gray-800"
                 :class="value.notification_icon_color"
               ></div>
               <div

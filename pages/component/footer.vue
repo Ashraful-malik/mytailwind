@@ -2,12 +2,12 @@
   <div>
     <div class="overflow-hidden">
       <ComponentNavbar />
-      <div class="flex flex-row bg-gray-50 container_height">
+      <div class="flex flex-row bg-gray-800 container_height">
         <div class="sidebar">
           <Sidebar />
         </div>
         <div
-          class="footer_container relative overflow-scroll"
+          class="footer_container relative overflow-auto"
           id="custom_scrollbar"
         >
           <!-- Copy Button Start-->

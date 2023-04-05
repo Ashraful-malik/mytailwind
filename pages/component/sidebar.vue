@@ -2,11 +2,11 @@
   <div>
     <div class="overflow-hidden">
       <ComponentNavbar />
-      <div class="flex flex-row bg-gray-50 container_height">
+      <div class="flex flex-row bg-gray-800 container_height">
         <div class="component_sidebar">
           <Sidebar />
         </div>
-        <div class="sidebar relative p-5 overflow-scroll" id="custom_scrollbar">
+        <div class="sidebar relative p-5 overflow-auto" id="custom_scrollbar">
           <!-- Copy Button Start-->
           <div class="copy_button m-3 absolute right-0">
             <button
@@ -39,7 +39,7 @@
                 </p>
               </div>
               <!-- divider -->
-              <div class="border border-gray-100 mt-4"></div>
+              <div class="border border-gray-600 mt-4"></div>
               <div
                 class="links flex flex-col justify-between w-full h-full p-4 pt-2"
               >
@@ -177,7 +177,7 @@
                 </section>
                 <div class="bottom-item">
                   <!-- divider -->
-                  <div class="border border-gray-100 mb-4"></div>
+                  <div class="border border-gray-600 mb-4"></div>
                   <ul>
                     <li
                       class="flex items-center cursor-pointer rounded-xl mb-2"

@@ -1,6 +1,8 @@
 <template>
   <section>
-    <header class="tabs bg-gray-900 w-96 h-10 flex items-center text-center">
+    <header
+      class="tabs bg-gray-900 w-96 h-10 flex items-center text-center border border-gray-700"
+    >
       <ul class="flex items-center h-auto w-11/12 m-auto">
         <li
           v-for="(tab, index) in tabs"

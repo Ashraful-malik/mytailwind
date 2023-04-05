@@ -1,6 +1,6 @@
 <template>
   <tabNavigation>
-    <section class="tab1">
+    <section class="tab1 border-l border-gray-700">
       <Tab name="Style" id="Style" selected="true">
         <div
           class="pl-4 h-screen overflow-y-auto pt-4 component_height"
@@ -208,7 +208,7 @@
       </Tab>
     </section>
     <!-- Size tab data -->
-    <section class="tab3">
+    <section class="tab3 border-l border-gray-700">
       <Tab name="Size" id="Size">
         <div class="pl-4 h-screen dropdown_scrollbar overflow-y-auto pt-4">
           <div class="padding relative">
@@ -321,15 +321,13 @@ export default {
 
       selected_values: {
         width: "w-64",
-        button_text: "",
-        image_link: "",
         hover_bg_color: "hover:bg-blue-500",
         hover_text_color: "hover:text-white",
-        text_color: "text-gray-800",
+        text_color: "text-gray-300",
         padding: "p-2",
         padding_top: "mt-6",
         padding_left: "pl-2",
-        background_color: "",
+        background_color: "bg-gray-700",
         font_size: "text-base",
         font_width: "font-normal",
       },

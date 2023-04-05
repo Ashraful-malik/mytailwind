@@ -47,16 +47,8 @@ export default {
 
 <style scoped>
 .gradient_border {
-  border: 1px solid;
-  color: #35ec94;
+  background: #ffc857;
   border-radius: 5px;
-  background: none;
-  text-decoration: dashed;
-  border-image-slice: 1;
-  border-image-source: linear-gradient(
-    178.89deg,
-    #35ec94 -20.07%,
-    #4c6fea 127.12%
-  );
+  color: rgb(26, 26, 26);
 }
 </style>

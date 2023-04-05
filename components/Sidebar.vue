@@ -3,32 +3,44 @@
     <div class="wrapper relative">
       <!-- menu -->
       <div
-        class="py-1 px-3 absolute right-0 z-10 bg-blue-500 rounded-b-xl"
-        :class="{ active: active }"
+        class="py-1 px-3 absolute left-0 z-10 bg-blue-500"
+        @click="toggleNav()"
+        :class="[showButton ? 'block' : 'hidden']"
       >
-        <button
-          @click="toggleNav()"
-          class="flex items-center justify-center p-1"
-        >
+        <button class="flex items-center justify-center p-1">
           <font-awesome-icon icon="fa-solid fa-bars" class="text-white" />
         </button>
       </div>
       <!-- menu close -->
+      <!-- show button -->
+
       <aside :class="{ active: active }">
-        <div class="navbar w-56 max-w-xs relative h-full">
-          <div class="overflow-auto bg-gray-100 h-full">
+        <div class="navbar max-w-xs relative h-full border-r border-gray-700">
+          <div
+            class="absolute right-0 z-10 p-1 flex w-full cursor-pointer items-center flex-nowrap bg-gray-700 text-gray-300"
+            @click="toggleNav()"
+          >
+            <div>
+              <font-awesome-icon icon="fa-solid fa-xmark" class="pr-2 pl-2" />
+            </div>
+            <p>Close</p>
+          </div>
+
+          <div class="overflow-auto bg-gray-800 h-full">
             <div
-              class="title text-lg pt-11 flex text-center items-center ml-5 font-medium sticky"
+              class="title text-lg pt-11 flex text-center items-center ml-5 font-medium sticky text-gray-100"
             >
               Components
             </div>
             <ul class="mt-5 ml-12">
               <li
-                class="text-base mt-4 text-gray-800"
+                class="text-base mt-4 text-gray-300"
                 v-for="item in components_name"
                 :key="item.id"
               >
-                <NuxtLink :to="item.link" >{{ item.name }} </NuxtLink>
+                <NuxtLink :to="item.link">
+                  {{ item.name }}
+                </NuxtLink>
               </li>
             </ul>
           </div>
@@ -43,6 +55,7 @@ export default {
   data() {
     return {
       active: true,
+      showButton: false,
       components_name: [
         { name: "Button", id: 1, link: "button" },
         { name: "Navbar", id: 2, link: "navbar" },
@@ -58,6 +71,7 @@ export default {
       ],
     };
   },
+  props: ["show"],
   mounted() {
     this.$parent.$on("toggleNav", () => {
       this.active = !this.active;
@@ -66,22 +80,27 @@ export default {
   methods: {
     toggleNav() {
       this.$parent.$emit("toggleNav");
+      this.showButton = !this.showButton;
     },
   },
+  computed: {},
 };
 </script>
 
 <style scoped>
-.w-0 {
-  width: 0;
-  background-color: antiquewhite;
-}
 .active {
+  visibility: visible;
   display: block;
+  width: 14rem;
 }
 
 aside {
-  display: none;
+  width: 0;
   height: 100vh;
+  visibility: hidden;
+  transition: width 0.3s ease-in;
+}
+.nuxt-link-exact-active {
+  color: #4299e1;
 }
 </style>

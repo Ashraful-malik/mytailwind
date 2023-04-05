@@ -62,9 +62,22 @@
         </div>
       </div>
       <div
-        class="copyrights bg-gray-900 px-4 py-2 text-gray-100 text-base font-light"
+        class="copyrights bg-gray-900 px-4 py-2 text-gray-100 text-base font-light flex item-center justify-between flex-wrap"
       >
         <p title="Mytailwind">© Mytailwind 2023</p>
+        <p class="text-gray-300">
+          Made with
+          <font-awesome-icon icon="fa-solid fa-heart" class="text-red-500" /> by
+          <span class="underline">
+            <a
+              href="https://ashraful-malik.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ashraful_Malik</a
+            ></span
+          >
+        </p>
       </div>
     </footer>
   </div>
@@ -99,5 +112,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

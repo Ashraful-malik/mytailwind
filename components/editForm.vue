@@ -1,7 +1,7 @@
 <template>
   <tabNavigation>
     <!-- Style Tab data -->
-    <section class="tab_1">
+    <section class="tab_1 border-l border-gray-700">
       <Tab name="Style" id="Style" selected="true">
         <div
           class="pl-4 h-screen dropdown_scrollbar overflow-y-auto pt-4 component_height"
@@ -273,9 +273,9 @@ export default {
         width: "",
         height: "",
         button_text_color: "text-white",
-        text_color: "text-gray-800",
+        text_color: "text-gray-300",
         border_width: "border",
-        border_color: "border-gray-300",
+        border_color: "border-gray-600",
         button_background_color: "bg-blue-500",
         border_radius: "rounded-xl",
         box_shadow: "",
