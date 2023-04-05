@@ -19,7 +19,12 @@
 
 ## About The Project
 
-<img src="https://mytailwind.xyz/_nuxt/img/mytailwind.670aa1c.png" alt="mytailwind" style='border-radius:10px' >
+<div style="border-radius:30px">
+<img src="https://mytailwind.xyz/mytailwind_screenshot.png"  >
+<div/>
+<br>
+
+<img src="https://mytailwind.xyz/_nuxt/img/mytailwind.d803d49.png" style='border-radius:10px' >
 
 <br>
 
