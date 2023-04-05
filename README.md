@@ -19,9 +19,8 @@
 
 ## About The Project
 
-<div style="border-radius:30px">
 <img src="https://mytailwind.xyz/mytailwind_screenshot.png"  >
-<div/>
+
 <br>
 
 <img src="https://mytailwind.xyz/_nuxt/img/mytailwind.d803d49.png" style='border-radius:10px' >
