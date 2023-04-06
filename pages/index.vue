@@ -100,7 +100,7 @@ export default {
           id: 4,
           title: "Free",
           content:
-            "Mytailwind is free to use and it can help you build professional-quality websites quickly and easily.",
+            "Mytailwind is free to use and it can help you to build professional-quality websites quickly and easily.",
         },
       ],
     };
