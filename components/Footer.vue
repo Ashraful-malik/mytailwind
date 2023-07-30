@@ -70,7 +70,7 @@
           <font-awesome-icon icon="fa-solid fa-heart" class="text-red-500" /> by
           <span class="underline">
             <a
-              href="https://ashraful-malik.netlify.app/"
+              href="https://ashraful.online"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -100,7 +100,7 @@ export default {
         {
           id: 1,
           name: "Instagram",
-          link: "https://www.instagram.com/devxmedia/",
+          link: "https://www.instagram.com/uiwebbyte/",
         },
         {
           id: 2,
